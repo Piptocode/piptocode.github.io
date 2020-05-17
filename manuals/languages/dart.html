@@ -1,0 +1,1948 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dart &mdash; documentación de Piptocode - 1.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../../search.html"/>
+    <link rel="top" title="documentación de Piptocode - 1.0" href="../../index.html"/>
+        <link rel="next" title="SQL" href="sql.html"/>
+        <link rel="prev" title="C#" href="csharp.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Piptocode
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Lenguajes de Marcado:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web/html5.html">HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/css3.html">CSS3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/markdown.html">MarkDown</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lenguajes de Programación:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript.html">JavaScript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csharp.html">C#</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#elementos-basicos-del-lenguaje">Elementos básicos del lenguaje</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instalacion-de-dart">Instalación de Dart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comentarios">Comentarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estructura-en-python">Estructura en Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extension">Extensión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejecucion">Ejecución</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#palabras-reservadas-de-dart">Palabras reservadas de Dart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-y-tipos-de-datos">Variables y tipos de datos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constantes">Constantes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final">Final</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipos-de-datos-primitivos">Tipos de datos primitivos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipo-de-datos-que-puede-tener-una-lista-o-un-mapa">Tipo de datos que puede tener una lista o un Mapa</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#entrada-y-salida-de-datos">Entrada y Salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operadores">Operadores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-aritmeticos">Operadores Aritméticos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-relacionales">Operadores Relacionales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-logicos">Operadores Lógicos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#estructuras-de-control">Estructuras de control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-if">Condicional if</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-if-elif">Condicional if-elif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-ternario">Condicional Ternario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucle-for">Bucle for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucle-for-in">Bucle For in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucle-while">Bucle while</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ciclo-do-while">Ciclo do-while</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#romper-un-bucle-y-continuar">Romper un bucle y continuar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-switch">condicional switch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#estructuras-de-datos">Estructuras de datos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#listas">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sets">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapas">Mapas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#metodos-internos">Métodos Internos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metodos-de-cadenas">Métodos de cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funciones-numericas">Funciones numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otras-funciones-comunes">Otras funciones comunes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#funciones">Funciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#funciones-lambda-o-de-flecha">Funciones Lambda o de flecha</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funciones-callback">Funciones Callback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#promesas">Promesas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#async-await">Async-Await</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clases">Clases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#atributos-privados">Atributos Privados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getters-y-setters">Getters y Setters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructores-basicos">Constructores básicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructores-con-nombre">Constructores con nombre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#atributos-y-metodos-estaticos">Atributos y métodos estáticos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructor-factory">Constructor Factory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patron-singleton-en-dart">Patrón Singleton en Dart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#herencia">Herencia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uso-de-extends">Uso de extends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clase-abstracta">Clase abstracta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#super-constructor">Super constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sobreescribir-metodos">Sobreescribir métodos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mixins">Mixins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#manejo-de-errores">Manejo de errores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programacion-reactiva-streams">Programación Reactiva: Streams</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Frameworks y Entornos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/djangorest.html">Django Rest Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/flutter.html">Flutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/unity.html">Unity</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Informática y Hardware:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computer/raspberry.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/arduinouno.html">Arduino UNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/arduboy.html">Arduboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/git.html">Git y GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/linux.html">Ubuntu Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/microbit.html">Micro:bit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Piptocode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Dart</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/manuals/languages/dart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dart">
+<h1><a class="toc-backref" href="#id1">Dart</a><a class="headerlink" href="#dart" title="Enlazar permanentemente con este título">¶</a></h1>
+<a class="reference internal image-reference" href="../../_images/logo-dart.png"><img alt="Logo Dart" class="align-center" src="../../_images/logo-dart.png" style="width: 307.2px; height: 307.2px;" /></a>
+<p>Última edición el día 2020-05-17 a las 23:54.</p>
+<p>Esta es la documentación que he recopilado para trabajar dart. Dart, junto con Flutter podemos desarrollar aplicaciones Nativas para Android.</p>
+<div class="contents topic" id="indice">
+<p class="topic-title">Índice</p>
+<ul class="simple">
+<li><a class="reference internal" href="#dart" id="id1">Dart</a><ul>
+<li><a class="reference internal" href="#elementos-basicos-del-lenguaje" id="id2">Elementos básicos del lenguaje</a><ul>
+<li><a class="reference internal" href="#instalacion-de-dart" id="id3">Instalación de Dart</a></li>
+<li><a class="reference internal" href="#comentarios" id="id4">Comentarios</a></li>
+<li><a class="reference internal" href="#estructura-en-python" id="id5">Estructura en Python</a></li>
+<li><a class="reference internal" href="#extension" id="id6">Extensión</a></li>
+<li><a class="reference internal" href="#ejecucion" id="id7">Ejecución</a></li>
+<li><a class="reference internal" href="#palabras-reservadas-de-dart" id="id8">Palabras reservadas de Dart</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables-y-tipos-de-datos" id="id9">Variables y tipos de datos</a><ul>
+<li><a class="reference internal" href="#variables" id="id10">Variables</a></li>
+<li><a class="reference internal" href="#constantes" id="id11">Constantes</a></li>
+<li><a class="reference internal" href="#final" id="id12">Final</a></li>
+<li><a class="reference internal" href="#tipos-de-datos-primitivos" id="id13">Tipos de datos primitivos</a></li>
+<li><a class="reference internal" href="#tipo-de-datos-que-puede-tener-una-lista-o-un-mapa" id="id14">Tipo de datos que puede tener una lista o un Mapa</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#entrada-y-salida-de-datos" id="id15">Entrada y Salida de datos</a></li>
+<li><a class="reference internal" href="#operadores" id="id16">Operadores</a><ul>
+<li><a class="reference internal" href="#operadores-aritmeticos" id="id17">Operadores Aritméticos</a></li>
+<li><a class="reference internal" href="#operadores-relacionales" id="id18">Operadores Relacionales</a></li>
+<li><a class="reference internal" href="#operadores-logicos" id="id19">Operadores Lógicos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estructuras-de-control" id="id20">Estructuras de control</a><ul>
+<li><a class="reference internal" href="#condicional-if" id="id21">Condicional if</a></li>
+<li><a class="reference internal" href="#condicional-if-elif" id="id22">Condicional if-elif</a></li>
+<li><a class="reference internal" href="#condicional-ternario" id="id23">Condicional Ternario</a></li>
+<li><a class="reference internal" href="#bucle-for" id="id24">Bucle for</a></li>
+<li><a class="reference internal" href="#bucle-for-in" id="id25">Bucle For in</a></li>
+<li><a class="reference internal" href="#bucle-while" id="id26">Bucle while</a></li>
+<li><a class="reference internal" href="#ciclo-do-while" id="id27">Ciclo do-while</a></li>
+<li><a class="reference internal" href="#romper-un-bucle-y-continuar" id="id28">Romper un bucle y continuar</a></li>
+<li><a class="reference internal" href="#condicional-switch" id="id29">condicional switch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#estructuras-de-datos" id="id30">Estructuras de datos</a><ul>
+<li><a class="reference internal" href="#listas" id="id31">Listas</a></li>
+<li><a class="reference internal" href="#sets" id="id32">Sets</a></li>
+<li><a class="reference internal" href="#mapas" id="id33">Mapas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metodos-internos" id="id34">Métodos Internos</a><ul>
+<li><a class="reference internal" href="#metodos-de-cadenas" id="id35">Métodos de cadenas</a></li>
+<li><a class="reference internal" href="#funciones-numericas" id="id36">Funciones numéricas</a></li>
+<li><a class="reference internal" href="#otras-funciones-comunes" id="id37">Otras funciones comunes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#funciones" id="id38">Funciones</a><ul>
+<li><a class="reference internal" href="#funciones-lambda-o-de-flecha" id="id39">Funciones Lambda o de flecha</a></li>
+<li><a class="reference internal" href="#funciones-callback" id="id40">Funciones Callback</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#promesas" id="id41">Promesas</a><ul>
+<li><a class="reference internal" href="#async-await" id="id42">Async-Await</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clases" id="id43">Clases</a><ul>
+<li><a class="reference internal" href="#atributos-privados" id="id44">Atributos Privados</a></li>
+<li><a class="reference internal" href="#getters-y-setters" id="id45">Getters y Setters</a></li>
+<li><a class="reference internal" href="#constructores-basicos" id="id46">Constructores básicos</a></li>
+<li><a class="reference internal" href="#constructores-con-nombre" id="id47">Constructores con nombre</a></li>
+<li><a class="reference internal" href="#atributos-y-metodos-estaticos" id="id48">Atributos y métodos estáticos</a></li>
+<li><a class="reference internal" href="#constructor-factory" id="id49">Constructor Factory</a></li>
+<li><a class="reference internal" href="#patron-singleton-en-dart" id="id50">Patrón Singleton en Dart</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#herencia" id="id51">Herencia</a><ul>
+<li><a class="reference internal" href="#uso-de-extends" id="id52">Uso de extends</a></li>
+<li><a class="reference internal" href="#clase-abstracta" id="id53">Clase abstracta</a></li>
+<li><a class="reference internal" href="#super-constructor" id="id54">Super constructor</a></li>
+<li><a class="reference internal" href="#sobreescribir-metodos" id="id55">Sobreescribir métodos</a></li>
+<li><a class="reference internal" href="#mixins" id="id56">Mixins</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manejo-de-errores" id="id57">Manejo de errores</a></li>
+<li><a class="reference internal" href="#programacion-reactiva-streams" id="id58">Programación Reactiva: Streams</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="elementos-basicos-del-lenguaje">
+<h2><a class="toc-backref" href="#id2">Elementos básicos del lenguaje</a><a class="headerlink" href="#elementos-basicos-del-lenguaje" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="instalacion-de-dart">
+<h3><a class="toc-backref" href="#id3">Instalación de Dart</a><a class="headerlink" href="#instalacion-de-dart" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Nos vamos al sitio: <a class="reference external" href="https://dart.dev/">https://dart.dev/</a> hacemos clic en «get Dart» arriba a la derecha y buscamos la instalación de nuestro sistema.
+Para confirmar que esta instalado ejecutamos <cite>dart –version</cite> en una terminal.</p>
+</div>
+<div class="section" id="comentarios">
+<h3><a class="toc-backref" href="#id4">Comentarios</a><a class="headerlink" href="#comentarios" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los comentarios se pueden realizar de dos tipos:</p>
+<ul class="simple">
+<li>Comentarios de una sola línea:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Comentario</span> <span class="n">de</span> <span class="n">una</span> <span class="n">sola</span> <span class="n">linea</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Comentarios multilínea:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span>
+<span class="n">Esto</span> <span class="n">es</span> <span class="n">un</span> <span class="n">comentario</span> <span class="n">multilínea</span>
+<span class="n">Aquí</span> <span class="n">podemos</span> <span class="n">establecer</span> <span class="n">mas</span> <span class="n">de</span>
+<span class="n">una</span> <span class="n">linea</span>
+<span class="o">*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Documentado especial:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">///</span> <span class="n">Documentado</span> <span class="n">especial</span> <span class="p">[</span><span class="n">nombre</span><span class="p">]</span> <span class="n">marcado</span> <span class="n">para</span> <span class="n">identificar</span> <span class="n">mejor</span> <span class="n">y</span> <span class="n">asignar</span> <span class="n">datos</span> <span class="n">por</span> <span class="n">ejemplo</span> <span class="p">[</span><span class="n">nombre</span><span class="p">]:</span> <span class="n">guillermo</span><span class="o">.</span> <span class="n">esto</span> <span class="n">permanecerá</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estructura-en-python">
+<h3><a class="toc-backref" href="#id5">Estructura en Python</a><a class="headerlink" href="#estructura-en-python" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La estructura de Dart recuerda a la de lenguajes antecesores como C o C++ pero sin la necesidad de establecer tipo de dato ni importar librerías estandares:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola mundo&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extension">
+<h3><a class="toc-backref" href="#id6">Extensión</a><a class="headerlink" href="#extension" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La extensión utilizada por los archivos Dart es <code class="docutils literal"><span class="pre">dart</span></code></p>
+</div>
+<div class="section" id="ejecucion">
+<h3><a class="toc-backref" href="#id7">Ejecución</a><a class="headerlink" href="#ejecucion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>para ejecutar un archivo escribimos <cite>dart holamundo.dart</cite></p>
+</div>
+<div class="section" id="palabras-reservadas-de-dart">
+<h3><a class="toc-backref" href="#id8">Palabras reservadas de Dart</a><a class="headerlink" href="#palabras-reservadas-de-dart" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En Dart existen las siguientes palabras reservadas:</p>
+<ul class="simple">
+<li>abstract</li>
+<li>as</li>
+<li>asset</li>
+<li>async</li>
+<li>async*</li>
+<li>await</li>
+<li>break</li>
+<li>case</li>
+<li>catch</li>
+<li>class</li>
+<li>const</li>
+<li>contine</li>
+<li>default</li>
+<li>deferred</li>
+<li>do</li>
+<li>dynamic</li>
+<li>else</li>
+<li>enum</li>
+<li>export</li>
+<li>external</li>
+<li>extends</li>
+<li>factory</li>
+<li>FALSE</li>
+<li>final</li>
+<li>finally</li>
+<li>for</li>
+<li>get</li>
+<li>if</li>
+<li>implements</li>
+<li>import</li>
+<li>in</li>
+<li>is</li>
+<li>library</li>
+<li>new</li>
+<li>null</li>
+<li>operator</li>
+<li>try</li>
+<li>rethrow</li>
+<li>return</li>
+<li>set</li>
+<li>static</li>
+<li>super</li>
+<li>switch</li>
+<li>sync*</li>
+<li>library</li>
+<li>this</li>
+<li>throw</li>
+<li>TRUE</li>
+<li>try</li>
+<li>typedef</li>
+<li>var</li>
+<li>void</li>
+<li>while</li>
+<li>with</li>
+<li>yield</li>
+<li>yield*</li>
+</ul>
+</div>
+</div>
+<div class="section" id="variables-y-tipos-de-datos">
+<h2><a class="toc-backref" href="#id9">Variables y tipos de datos</a><a class="headerlink" href="#variables-y-tipos-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="variables">
+<h3><a class="toc-backref" href="#id10">Variables</a><a class="headerlink" href="#variables" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Aunque en Dart declaramos la función main sin establecer un tipo de dato no pasa lo mismo con las variables y funciones.</p>
+<p>Ejemplo:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constantes">
+<h3><a class="toc-backref" href="#id11">Constantes</a><a class="headerlink" href="#constantes" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las constantes son muy similares en Dart pero de poco uso:</p>
+<p>Ejemplo:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="final">
+<h3><a class="toc-backref" href="#id12">Final</a><a class="headerlink" href="#final" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En lugar de utilizar constantes en Dart se utiliza mayoritariamente Final para definir este tipo de dato ya que ahorra mas memoria:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">final</span> <span class="n">altura</span> <span class="o">=</span> <span class="mf">2.132</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tipos-de-datos-primitivos">
+<h3><a class="toc-backref" href="#id13">Tipos de datos primitivos</a><a class="headerlink" href="#tipos-de-datos-primitivos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los tipos de datos mas comunes son los siguientes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="52%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Tipo de dato</th>
+<th class="head">Denominación</th>
+<th class="head">Ejemplo</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>String</td>
+<td>Cadena de texto</td>
+<td>“cadena”, «cadena»</td>
+</tr>
+<tr class="row-odd"><td>int</td>
+<td>Número Entero</td>
+<td>20, 5, -3, 0</td>
+</tr>
+<tr class="row-even"><td>double</td>
+<td>Número con decimales</td>
+<td>20.53, 12.5, -18.353</td>
+</tr>
+<tr class="row-odd"><td>bool</td>
+<td>Verdadero o falso</td>
+<td>True, False</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td colspan="2">Arreglo de datos                               | [1, 5, «Hola», True]</td>
+</tr>
+<tr class="row-odd"><td>map</td>
+<td>Objeto con orden de tipo clave:valor</td>
+<td>{“nombre”:”Pedro”, edad: 45}</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">cadena</span> <span class="o">=</span> <span class="s2">&quot;Dia de paga&quot;</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">entero</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
+<span class="n">double</span> <span class="n">decimal</span> <span class="o">=</span> <span class="mf">2.332</span><span class="p">;</span>
+<span class="nb">bool</span> <span class="n">booleano</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">dynamic</span><span class="o">&gt;</span> <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;Papiro&quot;</span><span class="p">];</span>
+<span class="o">//</span> <span class="n">con</span> <span class="n">los</span> <span class="n">mapas</span> <span class="n">se</span> <span class="n">define</span> <span class="n">el</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">dato</span> <span class="n">tanto</span> <span class="n">de</span> <span class="n">la</span> <span class="n">clave</span> <span class="n">como</span> <span class="k">del</span> <span class="n">valor</span><span class="p">:</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">&gt;</span> <span class="n">mapa</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profesion&quot;</span><span class="p">:</span> <span class="s2">&quot;programador&quot;</span><span class="p">,</span> <span class="s2">&quot;hobbie&quot;</span><span class="p">:</span><span class="s2">&quot;DIY&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tipo-de-datos-que-puede-tener-una-lista-o-un-mapa">
+<h3><a class="toc-backref" href="#id14">Tipo de datos que puede tener una lista o un Mapa</a><a class="headerlink" href="#tipo-de-datos-que-puede-tener-una-lista-o-un-mapa" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Cuando trabajamos con listas o mapas no solo declaramos la variable de tipo <code class="docutils literal"><span class="pre">List</span></code> o <code class="docutils literal"><span class="pre">Map</span></code>. También es necesario declarar que tipo de datos va a contener esa lista.</p>
+<ul class="simple">
+<li>Ejemplos de uso:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Lista</span> <span class="n">que</span> <span class="n">contiene</span> <span class="n">todo</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">datos</span><span class="p">:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">dynamic</span><span class="o">&gt;</span> <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;galletas&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">];</span>
+
+<span class="o">//</span> <span class="n">Lista</span> <span class="n">solo</span> <span class="n">de</span> <span class="n">strings</span><span class="p">:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Luis&quot;</span><span class="p">,</span> <span class="s2">&quot;Amelia&quot;</span><span class="p">,</span> <span class="s2">&quot;Gabriel&quot;</span><span class="p">];</span>
+
+<span class="o">//</span> <span class="n">En</span> <span class="n">los</span> <span class="n">mapas</span> <span class="n">declaramos</span> <span class="n">el</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">dato</span> <span class="n">que</span> <span class="n">tendrá</span> <span class="n">la</span> <span class="n">clave</span> <span class="n">y</span> <span class="n">el</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">dato</span> <span class="n">que</span> <span class="n">tendrá</span> <span class="n">el</span> <span class="n">valor</span><span class="p">:</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Guillermo&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="entrada-y-salida-de-datos">
+<h2><a class="toc-backref" href="#id15">Entrada y Salida de datos</a><a class="headerlink" href="#entrada-y-salida-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En Dart la entrada y salida de datos se presenta de la siguiente forma:</p>
+<ul class="simple">
+<li>Entrada de datos:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Importamos</span> <span class="n">la</span> <span class="n">librería</span> <span class="n">de</span> <span class="n">entrada</span> <span class="n">de</span> <span class="n">datos</span> <span class="n">de</span> <span class="n">la</span> <span class="n">consola</span><span class="p">:</span>
+<span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Imprimir</span> <span class="n">en</span> <span class="n">la</span> <span class="n">terminal</span><span class="p">:</span>
+    <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;¿Cómo te llamas?&#39;</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">leer</span> <span class="n">información</span> <span class="n">de</span> <span class="n">la</span> <span class="n">consola</span> <span class="n">y</span> <span class="n">guardarlo</span> <span class="n">en</span> <span class="n">una</span> <span class="n">variable</span><span class="p">:</span>
+    <span class="n">String</span> <span class="n">nombre</span> <span class="o">=</span> <span class="n">stdin</span><span class="o">.</span><span class="n">readLineSync</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Devolver</span> <span class="n">respuesta</span> <span class="n">por</span> <span class="n">consola</span><span class="p">:</span>
+    <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;Tu nombre es: &#39;</span> <span class="o">+</span> <span class="n">nombre</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">Podemos</span> <span class="n">hacer</span> <span class="n">la</span> <span class="n">misma</span> <span class="n">agregando</span> <span class="n">la</span> <span class="n">variable</span> <span class="n">en</span> <span class="n">una</span> <span class="n">cadena</span> <span class="n">utilizando</span> <span class="n">el</span> <span class="n">simbolo</span> <span class="n">dolar</span><span class="p">:</span>
+    <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;Tu nombre es $nombre&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Salida de datos:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">La</span> <span class="n">salida</span> <span class="n">de</span> <span class="n">datos</span> <span class="n">normal</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola que tal&#39;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">La</span> <span class="n">salida</span> <span class="n">de</span> <span class="n">datos</span> <span class="n">con</span> <span class="n">dart</span><span class="p">:</span><span class="n">io</span>
+    <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;Hola que tal&#39;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">imprimir</span> <span class="n">una</span> <span class="n">variable</span><span class="p">:</span>
+    <span class="n">String</span> <span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Guillermo&quot;</span><span class="p">;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola $nombre&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores">
+<h2><a class="toc-backref" href="#id16">Operadores</a><a class="headerlink" href="#operadores" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="operadores-aritmeticos">
+<h3><a class="toc-backref" href="#id17">Operadores Aritméticos</a><a class="headerlink" href="#operadores-aritmeticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los operadores aritméticos que se presentan en python son los mismos que en la mayoría de lenguajes,
+<code class="docutils literal"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">/,</span> <span class="pre">%</span></code></p>
+<p>Estos podemos utilizarlos del siguiente modo:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span>// asignación:
+suma = 2 + 2;
+
+// salida de datos:
+print(3 - 2);
+
+// si utilizamos + en cadenas las concatenamos:
+cadenas = &quot;cadena uno&quot; + &quot; y &quot; + &quot; cadena dos&quot;;
+
+// Y también podemos definir un valor si un elemento es null:
+b??= 20;
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores-relacionales">
+<h3><a class="toc-backref" href="#id18">Operadores Relacionales</a><a class="headerlink" href="#operadores-relacionales" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los operadores relacionales en python son los mismos que en la mayoría de lenguajes de programación:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="65%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operador</th>
+<th class="head">símbolo</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mayor que</td>
+<td>&gt;</td>
+</tr>
+<tr class="row-odd"><td>Menor que</td>
+<td>&lt;</td>
+</tr>
+<tr class="row-even"><td>Igual que</td>
+<td>==</td>
+</tr>
+<tr class="row-odd"><td>Mayor igual que</td>
+<td>&gt;=</td>
+</tr>
+<tr class="row-even"><td>Menor igual que</td>
+<td>&lt;=</td>
+</tr>
+</tbody>
+</table>
+<p>Cuando hablamos del uso de un solo <code class="docutils literal"><span class="pre">=</span></code> nos referimos a la asignación de un valor en una variable.</p>
+<p>Como en muchos lenguajes, si imprimimos por consola la relación entre un valor y otro el resultado será True o False:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Si</span> <span class="n">decimos</span> <span class="n">que</span> <span class="mi">3</span> <span class="n">es</span> <span class="n">mayor</span> <span class="n">que</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">el</span> <span class="n">resultado</span> <span class="n">que</span> <span class="n">sale</span> <span class="n">por</span> <span class="n">consola</span> <span class="n">es</span> <span class="n">true</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores-logicos">
+<h3><a class="toc-backref" href="#id19">Operadores Lógicos</a><a class="headerlink" href="#operadores-logicos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En Dart se utilizan los mismos operadores lógicos que en la mayoría de lenguajes de programación, sin embargo presentan un aspecto diferente:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operador</th>
+<th class="head">símbolo</th>
+<th class="head">condición</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>and</td>
+<td>&amp;&amp;</td>
+<td>La condición se cumple si todos son verdaderos</td>
+</tr>
+<tr class="row-odd"><td>or</td>
+<td>||</td>
+<td>La condición se cumple si al menos uno es verdadero</td>
+</tr>
+<tr class="row-even"><td>not</td>
+<td>!</td>
+<td>La condición se cumple si es diferente a lo que se compara</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Resultado</span> <span class="kc">False</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">Resultado</span> <span class="kc">True</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="ow">or</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">Resultado</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="estructuras-de-control">
+<h2><a class="toc-backref" href="#id20">Estructuras de control</a><a class="headerlink" href="#estructuras-de-control" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En python disponemos de estructuras de control como <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">for</span></code> y <code class="docutils literal"><span class="pre">while</span></code>.</p>
+<div class="section" id="condicional-if">
+<h3><a class="toc-backref" href="#id21">Condicional if</a><a class="headerlink" href="#condicional-if" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las condiciones sencillas en dart funcionan del siguiente modo:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad, tienes $edad años&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>También tenemos condiciones con una salida alternativa si no se cumple esta:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad, tienes $edad años&#39;</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tienes $edad y por tanto eres menor de edad&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condicional-if-elif">
+<h3><a class="toc-backref" href="#id22">Condicional if-elif</a><a class="headerlink" href="#condicional-if-elif" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las condiciones compuestas nos ofrecen varios caminos posibles:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">68</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad, tienes $edad años&#39;</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Con $edad, eres un anciano&#39;</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tienes $edad y por tanto eres menor de edad&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condicional-ternario">
+<h3><a class="toc-backref" href="#id23">Condicional Ternario</a><a class="headerlink" href="#condicional-ternario" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El condicional ternario abrevia una condición básica if-else para asignar un valor u otro a una variable:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span>int c = 21;
+String resp = c &gt; 25 ? &#39;C es mayor a 25&#39; : &#39;C es menor a 25&#39;;
+print(resp);
+</pre></div>
+</div>
+</div>
+<div class="section" id="bucle-for">
+<h3><a class="toc-backref" href="#id24">Bucle for</a><a class="headerlink" href="#bucle-for" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El bucle for en dart se presenta de un modo muy similar al foreach de otros lenguajes:</p>
+<ul class="simple">
+<li>Uso con rango definido:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hola mundo! $i&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bucle-for-in">
+<h3><a class="toc-backref" href="#id25">Bucle For in</a><a class="headerlink" href="#bucle-for-in" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El bucle for in esta diseñado para recorrer Listas y Mapas:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listado</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Batman&#39;</span><span class="p">,</span> <span class="s1">&#39;Superman&#39;</span><span class="p">,</span> <span class="s1">&#39;Aquaman&#39;</span><span class="p">];</span>
+    <span class="o">//</span> <span class="n">Listar</span> <span class="n">con</span> <span class="k">for</span> <span class="n">clásico</span><span class="p">:</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">listado</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">listado</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">For</span> <span class="ow">in</span><span class="p">:</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">listar</span> <span class="ow">in</span> <span class="n">listado</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">listar</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bucle-while">
+<h3><a class="toc-backref" href="#id26">Bucle while</a><a class="headerlink" href="#bucle-while" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El bucle While es similar a otros lenguajes:</p>
+<p>Ejemplo:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="n">String</span> <span class="n">continuar</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">continuar</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">){</span>
+        <span class="n">contador</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;Contador: $contador&#39;</span><span class="p">);</span>
+
+        <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;desea continuar? (s/n)&#39;</span><span class="p">);</span>
+        <span class="n">continuar</span> <span class="o">=</span> <span class="n">stdin</span><span class="o">.</span><span class="n">readLineSync</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ejemplo con bucle infinito:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1"># al añadir True hacemos un bucle infinito:</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">adivina</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Adivinia el número &gt;&gt; &#39;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">adivina</span> <span class="o">==</span> <span class="n">numero</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Acertaste!&#39;</span><span class="p">)</span>
+        <span class="o">//</span> <span class="n">Con</span> <span class="n">exit</span><span class="p">()</span> <span class="n">finalizamos</span> <span class="n">el</span> <span class="n">programa</span>
+        <span class="n">exit</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fallaste!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ciclo-do-while">
+<h3><a class="toc-backref" href="#id27">Ciclo do-while</a><a class="headerlink" href="#ciclo-do-while" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En Dart disponemos también del ciclo do-while:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+<span class="n">String</span> <span class="n">continuar</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">do</span><span class="p">{</span>
+    <span class="n">contador</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;Contador: $contador&#39;</span><span class="p">);</span>
+
+    <span class="n">stdout</span><span class="o">.</span><span class="n">writeln</span><span class="p">(</span><span class="s1">&#39;desea continuar? (y/n)&#39;</span><span class="p">);</span>
+    <span class="n">continuar</span> <span class="o">=</span> <span class="n">stdin</span><span class="o">.</span><span class="n">readLineSync</span><span class="p">();</span>
+<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">continuar</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="romper-un-bucle-y-continuar">
+<h3><a class="toc-backref" href="#id28">Romper un bucle y continuar</a><a class="headerlink" href="#romper-un-bucle-y-continuar" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos romper un bucle o continuar con las palabras <code class="docutils literal"><span class="pre">break</span></code> y <code class="docutils literal"><span class="pre">continue</span></code></p>
+<ul class="simple">
+<li>Ejemplo de uso:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+
+<span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">){</span>
+    <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">){</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condicional-switch">
+<h3><a class="toc-backref" href="#id29">condicional switch</a><a class="headerlink" href="#condicional-switch" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En Dart tenemos disponible Switch para controlar el flujo de información:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Importamos</span> <span class="n">el</span> <span class="n">paquete</span> <span class="n">para</span> <span class="n">random</span><span class="p">:</span>
+<span class="kn">import</span> <span class="s1">&#39;dart:math&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+<span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">entero</span> <span class="n">que</span> <span class="n">tenga</span> <span class="n">un</span> <span class="n">random</span> <span class="n">de</span> <span class="mi">7</span> <span class="n">números</span><span class="p">:</span>
+<span class="nb">int</span> <span class="n">rnd</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span><span class="o">.</span><span class="n">nextInt</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+
+<span class="n">switch</span><span class="p">(</span><span class="n">rnd</span><span class="p">){</span>
+    <span class="n">case</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lunes&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Martes&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Miércoles&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Jueves&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Viernes&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sábado&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">7</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Domingo&#39;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="n">default</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No es un día de la semana&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="estructuras-de-datos">
+<h2><a class="toc-backref" href="#id30">Estructuras de datos</a><a class="headerlink" href="#estructuras-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="listas">
+<h3><a class="toc-backref" href="#id31">Listas</a><a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las listas son un tipo de dato mutable que agrupa un conjuto de valores de distintos tipos:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Lista</span> <span class="n">de</span> <span class="n">strings</span><span class="p">:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">personas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pepe&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">];</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">personas</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Lista</span> <span class="n">de</span> <span class="n">cadenas</span><span class="p">:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">numeros</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">];</span>
+
+<span class="o">//</span> <span class="n">Añadir</span> <span class="n">registros</span><span class="p">:</span>
+<span class="n">personas</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Alfonso&#39;</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Crear</span> <span class="n">una</span> <span class="n">lista</span> <span class="n">vacia</span><span class="p">:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">apellidos</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="p">();</span>
+
+<span class="o">//</span> <span class="n">insertar</span> <span class="n">varios</span> <span class="n">registros</span><span class="p">:</span>
+<span class="n">apellidos</span><span class="o">.</span><span class="n">addAll</span><span class="p">([</span><span class="s1">&#39;Lopez&#39;</span><span class="p">,</span> <span class="s1">&#39;Suarez&#39;</span><span class="p">,</span> <span class="s1">&#39;Martinez&#39;</span><span class="p">]);</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">apellidos</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Agregar</span> <span class="n">en</span> <span class="n">cascada</span><span class="p">:</span>
+<span class="n">apellidos</span><span class="o">..</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Gutierrez&#39;</span><span class="p">)</span>
+        <span class="o">..</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Alferez&#39;</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Definir</span> <span class="n">los</span> <span class="n">elementos</span> <span class="n">que</span> <span class="n">tendrá</span> <span class="n">una</span> <span class="n">lista</span><span class="p">:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">meses</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="o">//</span><span class="n">addAll</span> <span class="n">no</span> <span class="n">nos</span> <span class="n">sirve</span> <span class="n">para</span> <span class="n">listas</span> <span class="n">definidas</span> <span class="n">porque</span> <span class="n">se</span> <span class="n">añade</span> <span class="n">siempre</span> <span class="n">al</span> <span class="n">final</span> <span class="n">y</span> <span class="n">ya</span> <span class="n">tenemos</span> <span class="n">las</span> <span class="n">posiciones</span> <span class="n">asignadas</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">Se</span> <span class="n">haría</span> <span class="n">así</span><span class="p">:</span>
+<span class="n">meses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Enero&#39;</span><span class="p">;</span>
+<span class="n">meses</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Febrero&#39;</span><span class="p">;</span>
+<span class="n">meses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Marzo&#39;</span><span class="p">;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">meses</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sets">
+<h3><a class="toc-backref" href="#id32">Sets</a><a class="headerlink" href="#sets" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los sets son similiares a las listas pero con la diferencia de que estas son inmutables.</p>
+<p>Ejemplo de lista:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Sets</span> <span class="p">(</span><span class="n">similar</span> <span class="n">a</span> <span class="n">la</span> <span class="n">lista</span> <span class="n">pero</span> <span class="n">no</span> <span class="n">acepta</span> <span class="n">valores</span> <span class="n">duplicado</span> <span class="n">como</span> <span class="n">las</span> <span class="n">listas</span><span class="p">)</span>
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">lenguajes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;dart&#39;</span><span class="p">};</span>
+<span class="o">//</span> <span class="n">añadir</span> <span class="n">elementos</span><span class="p">:</span>
+<span class="n">lenguajes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;PHP&#39;</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lenguajes</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mapas">
+<h3><a class="toc-backref" href="#id33">Mapas</a><a class="headerlink" href="#mapas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los mapas en Dart se asemejan a los objetos literales en javascript u otros lenguajes de programación como los diccionarios en Python, etc…
+Se construye por pares de datos que son clave y valor <code class="docutils literal"><span class="pre">{'nombre':'Antonio'}</span></code> y pueden anidar todo tipo de datos e incluso más diccionarios.</p>
+<p>Ejemplo de uso:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Prueba</span> <span class="n">con</span> <span class="n">dinamicos</span> <span class="n">e</span> <span class="n">inicializando</span> <span class="n">el</span> <span class="n">objeto</span><span class="p">:</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">&gt;</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Map</span><span class="p">();</span>
+
+<span class="o">//</span> <span class="n">agregar</span> <span class="n">elementos</span><span class="p">:</span>
+<span class="n">persona</span><span class="o">.</span><span class="n">addAll</span><span class="p">({</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Luis&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">});</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="metodos-internos">
+<h2><a class="toc-backref" href="#id34">Métodos Internos</a><a class="headerlink" href="#metodos-internos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Como en la mayoría de lenguajes de programación, en Python existen funciones predefinidas.</p>
+<div class="section" id="metodos-de-cadenas">
+<h3><a class="toc-backref" href="#id35">Métodos de cadenas</a><a class="headerlink" href="#metodos-de-cadenas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Aquí tenemos los métodos mas utilizados para tratamiento de cadenas de texto:</p>
+<ul class="simple">
+<li>Para saber la longitud de una cadena con <code class="docutils literal"><span class="pre">length</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+<span class="n">String</span> <span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Guillermo&quot;</span><span class="p">;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Convertir valor numérico a cadena con <code class="docutils literal"><span class="pre">toString()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+<span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">edad</span><span class="o">.</span><span class="n">toString</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Convertir una cadena en una lista <code class="docutils literal"><span class="pre">split()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="n">String</span> <span class="n">comprar</span> <span class="o">=</span> <span class="s2">&quot;Agua, Galletas, Huevos, Yogurt&quot;</span><span class="p">;</span>
+
+    <span class="n">List</span> <span class="n">listaDeLaCompra</span> <span class="o">=</span> <span class="n">comprar</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">);</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">listaDeLaCompra</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Reemplazar una cadena por otra con <code class="docutils literal"><span class="pre">replaceAll()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="n">String</span> <span class="n">comprar</span> <span class="o">=</span> <span class="s2">&quot;Agua, Galletas, Huevos, Yogurt&quot;</span><span class="p">;</span>
+
+    <span class="n">comprar</span> <span class="o">=</span> <span class="n">comprar</span><span class="o">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">);</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">comprar</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Convertir a mayúsculas la cadena con <code class="docutils literal"><span class="pre">toUpperCase()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="n">String</span> <span class="n">comprar</span> <span class="o">=</span> <span class="s2">&quot;Agua, Galletas, Huevos, Yogurt&quot;</span><span class="p">;</span>
+
+    <span class="n">comprar</span> <span class="o">=</span> <span class="n">comprar</span><span class="o">.</span><span class="n">toUpperCase</span><span class="p">();</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">comprar</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Convertir a minúsculas la cadena con <code class="docutils literal"><span class="pre">toLowerCase()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="n">String</span> <span class="n">comprar</span> <span class="o">=</span> <span class="s2">&quot;Agua, Galletas, Huevos, Yogurt&quot;</span><span class="p">;</span>
+
+    <span class="n">comprar</span> <span class="o">=</span> <span class="n">comprar</span><span class="o">.</span><span class="n">toLowerCase</span><span class="p">();</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">comprar</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="funciones-numericas">
+<h3><a class="toc-backref" href="#id36">Funciones numéricas</a><a class="headerlink" href="#funciones-numericas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Estas son las funciones numéricas mas comunes en Dart:</p>
+<ul class="simple">
+<li>Convertir un valor a entero con <code class="docutils literal"><span class="pre">toInt()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+<span class="n">double</span> <span class="n">edad</span> <span class="o">=</span> <span class="mf">38.23</span><span class="p">;</span>
+
+<span class="nb">int</span> <span class="n">miEdad</span> <span class="o">=</span> <span class="n">edad</span><span class="o">.</span><span class="n">toInt</span><span class="p">();</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">miEdad</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Convertir un valor a decimal con <code class="docutils literal"><span class="pre">toDouble()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+
+    <span class="n">double</span> <span class="n">miEdad</span> <span class="o">=</span> <span class="n">edad</span><span class="o">.</span><span class="n">toDouble</span><span class="p">();</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">miEdad</span> <span class="o">+</span> <span class="mf">17.37</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Redondear un valor decimal con <code class="docutils literal"><span class="pre">round()</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+
+    <span class="n">double</span> <span class="n">miEdad</span> <span class="o">=</span> <span class="n">edad</span><span class="o">.</span><span class="n">toDouble</span><span class="p">()</span> <span class="o">+</span> <span class="mf">183.33234</span><span class="p">;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">miEdad</span><span class="o">.</span><span class="n">round</span><span class="p">());</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="otras-funciones-comunes">
+<h3><a class="toc-backref" href="#id37">Otras funciones comunes</a><a class="headerlink" href="#otras-funciones-comunes" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Tenemos una serie de funciones de uso común en python:</p>
+<ul class="simple">
+<li>Averiguar que tipo de dato contiene una variable con <code class="docutils literal"><span class="pre">runtimeType</span></code>:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+
+    <span class="n">double</span> <span class="n">miEdad</span> <span class="o">=</span> <span class="n">edad</span><span class="o">.</span><span class="n">toDouble</span><span class="p">()</span> <span class="o">+</span> <span class="mf">183.33234</span><span class="p">;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">miEdad</span><span class="o">.</span><span class="n">runtimeType</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="funciones">
+<h2><a class="toc-backref" href="#id38">Funciones</a><a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las funciones en Dart se declaran definiendo el tipo de retorno (int, String, Map) o si no retornan nada (void).</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Ya</span> <span class="n">sabemos</span> <span class="n">que</span> <span class="n">main</span> <span class="n">es</span> <span class="n">una</span> <span class="n">función</span><span class="p">,</span> <span class="n">de</span> <span class="n">hecho</span> <span class="n">la</span> <span class="n">principal</span> <span class="n">siempre</span><span class="p">:</span>
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Para</span> <span class="n">llamar</span> <span class="n">a</span> <span class="n">la</span> <span class="n">función</span><span class="p">:</span>
+    <span class="n">saludar</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Si</span> <span class="n">nuestra</span> <span class="n">funcion</span> <span class="n">retorna</span> <span class="n">algo</span> <span class="n">podemos</span> <span class="n">asignar</span> <span class="n">el</span> <span class="n">retorno</span> <span class="n">a</span> <span class="n">una</span> <span class="n">variable</span> <span class="k">del</span> <span class="n">mismo</span> <span class="n">tipo</span><span class="p">:</span>
+    <span class="n">String</span> <span class="n">mensaje</span> <span class="o">=</span> <span class="n">saludo</span><span class="p">();</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Para</span> <span class="n">crear</span> <span class="n">una</span> <span class="n">función</span> <span class="n">lo</span> <span class="n">hacemos</span> <span class="n">fuera</span> <span class="n">de</span> <span class="n">main</span><span class="p">:</span>
+<span class="n">void</span> <span class="n">saludar</span><span class="p">(){</span> <span class="o">//</span> <span class="n">al</span> <span class="n">no</span> <span class="n">retornar</span> <span class="n">nada</span> <span class="n">le</span> <span class="n">asignamos</span> <span class="n">el</span> <span class="n">valor</span> <span class="n">void</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hola desde la función&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Si</span> <span class="n">nuestra</span> <span class="n">función</span> <span class="n">retorna</span> <span class="n">algo</span> <span class="n">como</span> <span class="n">una</span> <span class="n">cadena</span> <span class="n">lo</span> <span class="n">tenemos</span> <span class="n">que</span> <span class="n">definir</span><span class="p">:</span>
+<span class="n">String</span> <span class="n">saludo</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s1">&#39;saludo desde retorno&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Recibir parametros en una función por consola:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">la</span> <span class="n">palabra</span> <span class="n">args</span> <span class="n">define</span> <span class="n">que</span> <span class="n">nuestro</span> <span class="n">programa</span> <span class="n">va</span> <span class="n">a</span> <span class="n">recibir</span> <span class="n">parámetros</span> <span class="n">de</span> <span class="n">consola</span><span class="p">:</span>
+<span class="n">main</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora ejecutamos el archivo <code class="docutils literal"><span class="pre">dart</span> <span class="pre">argumentos.dart</span> <span class="pre">argumento1</span> <span class="pre">argumento2</span></code></p>
+<div class="section" id="funciones-lambda-o-de-flecha">
+<h3><a class="toc-backref" href="#id39">Funciones Lambda o de flecha</a><a class="headerlink" href="#funciones-lambda-o-de-flecha" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Este tipo de funciones tienen como objetivo resumir la función en una sola línea haciendo el retorno directamente tras la flecha:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Uso</span> <span class="n">de</span> <span class="n">la</span> <span class="n">función</span> <span class="n">de</span> <span class="n">flecha</span><span class="p">:</span>
+    <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">resultado</span> <span class="o">=</span> <span class="n">sumarFlecha</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Decalramos</span> <span class="n">la</span> <span class="n">funcion</span> <span class="n">de</span> <span class="n">flecha</span><span class="p">:</span>
+<span class="nb">int</span> <span class="n">sumarFlecha</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="funciones-callback">
+<h3><a class="toc-backref" href="#id40">Funciones Callback</a><a class="headerlink" href="#funciones-callback" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las funciones callback se invocan dentro de otra función para ejecutar un código inmediatamente dentro de la función llamada:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Ejecutamos</span> <span class="n">la</span> <span class="n">función</span> <span class="n">la</span> <span class="n">cual</span> <span class="n">le</span> <span class="n">pasamos</span> <span class="n">un</span> <span class="n">parametro</span> <span class="n">string</span> <span class="n">y</span> <span class="n">un</span> <span class="n">callback</span><span class="p">:</span>
+    <span class="n">obtenerUsuario</span><span class="p">(</span><span class="s1">&#39;100&#39;</span><span class="p">,(</span><span class="n">Map</span> <span class="n">persona</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">creamos</span> <span class="n">una</span> <span class="n">función</span><span class="p">:</span>
+<span class="n">void</span> <span class="n">obtenerUsuario</span><span class="p">(</span><span class="n">String</span> <span class="nb">id</span><span class="p">,</span> <span class="n">Function</span> <span class="n">callback</span><span class="p">){</span>
+    <span class="n">Map</span> <span class="n">usuario</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+        <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;Alfredo&#39;</span>
+    <span class="p">};</span>
+    <span class="o">//</span> <span class="n">Llamamos</span> <span class="n">la</span> <span class="n">función</span> <span class="n">callback</span> <span class="n">que</span> <span class="n">estamos</span> <span class="n">pasandole</span> <span class="n">por</span> <span class="n">parámetro</span><span class="p">:</span>
+    <span class="n">callback</span><span class="p">(</span><span class="n">usuario</span><span class="p">);</span> <span class="o">//</span> <span class="n">Recibirá</span> <span class="n">el</span> <span class="n">usuario</span><span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="promesas">
+<h2><a class="toc-backref" href="#id41">Promesas</a><a class="headerlink" href="#promesas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las promesas son tareas asíncronas que se van a resolver en un futuro.</p>
+<ul class="simple">
+<li>Ejemplo de Future:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Este</span> <span class="n">es</span> <span class="n">un</span> <span class="n">ejemplo</span> <span class="n">de</span> <span class="n">definir</span> <span class="n">un</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">future</span> <span class="n">sencillo</span><span class="p">:</span>
+    <span class="n">Future</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">Future</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(){</span> <span class="o">//</span> <span class="n">Este</span> <span class="n">código</span> <span class="n">se</span> <span class="n">va</span> <span class="n">a</span> <span class="n">ejecutar</span> <span class="mi">3</span> <span class="n">segundos</span> <span class="n">desupés</span><span class="o">.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3 segundos después&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="o">//</span> <span class="n">Como</span> <span class="n">el</span> <span class="n">otro</span> <span class="n">codigo</span> <span class="n">queda</span> <span class="n">a</span> <span class="n">la</span> <span class="n">espera</span><span class="p">,</span> <span class="n">este</span> <span class="n">se</span> <span class="n">ejecutará</span> <span class="n">antes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fin del main&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Retorno de un Future:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+<span class="o">//</span> <span class="n">Definimos</span> <span class="n">la</span> <span class="n">salida</span> <span class="n">como</span> <span class="n">String</span><span class="p">:</span>
+    <span class="n">Future</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">Future</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(){</span> <span class="o">//</span> <span class="n">Este</span> <span class="n">código</span> <span class="n">se</span> <span class="n">va</span> <span class="n">a</span> <span class="n">ejecutar</span> <span class="mi">3</span> <span class="n">segundos</span> <span class="n">desupés</span><span class="o">.</span>
+        <span class="k">return</span> <span class="s1">&#39;Retorno de dato&#39;</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="o">//</span> <span class="n">Y</span> <span class="n">ahora</span> <span class="n">lo</span> <span class="n">ejecutamos</span> <span class="k">del</span> <span class="n">siguiente</span> <span class="n">modo</span> <span class="n">para</span> <span class="n">que</span> <span class="n">devuelva</span> <span class="n">el</span> <span class="n">dato</span> <span class="n">retornado</span><span class="p">:</span>
+    <span class="n">timeout</span><span class="o">.</span><span class="n">then</span><span class="p">((</span><span class="n">texto</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="async-await">
+<h3><a class="toc-backref" href="#id42">Async-Await</a><a class="headerlink" href="#async-await" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Al igual que en lenguajes como Javascript, Dart dispone de Async y Await de forma nativa.</p>
+<ul class="simple">
+<li>Supongamos que tenemos un archivo llamado personas.txt:</li>
+</ul>
+<ul class="simple">
+<li>Veamos como se recuperan los datos con Future:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Importamos</span> <span class="n">la</span> <span class="n">librería</span> <span class="n">io</span><span class="p">:</span>
+<span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Establecemos</span> <span class="n">una</span> <span class="n">ruta</span> <span class="n">donde</span> <span class="n">se</span> <span class="n">encuentra</span> <span class="n">nuestro</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Directory</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/personas.txt&#39;</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Usamos</span> <span class="n">Then</span> <span class="n">para</span> <span class="n">cumplir</span> <span class="n">la</span> <span class="n">promesa</span> <span class="n">e</span> <span class="n">imprimimos</span> <span class="n">el</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="n">leerArchivo</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="nb">print</span><span class="p">);</span>
+
+    <span class="p">}</span>
+    <span class="o">//</span> <span class="n">Tenemos</span> <span class="n">un</span> <span class="n">Future</span> <span class="n">que</span> <span class="n">retorna</span> <span class="n">un</span> <span class="n">string</span> <span class="n">que</span> <span class="n">recibira</span> <span class="n">como</span> <span class="n">parámetro</span> <span class="n">una</span> <span class="n">ruta</span><span class="p">:</span>
+    <span class="n">Future</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">leerArchivo</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">){</span>
+    <span class="o">//</span> <span class="n">En</span> <span class="n">el</span> <span class="n">creamos</span> <span class="n">un</span> <span class="n">nuevo</span> <span class="n">objeto</span> <span class="n">de</span> <span class="n">tipo</span> <span class="n">file</span> <span class="n">y</span> <span class="n">le</span> <span class="n">pasamos</span> <span class="n">la</span> <span class="n">ruta</span><span class="p">:</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">new</span> <span class="n">File</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">Devolvemos</span> <span class="n">el</span> <span class="n">archivo</span> <span class="n">en</span> <span class="n">formato</span> <span class="n">string</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">readAsString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Y ahora vamos a hacerlo con Async-Await:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">Cada</span> <span class="n">vez</span> <span class="n">que</span> <span class="n">utilicemos</span> <span class="n">el</span> <span class="k">await</span> <span class="n">tenemos</span> <span class="n">que</span> <span class="n">asignar</span> <span class="k">async</span> <span class="n">en</span> <span class="n">la</span> <span class="n">función</span> <span class="n">donde</span> <span class="n">lo</span> <span class="n">hagamos</span><span class="p">:</span>
+<span class="n">main</span><span class="p">()</span> <span class="k">async</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Directory</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/personas.txt&#39;</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">Ahora</span> <span class="n">vamos</span> <span class="n">a</span> <span class="n">cambiar</span> <span class="n">el</span> <span class="n">then</span> <span class="n">por</span> <span class="n">un</span> <span class="k">await</span><span class="p">:</span>
+    <span class="n">String</span> <span class="n">texto</span> <span class="o">=</span> <span class="k">await</span> <span class="n">leerArchivo</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">);</span>
+
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Transformamos</span> <span class="n">nuestro</span> <span class="n">Future</span> <span class="n">en</span> <span class="n">un</span> <span class="k">async</span><span class="p">:</span>
+<span class="n">leerArchivo</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="k">async</span><span class="p">{</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">new</span> <span class="n">File</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">readAsString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="clases">
+<h2><a class="toc-backref" href="#id43">Clases</a><a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las clases en Dart tienen una estructura similar al de otros lenguajes,</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">objeto</span> <span class="n">a</span> <span class="n">partir</span> <span class="n">de</span> <span class="n">la</span> <span class="n">clase</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Persona</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Para</span> <span class="n">añadir</span> <span class="n">datos</span> <span class="n">a</span> <span class="n">sus</span> <span class="n">atributos</span><span class="p">:</span>
+    <span class="n">persona</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="s1">&#39;Guillermo&#39;</span><span class="p">;</span>
+    <span class="n">persona</span><span class="o">.</span><span class="n">edad</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+    <span class="n">persona</span><span class="o">.</span><span class="n">bio</span> <span class="o">=</span> <span class="s1">&#39;Soy el tipo ese que programa por estudiar&#39;</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Al</span> <span class="n">utilizar</span> <span class="n">override</span> <span class="n">para</span> <span class="n">pasar</span> <span class="n">la</span> <span class="n">clase</span> <span class="n">a</span> <span class="n">cadena</span> <span class="n">podemos</span> <span class="n">imprimir</span> <span class="n">el</span> <span class="n">objeto</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">una</span> <span class="n">clase</span><span class="p">:</span>
+    <span class="k">class</span> <span class="nc">Persona</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Atributos</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">edad</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">bio</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">y</span> <span class="n">sets</span>
+
+    <span class="o">//</span> <span class="n">Constructores</span>
+
+    <span class="o">//</span> <span class="n">Métodos</span>
+
+    <span class="o">//</span> <span class="n">El</span> <span class="nd">@override</span> <span class="n">es</span> <span class="n">un</span> <span class="n">decorador</span> <span class="n">y</span> <span class="n">sirve</span> <span class="n">para</span> <span class="n">subscribir</span> <span class="n">un</span> <span class="n">método</span><span class="p">:</span>
+    <span class="nd">@override</span>
+    <span class="n">String</span> <span class="n">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;$nombre $edad $bio&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="atributos-privados">
+<h3><a class="toc-backref" href="#id44">Atributos Privados</a><a class="headerlink" href="#atributos-privados" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para hacer que los atributos sean privados en Dart el modificador que utilizamos es <code class="docutils literal"><span class="pre">_</span></code></p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Para</span> <span class="n">hacer</span> <span class="n">un</span> <span class="n">atributo</span> <span class="n">privado</span> <span class="n">ponemos</span> <span class="n">el</span> <span class="n">caracter</span> <span class="n">_</span>
+    <span class="n">String</span> <span class="n">_nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">_edad</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">_bio</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">y</span> <span class="n">sets</span>
+
+    <span class="o">//</span> <span class="n">Constructores</span>
+
+    <span class="o">//</span> <span class="n">Métodos</span>
+    <span class="nd">@override</span>
+    <span class="n">String</span> <span class="n">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;$_nombre $_edad $_bio&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getters-y-setters">
+<h3><a class="toc-backref" href="#id45">Getters y Setters</a><a class="headerlink" href="#getters-y-setters" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Con Get y Set podemos trabajar con atributos privados fuera de clase, osea cuando hemos creado un objeto.</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">edad</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">_bio</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">y</span> <span class="n">sets</span>
+
+    <span class="o">//</span> <span class="n">Los</span> <span class="n">gets</span> <span class="n">recuperan</span> <span class="n">información</span><span class="p">:</span>
+    <span class="n">String</span> <span class="n">get</span> <span class="n">bio</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_bio</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Para</span> <span class="n">establecer</span> <span class="n">el</span> <span class="n">valor</span> <span class="n">al</span> <span class="n">atributo</span> <span class="n">privado</span> <span class="n">utilizamos</span> <span class="nb">set</span><span class="p">:</span>
+    <span class="nb">set</span> <span class="n">bio</span><span class="p">(</span><span class="n">String</span> <span class="n">texto</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_bio</span> <span class="o">=</span> <span class="n">texto</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Constructores</span>
+
+    <span class="o">//</span> <span class="n">Métodos</span>
+    <span class="nd">@override</span>
+    <span class="n">String</span> <span class="n">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;$nombre $edad $_bio&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constructores-basicos">
+<h3><a class="toc-backref" href="#id46">Constructores básicos</a><a class="headerlink" href="#constructores-basicos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En Dart para las clases como en cualquier lenguaje tenemos los constructores comunes:</p>
+<ul class="simple">
+<li>Creamos un archivo llamado Persona.dart:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">edad</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">_bio</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">y</span> <span class="n">sets</span>
+    <span class="n">String</span> <span class="n">get</span> <span class="n">bio</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_bio</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nb">set</span> <span class="n">bio</span><span class="p">(</span><span class="n">String</span> <span class="n">texto</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_bio</span> <span class="o">=</span> <span class="n">texto</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Constructores</span>
+
+    <span class="o">//</span> <span class="n">Constructor</span> <span class="n">básico</span> <span class="n">lleva</span> <span class="n">por</span> <span class="n">defecto</span> <span class="n">el</span> <span class="n">nombre</span> <span class="n">de</span> <span class="n">la</span> <span class="n">clase</span><span class="p">:</span>
+    <span class="n">Persona</span><span class="p">(</span><span class="nb">int</span> <span class="n">edad</span><span class="p">,</span> <span class="n">String</span> <span class="n">nombre</span><span class="p">){</span> <span class="o">//</span> <span class="n">Normalmente</span> <span class="n">le</span> <span class="n">pasamos</span> <span class="n">argumentos</span> <span class="n">a</span> <span class="n">un</span> <span class="n">constructor</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Constructor&#39;</span><span class="p">);</span>
+        <span class="o">//</span> <span class="n">Podemos</span> <span class="n">asignar</span> <span class="n">un</span> <span class="n">valor</span> <span class="n">mediante</span> <span class="n">el</span> <span class="n">setter</span> <span class="n">o</span> <span class="n">utilizar</span> <span class="n">el</span> <span class="n">atributo</span> <span class="n">privado</span><span class="p">:</span>
+        <span class="n">bio</span> <span class="o">=</span> <span class="s1">&#39;Hola desde el constructor&#39;</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">_bio</span> <span class="o">=</span> <span class="s1">&#39;Utilizando el privado&#39;</span><span class="p">;</span>
+        <span class="o">//</span> <span class="n">Le</span> <span class="n">asignamos</span> <span class="n">los</span> <span class="n">argumentos</span> <span class="n">a</span> <span class="n">sus</span> <span class="n">atributos</span><span class="p">:</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">edad</span> <span class="o">=</span> <span class="n">edad</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+
+    <span class="o">//</span> <span class="n">Métodos</span>
+    <span class="nd">@override</span>
+    <span class="n">String</span> <span class="n">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;$nombre $edad $_bio&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Y ahora creamos nuestro archivo main.dart:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;persona.dart&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Ahora</span> <span class="n">le</span> <span class="n">tenemos</span> <span class="n">que</span> <span class="n">pasar</span> <span class="n">los</span> <span class="n">dos</span> <span class="n">parametros</span> <span class="n">al</span> <span class="n">constructor</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Persona</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;Guillermo&#39;</span><span class="p">);</span>
+
+    <span class="n">persona</span><span class="o">.</span><span class="n">bio</span> <span class="o">=</span> <span class="s2">&quot;Soy un tipejo&quot;</span><span class="p">;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">bio</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Veamos como se pasan argumentos posicionales:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;persona.dart&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Y</span> <span class="n">como</span> <span class="n">es</span> <span class="n">posicional</span> <span class="n">le</span> <span class="n">asignamos</span> <span class="n">el</span> <span class="n">nombre</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Persona</span><span class="p">(</span><span class="n">edad</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="n">nombre</span><span class="p">:</span><span class="s1">&#39;Guillermo&#39;</span><span class="p">);</span>
+
+    <span class="n">persona</span><span class="o">.</span><span class="n">bio</span> <span class="o">=</span> <span class="s2">&quot;Soy un tipejo&quot;</span><span class="p">;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">bio</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constructores-con-nombre">
+<h3><a class="toc-backref" href="#id47">Constructores con nombre</a><a class="headerlink" href="#constructores-con-nombre" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los constructores con nombre son constructores adicionales que se generan en las clases</p>
+<ul class="simple">
+<li>Ejemplo de clase:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">edad</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">_bio</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Get</span> <span class="n">y</span> <span class="n">sets</span>
+    <span class="n">String</span> <span class="n">get</span> <span class="n">bio</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_bio</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nb">set</span> <span class="n">bio</span><span class="p">(</span><span class="n">String</span> <span class="n">texto</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_bio</span> <span class="o">=</span> <span class="n">texto</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Persona</span><span class="p">({</span><span class="n">this</span><span class="o">.</span><span class="n">edad</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">nombre</span><span class="p">}){</span> <span class="o">//</span> <span class="n">Podemos</span> <span class="n">hacer</span> <span class="n">opcional</span> <span class="n">los</span> <span class="n">parametros</span> <span class="n">también</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Constructor&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="o">//</span> <span class="n">Vamos</span> <span class="n">a</span> <span class="n">crear</span> <span class="n">un</span> <span class="n">constructor</span> <span class="n">con</span> <span class="n">nombre</span><span class="p">:</span>
+    <span class="n">Persona</span><span class="o">.</span><span class="n">persona30</span><span class="p">(</span> <span class="n">this</span><span class="o">.</span><span class="n">nombre</span> <span class="p">){</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">edad</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@override</span>
+    <span class="n">String</span> <span class="n">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s1">&#39;$nombre $edad $_bio&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Crear objeto en main:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;persona.dart&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="n">final</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Persona</span><span class="p">(</span><span class="n">edad</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span> <span class="n">nombre</span><span class="p">:</span><span class="s1">&#39;Guillermo&#39;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Nos</span> <span class="n">creamos</span> <span class="n">un</span> <span class="n">nuevo</span> <span class="n">objeto</span> <span class="n">con</span> <span class="n">el</span> <span class="n">constructor</span> <span class="n">nombre</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">persona2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Persona</span><span class="o">.</span><span class="n">persona30</span><span class="p">(</span><span class="s1">&#39;Alfredo&#39;</span><span class="p">);</span>
+
+    <span class="n">persona</span><span class="o">.</span><span class="n">bio</span> <span class="o">=</span> <span class="s2">&quot;Soy un tipejo&quot;</span><span class="p">;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">bio</span><span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">persona2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="atributos-y-metodos-estaticos">
+<h3><a class="toc-backref" href="#id48">Atributos y métodos estáticos</a><a class="headerlink" href="#atributos-y-metodos-estaticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Al utilizar el modificador <code class="docutils literal"><span class="pre">static</span></code> podemos acceder a los atributos y métodos que lo posean sin necesidad de crear un objeto.</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Herramientas</span><span class="p">{</span>
+    <span class="o">//</span> <span class="n">Convertimos</span> <span class="n">en</span> <span class="n">estatico</span> <span class="n">el</span> <span class="n">listado</span><span class="p">:</span>
+    <span class="n">static</span> <span class="n">const</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listado</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Martillo&#39;</span><span class="p">,</span> <span class="s1">&#39;Llave Inglesa&#39;</span><span class="p">,</span><span class="s1">&#39;Desarmador&#39;</span><span class="p">];</span>
+
+    <span class="o">//</span> <span class="n">Metodo</span> <span class="n">estatico</span><span class="p">:</span>
+    <span class="n">static</span> <span class="n">void</span> <span class="n">imprimirListado</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">listado</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="nb">print</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Y</span> <span class="n">así</span> <span class="n">podemos</span> <span class="n">acceder</span> <span class="n">al</span> <span class="n">listado</span> <span class="n">sin</span> <span class="n">crear</span> <span class="n">un</span> <span class="n">objeto</span> <span class="n">y</span> <span class="n">lo</span> <span class="n">recorremos</span> <span class="n">con</span> <span class="n">el</span> <span class="n">metodo</span> <span class="n">forEach</span><span class="p">:</span>
+    <span class="n">Herramientas</span><span class="o">.</span><span class="n">listado</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="nb">print</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Vamos</span> <span class="n">a</span> <span class="n">llamar</span> <span class="n">al</span> <span class="n">metodo</span> <span class="n">de</span> <span class="n">forma</span> <span class="n">estatica</span><span class="p">:</span>
+    <span class="n">Herramientas</span><span class="o">.</span><span class="n">imprimirListado</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Y</span> <span class="n">además</span> <span class="n">podemos</span> <span class="n">añadir</span> <span class="n">o</span> <span class="n">editar</span> <span class="n">información</span><span class="p">:</span>
+    <span class="n">Herramientas</span><span class="o">.</span><span class="n">listado</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Tenazas&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">Esta</span> <span class="n">línea</span> <span class="n">dará</span> <span class="n">error</span> <span class="n">si</span> <span class="n">lo</span> <span class="n">tenemos</span> <span class="n">declarado</span> <span class="n">como</span> <span class="n">const</span> <span class="p">(</span><span class="n">que</span> <span class="n">sería</span> <span class="n">lo</span> <span class="n">más</span> <span class="n">normal</span><span class="p">)</span>
+
+    <span class="n">Herramientas</span><span class="o">.</span><span class="n">listado</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="nb">print</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Vamos</span> <span class="n">a</span> <span class="n">llamar</span> <span class="n">al</span> <span class="n">metodo</span> <span class="n">de</span> <span class="n">forma</span> <span class="n">estatica</span><span class="p">:</span>
+    <span class="n">Herramientas</span><span class="o">.</span><span class="n">imprimirListado</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constructor-factory">
+<h3><a class="toc-backref" href="#id49">Constructor Factory</a><a class="headerlink" href="#constructor-factory" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Un constructor factory retorna otro constructor y se suele utilizar para patrones singleton.</p>
+<ul class="simple">
+<li>Ejemplo de uso:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rectangulo</span><span class="p">{</span>
+    <span class="nb">int</span> <span class="n">base</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">altura</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">area</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">tipo</span><span class="p">;</span> <span class="o">//</span> <span class="n">Base</span> <span class="o">=</span> <span class="n">altura</span><span class="p">,</span> <span class="n">es</span> <span class="n">un</span> <span class="n">cuadrado</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">El</span> <span class="n">constructor</span> <span class="n">factory</span> <span class="n">retorna</span> <span class="n">algo</span> <span class="n">de</span> <span class="n">tipo</span> <span class="n">Rectangulo</span><span class="p">:</span>
+    <span class="n">factory</span> <span class="n">Rectangulo</span><span class="p">(</span><span class="nb">int</span> <span class="n">base</span><span class="p">,</span> <span class="nb">int</span> <span class="n">altura</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">base</span> <span class="o">==</span> <span class="n">altura</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">Rectangulo</span><span class="o">.</span><span class="n">cuadrado</span><span class="p">(</span><span class="n">base</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="n">Rectangulo</span><span class="o">.</span><span class="n">rectangulo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altura</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">constructor</span> <span class="n">con</span> <span class="n">nombre</span> <span class="n">para</span> <span class="n">el</span> <span class="n">cuadrado</span><span class="p">:</span>
+    <span class="n">Rectangulo</span><span class="o">.</span><span class="n">cuadrado</span><span class="p">(</span><span class="nb">int</span> <span class="n">base</span><span class="p">){</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">altura</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">base</span> <span class="o">*</span> <span class="n">altura</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">tipo</span> <span class="o">=</span> <span class="s1">&#39;Cuadrado&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">constructor</span> <span class="n">con</span> <span class="n">nombre</span> <span class="n">para</span> <span class="n">el</span> <span class="n">rectangulo</span><span class="p">:</span>
+    <span class="n">Rectangulo</span><span class="o">.</span><span class="n">rectangulo</span><span class="p">(</span><span class="nb">int</span> <span class="n">base</span><span class="p">,</span> <span class="nb">int</span> <span class="n">altura</span><span class="p">){</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">altura</span> <span class="o">=</span> <span class="n">altura</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">base</span> <span class="o">*</span> <span class="n">altura</span><span class="p">;</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">tipo</span> <span class="o">=</span> <span class="s1">&#39;Rectángulo&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">el</span> <span class="n">objeto</span> <span class="n">y</span> <span class="n">le</span> <span class="n">pasamos</span> <span class="n">los</span> <span class="n">valores</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">figura</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Rectangulo</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">Si</span> <span class="n">es</span> <span class="n">igual</span> <span class="n">nos</span> <span class="n">mostrará</span> <span class="n">cuadrado</span> <span class="n">y</span> <span class="n">sino</span> <span class="n">rectangulo</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">figura</span><span class="o">.</span><span class="n">tipo</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patron-singleton-en-dart">
+<h3><a class="toc-backref" href="#id50">Patrón Singleton en Dart</a><a class="headerlink" href="#patron-singleton-en-dart" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El patrón Singleton es muy útil para crear clases que solo se instancian una vez.</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MiServicio</span><span class="p">{</span>
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">los</span> <span class="n">atributos</span> <span class="n">de</span> <span class="n">forma</span> <span class="n">privada</span> <span class="n">que</span> <span class="n">creará</span> <span class="n">un</span> <span class="n">objeto</span> <span class="n">con</span> <span class="n">el</span> <span class="n">constructor</span> <span class="n">privado</span><span class="p">:</span>
+    <span class="n">static</span> <span class="n">final</span> <span class="n">MiServicio</span> <span class="n">_singleton</span> <span class="o">=</span> <span class="n">new</span> <span class="n">MiServicio</span><span class="o">.</span><span class="n">_privado</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Generamos</span> <span class="n">un</span> <span class="n">constructor</span> <span class="n">de</span> <span class="n">factory</span> <span class="n">que</span> <span class="n">retornará</span> <span class="n">el</span> <span class="n">objeto</span> <span class="n">privado</span> <span class="n">singleton</span><span class="p">:</span>
+    <span class="n">factory</span> <span class="n">MiServicio</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="n">_singleton</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">En</span> <span class="n">el</span> <span class="n">patrón</span> <span class="n">singleton</span> <span class="n">utilizamos</span> <span class="n">un</span> <span class="n">constructor</span> <span class="n">privado</span><span class="p">:</span>
+    <span class="n">MiServicio</span><span class="o">.</span><span class="n">_privado</span><span class="p">();</span>
+
+    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://abc&#39;</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;ABC123&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="herencia">
+<h2><a class="toc-backref" href="#id51">Herencia</a><a class="headerlink" href="#herencia" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay varias cosas interesantes que trae consigo Dart en referencia a la herencia.</p>
+<div class="section" id="uso-de-extends">
+<h3><a class="toc-backref" href="#id52">Uso de extends</a><a class="headerlink" href="#uso-de-extends" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para heredar de una clase padre utilizamos <code class="docutils literal"><span class="pre">extends</span></code> en la clase hija:</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Creamos</span> <span class="n">una</span> <span class="n">clase</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Vehiculo</span> <span class="p">{</span>
+    <span class="nb">bool</span> <span class="n">encendido</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+
+    <span class="n">void</span> <span class="n">encender</span><span class="p">(){</span>
+        <span class="n">encendido</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vehiculo encendido&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">void</span> <span class="n">apagar</span><span class="p">(){</span>
+        <span class="n">encendido</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vehículo apagado&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Ahora</span> <span class="n">vamos</span> <span class="n">a</span> <span class="n">crear</span> <span class="n">una</span> <span class="n">clase</span> <span class="n">que</span> <span class="n">herede</span> <span class="n">de</span> <span class="n">Vehículo</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Coupe</span> <span class="n">extends</span> <span class="n">Vehiculo</span><span class="p">{</span>
+    <span class="nb">int</span> <span class="n">kilometraje</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">objeto</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">ford</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Coupe</span><span class="p">();</span>
+    <span class="o">//</span> <span class="n">Y</span> <span class="n">comprobamos</span> <span class="n">que</span> <span class="n">tenemos</span> <span class="n">todas</span> <span class="n">los</span> <span class="n">atributos</span> <span class="n">y</span> <span class="n">métodos</span> <span class="n">de</span> <span class="n">Vehiculo</span><span class="p">:</span>
+    <span class="n">ford</span><span class="o">.</span><span class="n">encender</span><span class="p">();</span>
+    <span class="n">ford</span><span class="o">.</span><span class="n">apagar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="clase-abstracta">
+<h3><a class="toc-backref" href="#id53">Clase abstracta</a><a class="headerlink" href="#clase-abstracta" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las clases abstractas se utilizan en programación para diseñar la estructura de una clase padre que servirá de referencia para las clases hijas</p>
+<ul class="simple">
+<li>Ejemplo de uso:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Definimos</span> <span class="n">la</span> <span class="n">clase</span> <span class="n">abstracta</span> <span class="n">y</span> <span class="n">de</span> <span class="n">esta</span> <span class="n">no</span> <span class="n">se</span> <span class="n">puede</span> <span class="n">crear</span> <span class="n">objeto</span> <span class="n">ya</span> <span class="n">que</span> <span class="n">es</span> <span class="n">un</span> <span class="n">cascarón</span> <span class="n">de</span> <span class="n">otra</span> <span class="n">clase</span> <span class="n">hija</span><span class="p">:</span>
+<span class="n">abstract</span> <span class="k">class</span> <span class="nc">Vehiculo</span> <span class="p">{</span>
+    <span class="nb">bool</span> <span class="n">encendido</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+
+    <span class="n">void</span> <span class="n">encender</span><span class="p">(){</span>
+        <span class="n">encendido</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vehiculo encendido&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">void</span> <span class="n">apagar</span><span class="p">(){</span>
+        <span class="n">encendido</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vehículo apagado&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">método</span> <span class="n">vacio</span> <span class="n">que</span> <span class="n">tendremos</span> <span class="n">que</span> <span class="n">inicializar</span> <span class="n">en</span> <span class="n">el</span> <span class="n">hijo</span><span class="p">:</span>
+    <span class="nb">bool</span> <span class="n">encenderMotor</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Coupe</span> <span class="n">extends</span> <span class="n">Vehiculo</span><span class="p">{</span>
+    <span class="nb">int</span> <span class="n">kilometraje</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Para</span> <span class="n">implementar</span> <span class="n">un</span> <span class="n">metodo</span> <span class="n">vacio</span> <span class="k">del</span> <span class="n">padre</span> <span class="n">usamos</span> <span class="n">el</span> <span class="n">decorador</span> <span class="n">override</span><span class="p">:</span>
+    <span class="nd">@override</span> <span class="o">//</span> <span class="n">Este</span> <span class="n">decorador</span> <span class="n">no</span> <span class="n">es</span> <span class="n">obligatorio</span> <span class="n">en</span> <span class="n">esta</span> <span class="n">ocasión</span> <span class="n">pero</span> <span class="n">es</span> <span class="n">una</span> <span class="n">buena</span> <span class="n">práctica</span> <span class="n">cuando</span> <span class="n">sobreescribimos</span> <span class="n">un</span> <span class="n">método</span> <span class="n">ponerlo</span><span class="o">.</span>
+    <span class="nb">bool</span> <span class="n">encenderMotor</span><span class="p">(){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Motor OK!&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">final</span> <span class="n">ford</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Coupe</span><span class="p">();</span>
+    <span class="n">ford</span><span class="o">.</span><span class="n">encender</span><span class="p">();</span>
+    <span class="n">ford</span><span class="o">.</span><span class="n">apagar</span><span class="p">();</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="super-constructor">
+<h3><a class="toc-backref" href="#id54">Super constructor</a><a class="headerlink" href="#super-constructor" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El super constructor lo utilizamos para modificar la funcionalidad del constructor padre en el constructor hijo</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">edad</span><span class="p">;</span>
+
+    <span class="n">Persona</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">edad</span><span class="p">);</span>
+
+    <span class="n">void</span> <span class="n">imprimirNombre</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nombre: $nombre, Edad: $edad&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Ahora</span> <span class="n">creamos</span> <span class="n">una</span> <span class="n">clase</span> <span class="n">que</span> <span class="n">hereda</span> <span class="n">de</span> <span class="n">Persona</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Cliente</span> <span class="n">extends</span> <span class="n">Persona</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">direccion</span><span class="p">;</span>
+    <span class="n">List</span> <span class="n">ordenes</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="o">//</span> <span class="n">Como</span> <span class="n">el</span> <span class="n">padre</span> <span class="n">tenemos</span> <span class="n">un</span> <span class="n">constructor</span> <span class="n">que</span> <span class="n">recibe</span> <span class="n">parámetros</span> <span class="n">tenemos</span> <span class="n">que</span> <span class="n">llamar</span> <span class="n">un</span> <span class="nb">super</span> <span class="n">constructor</span><span class="p">:</span>
+    <span class="n">Cliente</span><span class="p">(</span><span class="nb">int</span> <span class="n">edadActual</span><span class="p">,</span> <span class="n">String</span> <span class="n">nombreActual</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">nombreActual</span><span class="p">,</span> <span class="n">edadActual</span><span class="p">);</span> <span class="o">//</span> <span class="n">Ahora</span> <span class="n">dentro</span> <span class="k">del</span> <span class="n">constructor</span> <span class="n">utilizamos</span> <span class="n">el</span> <span class="nb">super</span> <span class="n">constructor</span> <span class="n">y</span> <span class="n">le</span> <span class="n">pasamos</span> <span class="n">los</span> <span class="n">parametros</span> <span class="n">que</span> <span class="n">recibe</span> <span class="n">el</span> <span class="n">constructor</span> <span class="n">hijo</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">objeto</span> <span class="n">con</span> <span class="n">el</span> <span class="n">hijo</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">pedro</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Cliente</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">);</span>
+    <span class="n">pedro</span><span class="o">.</span><span class="n">imprimirNombre</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sobreescribir-metodos">
+<h3><a class="toc-backref" href="#id55">Sobreescribir métodos</a><a class="headerlink" href="#sobreescribir-metodos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para sobreescribir la funcionalidad de un método en dart utilizamos el decorador <code class="docutils literal"><span class="pre">&#64;override</span></code></p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">edad</span><span class="p">;</span>
+
+    <span class="n">Persona</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">edad</span><span class="p">);</span>
+
+    <span class="n">void</span> <span class="n">imprimirNombre</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nombre: $nombre, Edad: $edad&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Cliente</span> <span class="n">extends</span> <span class="n">Persona</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">direccion</span><span class="p">;</span>
+    <span class="n">List</span> <span class="n">ordenes</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="n">Cliente</span><span class="p">(</span><span class="nb">int</span> <span class="n">edadActual</span><span class="p">,</span> <span class="n">String</span> <span class="n">nombreActual</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">nombreActual</span><span class="p">,</span> <span class="n">edadActual</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Override</span> <span class="n">lo</span> <span class="n">usamos</span> <span class="n">para</span> <span class="n">sobreescribir</span> <span class="n">metodos</span> <span class="k">del</span> <span class="n">padre</span><span class="p">:</span>
+    <span class="nd">@override</span>
+    <span class="n">void</span> <span class="n">imprimirNombre</span><span class="p">(){</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">imprimirNombre</span><span class="p">();</span> <span class="o">//</span> <span class="n">Ponemos</span> <span class="n">esta</span> <span class="n">linea</span> <span class="n">si</span> <span class="n">queremos</span> <span class="n">imprimir</span> <span class="n">el</span> <span class="n">metodo</span> <span class="n">padre</span> <span class="n">original</span><span class="o">.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cliente: $nombre ($edad)&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">final</span> <span class="n">pedro</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Cliente</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">);</span>
+
+    <span class="n">pedro</span><span class="o">.</span><span class="n">imprimirNombre</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mixins">
+<h3><a class="toc-backref" href="#id56">Mixins</a><a class="headerlink" href="#mixins" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los mixins son muy parecidos a los extends pero tienen unas características especiales</p>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">mixin</span> <span class="n">que</span> <span class="n">es</span> <span class="n">similar</span> <span class="n">a</span> <span class="n">una</span> <span class="n">clase</span> <span class="n">abstracta</span> <span class="n">pero</span> <span class="n">no</span> <span class="n">tiene</span> <span class="n">constructor</span> <span class="n">a</span> <span class="n">diferencia</span> <span class="n">de</span> <span class="n">esta</span> <span class="n">ni</span> <span class="n">se</span> <span class="n">puede</span> <span class="n">instanciar</span><span class="o">.</span>
+<span class="n">mixin</span> <span class="n">Logger</span><span class="p">{</span> <span class="o">//</span> <span class="n">Un</span> <span class="n">mixin</span> <span class="n">sirve</span> <span class="n">únicamente</span> <span class="n">como</span> <span class="n">una</span> <span class="n">clase</span> <span class="n">que</span> <span class="n">sirve</span> <span class="n">para</span> <span class="n">que</span> <span class="n">se</span> <span class="n">herede</span> <span class="n">de</span> <span class="n">esta</span> <span class="n">sus</span> <span class="n">atributos</span> <span class="n">y</span> <span class="n">métodos</span><span class="p">:</span>
+    <span class="n">void</span> <span class="n">imprimir</span><span class="p">(</span><span class="n">String</span> <span class="n">texto</span><span class="p">){</span>
+        <span class="n">final</span> <span class="n">hoy</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">();</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;$hoy :::: $texto&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Creamos</span> <span class="n">una</span> <span class="n">clase</span> <span class="n">que</span> <span class="n">herede</span> <span class="n">el</span> <span class="n">mixin</span><span class="p">:</span>
+<span class="n">abstract</span> <span class="k">class</span> <span class="nc">Astro</span> <span class="k">with</span> <span class="n">Logger</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+
+    <span class="n">Astro</span><span class="p">(){</span>
+        <span class="n">imprimir</span><span class="p">(</span><span class="s1">&#39;--- Init del Astro ---&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">void</span> <span class="n">existo</span><span class="p">(){</span>
+        <span class="n">imprimir</span><span class="p">(</span><span class="s1">&#39;-- Soy un ser celestial y existo --&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Creamos</span> <span class="n">una</span> <span class="n">clase</span> <span class="n">que</span> <span class="n">herede</span> <span class="n">de</span> <span class="n">Astro</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Asteroide</span> <span class="n">extends</span> <span class="n">Astro</span><span class="p">{</span>
+    <span class="n">String</span> <span class="n">nombre</span><span class="p">;</span>
+
+    <span class="n">Asteroide</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">nombre</span><span class="p">){</span>
+        <span class="n">imprimir</span><span class="p">(</span><span class="s1">&#39;Soy $nombre&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">final</span> <span class="n">ceres</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Asteroide</span><span class="p">(</span><span class="s1">&#39;Ceres&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="manejo-de-errores">
+<h2><a class="toc-backref" href="#id57">Manejo de errores</a><a class="headerlink" href="#manejo-de-errores" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El manejo de errores en Dart se hace con <code class="docutils literal"><span class="pre">catchError</span></code></p>
+<ul class="simple">
+<li>Ejemplo de uso:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(){</span>
+    <span class="n">Future</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">Future</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="p">:</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(){</span> <span class="o">//</span> <span class="n">Este</span> <span class="n">código</span> <span class="n">se</span> <span class="n">va</span> <span class="n">a</span> <span class="n">ejecutar</span> <span class="mi">3</span> <span class="n">segundos</span> <span class="n">desupés</span><span class="o">.</span>
+
+        <span class="o">//</span> <span class="n">provocamos</span> <span class="n">un</span> <span class="n">error</span> <span class="n">con</span> <span class="n">throw</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="n">throw</span> <span class="s1">&#39;Auxilio!, exploto el programa!!!&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="s1">&#39;Retorno de dato&#39;</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="o">//</span> <span class="n">Utilizamos</span> <span class="n">catchError</span> <span class="n">para</span> <span class="n">capturar</span> <span class="n">cualquier</span> <span class="n">error</span> <span class="n">que</span> <span class="n">suceda</span> <span class="n">mientras</span> <span class="n">se</span> <span class="n">ejecuta</span> <span class="n">el</span> <span class="n">future</span><span class="p">:</span>
+    <span class="n">timeout</span><span class="o">.</span><span class="n">then</span><span class="p">((</span><span class="n">texto</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">))</span><span class="o">.</span><span class="n">catchError</span><span class="p">((</span><span class="n">error</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="programacion-reactiva-streams">
+<h2><a class="toc-backref" href="#id58">Programación Reactiva: Streams</a><a class="headerlink" href="#programacion-reactiva-streams" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un Stream es un flujo de datos, es similar a un observable que vigila el flujo de datos de manera constante enviando y recibiendo cambios en tiempo real.</p>
+<ul class="simple">
+<li>Ejemplo de uso de Stream:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Cargamos</span> <span class="n">la</span> <span class="n">librería</span> <span class="k">async</span><span class="p">:</span>
+<span class="kn">import</span> <span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Creamos</span> <span class="n">un</span> <span class="n">objeto</span> <span class="n">de</span> <span class="n">tipo</span> <span class="n">Stream</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">streamController</span> <span class="o">=</span> <span class="n">StreamController</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Para</span> <span class="n">utilizarlo</span> <span class="n">le</span> <span class="n">añadimos</span> <span class="n">el</span> <span class="n">listen</span><span class="p">()</span> <span class="n">que</span> <span class="n">es</span> <span class="n">como</span> <span class="n">un</span> <span class="n">subscribe</span><span class="p">():</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">listen</span><span class="p">((</span><span class="n">data</span><span class="p">){</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Despegando! $data&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="o">//</span> <span class="n">Ahora</span> <span class="n">vamos</span> <span class="n">a</span> <span class="n">agregarle</span> <span class="n">información</span> <span class="n">al</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Apollo 11&#39;</span><span class="p">);</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fin del main&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Uso de onError, onDone y cancelOnError:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="n">final</span> <span class="n">streamController</span> <span class="o">=</span> <span class="n">StreamController</span><span class="p">();</span>
+    <span class="o">//</span> <span class="n">Ajustamos</span> <span class="n">el</span> <span class="n">stream</span> <span class="n">con</span> <span class="n">una</span> <span class="n">función</span> <span class="k">lambda</span><span class="p">:</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Despegando! $data&#39;</span><span class="p">),</span>
+            <span class="n">onError</span><span class="p">:</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error! $err&#39;</span><span class="p">),</span> <span class="o">//</span><span class="n">Manejamos</span> <span class="n">un</span> <span class="n">error</span> <span class="n">cuando</span> <span class="n">este</span> <span class="n">suceda</span><span class="o">.</span>
+            <span class="n">onDone</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mision cumplida&#39;</span><span class="p">),</span> <span class="o">//</span> <span class="n">Esta</span> <span class="n">opción</span> <span class="n">se</span> <span class="n">desplegará</span> <span class="n">una</span> <span class="n">vez</span> <span class="n">se</span> <span class="n">finalice</span> <span class="n">el</span> <span class="n">stream</span> <span class="n">sin</span> <span class="n">errores</span>
+            <span class="n">cancelOnError</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="o">//</span> <span class="n">Si</span> <span class="n">tenemos</span> <span class="n">en</span> <span class="n">true</span> <span class="n">esta</span> <span class="n">opción</span> <span class="n">se</span> <span class="n">cancelará</span> <span class="n">el</span> <span class="n">programa</span> <span class="n">y</span> <span class="n">apollo</span> <span class="mi">12</span> <span class="n">no</span> <span class="n">despegará</span><span class="o">.</span>
+    <span class="p">);</span>
+
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Apollo 11&#39;</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">Podemos</span> <span class="n">lanar</span> <span class="n">un</span> <span class="n">error</span> <span class="n">con</span> <span class="n">los</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">addError</span><span class="p">(</span><span class="s1">&#39;Houston, Tenemos un problema&#39;</span><span class="p">);</span>
+    <span class="o">//</span> <span class="n">Si</span> <span class="n">el</span> <span class="n">error</span> <span class="n">esta</span> <span class="n">manejado</span> <span class="n">con</span> <span class="n">onError</span> <span class="n">podremos</span> <span class="n">seguir</span> <span class="n">con</span> <span class="n">el</span> <span class="n">flujo</span> <span class="n">de</span> <span class="n">datos</span><span class="p">:</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Apollo 12&#39;</span><span class="p">);</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fin del main&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Tipados y Broadcast para transmisiones paralelas:</li>
+</ul>
+<div class="code dart highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(){</span>
+    <span class="o">//</span> <span class="n">Podemos</span> <span class="n">asignar</span> <span class="n">el</span> <span class="n">tipado</span> <span class="n">para</span> <span class="n">que</span> <span class="n">devuelva</span> <span class="n">un</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">dato</span> <span class="n">estrictamente</span><span class="p">:</span>
+    <span class="n">final</span> <span class="n">streamController</span> <span class="o">=</span> <span class="n">new</span> <span class="n">StreamController</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;.</span><span class="n">broadcast</span><span class="p">();</span> <span class="o">//</span> <span class="n">El</span> <span class="n">broadcast</span> <span class="n">permite</span> <span class="n">multiples</span> <span class="n">subscripciones</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Despegando! $data&#39;</span><span class="p">),</span>
+            <span class="n">onError</span><span class="p">:</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error! $err&#39;</span><span class="p">),</span>
+            <span class="n">onDone</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mision cumplida&#39;</span><span class="p">),</span>
+            <span class="n">cancelOnError</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">);</span>
+    <span class="o">//</span> <span class="n">gracias</span> <span class="n">al</span> <span class="n">broadcast</span> <span class="n">podemos</span> <span class="n">volver</span> <span class="n">a</span> <span class="n">generar</span> <span class="n">otro</span> <span class="n">stream</span> <span class="n">similar</span><span class="p">:</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vamos! $data&#39;</span><span class="p">),</span>
+            <span class="n">onError</span><span class="p">:</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fallo! $err&#39;</span><span class="p">),</span>
+            <span class="n">onDone</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Funcionó&#39;</span><span class="p">),</span>
+            <span class="n">cancelOnError</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">);</span>
+
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Apollo 11&#39;</span><span class="p">);</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">addError</span><span class="p">(</span><span class="s1">&#39;Houston, Tenemos un problema&#39;</span><span class="p">);</span>
+    <span class="n">streamController</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Apollo 12&#39;</span><span class="p">);</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fin del main&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sql.html" class="btn btn-neutral float-right" title="SQL" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="csharp.html" class="btn btn-neutral" title="C#" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
