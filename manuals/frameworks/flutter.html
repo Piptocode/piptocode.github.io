@@ -34,7 +34,7 @@
               href="../../genindex.html"/>
         <link rel="search" title="Búsqueda" href="../../search.html"/>
     <link rel="top" title="documentación de Piptocode - 1.0" href="../../index.html"/>
-        <link rel="next" title="Unity" href="unity.html"/>
+        <link rel="next" title="Raspberry Pi" href="../computer/raspberry.html"/>
         <link rel="prev" title="Django Rest Framework" href="djangorest.html"/> 
 
   
@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../languages/javascript.html">JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/c.html">C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/cpp.html">C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../languages/csharp.html">C#</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/dart.html">Dart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/sql.html">SQL</a></li>
 </ul>
@@ -135,10 +134,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#navegacion">Navegacion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navegacion">Navegacion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#navegacion-entre-paginas">Navegación entre páginas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navegacion-por-rutas">Navegación por rutas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="unity.html">Unity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tarjeta-o-card-widget">Tarjeta o Card Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imagenes">Imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alertas">Alertas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#avatar-circular">Avatar circular</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Informática y Hardware:</span></p>
 <ul>
@@ -214,7 +220,7 @@
   <div class="section" id="flutter">
 <h1><a class="toc-backref" href="#id1">Flutter</a><a class="headerlink" href="#flutter" title="Enlazar permanentemente con este título">¶</a></h1>
 <a class="reference internal image-reference" href="../../_images/logo-flutter.png"><img alt="Logo JS" class="align-center" src="../../_images/logo-flutter.png" style="width: 181.5px; height: 225.0px;" /></a>
-<p>Última edición el día 2020-06-20 a las 13:11.</p>
+<p>Última edición el día 2020-09-14 a las 23:40.</p>
 <p>Esta es la documentación que he recopilado para trabajar con Flutter, el SDK para desarrollo de Apps para Android e IOS.</p>
 <div class="contents topic" id="indice">
 <p class="topic-title">Índice</p>
@@ -259,7 +265,16 @@
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#navegacion" id="id22">Navegacion</a></p></li>
+<li><p><a class="reference internal" href="#navegacion" id="id22">Navegacion</a></p>
+<ul>
+<li><p><a class="reference internal" href="#navegacion-entre-paginas" id="id23">Navegación entre páginas</a></p></li>
+<li><p><a class="reference internal" href="#navegacion-por-rutas" id="id24">Navegación por rutas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tarjeta-o-card-widget" id="id25">Tarjeta o Card Widget</a></p></li>
+<li><p><a class="reference internal" href="#imagenes" id="id26">Imágenes</a></p></li>
+<li><p><a class="reference internal" href="#alertas" id="id27">Alertas</a></p></li>
+<li><p><a class="reference internal" href="#avatar-circular" id="id28">Avatar circular</a></p></li>
 </ul>
 </li>
 </ul>
@@ -345,30 +360,30 @@
 <li><p>Nos dirigimos al directorio lib y abrimos el archivo main.dart y borramos todo su contenido.</p></li>
 <li><p>Ahora escribimos el siguiente código:</p></li>
 </ul>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="c1">// Importamos la librería de material:</span>
-<span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>// Importamos la librería de material:
+import &#39;package:flutter/material.dart&#39;;
 
-<span class="c1">// Creamos la función principal:</span>
-<span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
-    <span class="c1">// Arrancamos la aplicación con esta línea:</span>
-    <span class="n">runApp</span><span class="p">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="p">());</span>
-<span class="p">}</span>
+// Creamos la función principal:
+void main(){
+    // Arrancamos la aplicación con esta línea:
+    runApp(new MyApp());
+}
 
-<span class="c1">// Creamos el widget principal:</span>
-<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span><span class="p">{</span>
-    <span class="c1">// cargamos el método build con un decorador para sobreescribirlo:</span>
-    <span class="nd">@override</span> <span class="c1">// el parámetro context que recibe contiene el arbol de widgets</span>
-    <span class="n">build</span><span class="p">(</span><span class="n">context</span><span class="p">){</span>
-        <span class="c1">// retornamos un widget que recibirá otros widgets inferiores:</span>
-        <span class="k">return</span> <span class="n">MaterialApp</span><span class="p">(</span>
-        <span class="c1">// en la key home le pasamos un widget que se dibujará en la pantalla llamado center:</span>
-        <span class="nl">home:</span> <span class="n">Center</span><span class="p">(</span>
-            <span class="c1">// center recibe un child y sirve para centrar todos los elementos:</span>
-            <span class="nl">child:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">),</span> <span class="c1">// en su child escribimos un texto con el widget Text.</span>
-        <span class="p">)</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+// Creamos el widget principal:
+class MyApp extends StatelessWidget{
+    // cargamos el método build con un decorador para sobreescribirlo:
+    @override // el parámetro context que recibe contiene el arbol de widgets
+    build(context){
+        // retornamos un widget que recibirá otros widgets inferiores:
+        return MaterialApp(
+        // en la key home le pasamos un widget que se dibujará en la pantalla llamado center:
+        home: Center(
+            // center recibe un child y sirve para centrar todos los elementos:
+            child: Text(&quot;Hola mundo&quot;), // en su child escribimos un texto con el widget Text.
+        )
+        );
+    }
+}
 </pre></div>
 </div>
 <p>Una vez escrito el código podemos ejecutar el emulador o reiniciarlo en caso de tenerlo ya funcionando.</p>
@@ -407,51 +422,51 @@
 <ul class="simple">
 <li><p>Creamos un package en <strong>src</strong> llamado <strong>pages</strong> y dentro de esta nueva carpeta creamos el archivo <strong>home_page.dart</strong> y escribimos lo siguiente:</p></li>
 </ul>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
 
-<span class="c1">// Creamos un widget que usaremos como pantalla</span>
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span><span class="p">{</span>
+// Creamos un widget que usaremos como pantalla
+class HomePage extends StatelessWidget{
 
-    <span class="c1">// Sobreescribimos el método build para crear la pantalla:</span>
-    <span class="nd">@override</span>
-    <span class="c1">// El widget principal siempre es build y recibe en el context la referencia de todos los widgets:</span>
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
-        <span class="c1">// Y retornamos un widget llamado scaffold:</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span> <span class="c1">// Recibiremos una barra superior en appbar</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Título&quot;</span><span class="p">),</span> <span class="c1">// El title recibirá un widget de tipo texto.</span>
-            <span class="p">),</span>
-            <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span> <span class="c1">// Y tambien body recibiremos un contenedor centrado.</span>
-                <span class="nl">child:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;hola mundo&quot;</span><span class="p">),</span> <span class="c1">// dentro añadimos un texto.</span>
-            <span class="p">),</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    // Sobreescribimos el método build para crear la pantalla:
+    @override
+    // El widget principal siempre es build y recibe en el context la referencia de todos los widgets:
+    Widget build(BuildContext context){
+        // Y retornamos un widget llamado scaffold:
+        return Scaffold(
+            appBar: AppBar( // Recibiremos una barra superior en appbar
+                title: Text(&quot;Título&quot;), // El title recibirá un widget de tipo texto.
+            ),
+            body: Center( // Y tambien body recibiremos un contenedor centrado.
+                child: Text(&quot;hola mundo&quot;), // dentro añadimos un texto.
+            ),
+        );
+    }
+}
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Para hacer funcionar esta página la tenemos que cargar desde main.dart:</p></li>
 </ul>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
-<span class="c1">// importamos el archivo donde hemos escrito el scaffold:</span>
-<span class="k">import</span> <span class="s1">&#39;package:flutterapp/src/pages/home_page.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+// importamos el archivo donde hemos escrito el scaffold:
+import &#39;package:flutterapp/src/pages/home_page.dart&#39;;
 
-<span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
-    <span class="n">runApp</span><span class="p">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="p">());</span>
-<span class="p">}</span>
+void main(){
+    runApp(new MyApp());
+}
 
-<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span><span class="p">{</span>
-    <span class="nd">@override</span>
-    <span class="n">build</span><span class="p">(</span><span class="n">context</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">MaterialApp</span><span class="p">(</span>
-            <span class="nl">home:</span> <span class="n">Center</span><span class="p">(</span>
-            <span class="c1">// ahora dentro del Center podemos cargar la pantalla que hemos creado:</span>
-            <span class="nl">child:</span> <span class="n">HomePage</span><span class="p">(),</span>
-            <span class="p">)</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+class MyApp extends StatelessWidget{
+    @override
+    build(context){
+        return MaterialApp(
+            home: Center(
+            // ahora dentro del Center podemos cargar la pantalla que hemos creado:
+            child: HomePage(),
+            )
+        );
+    }
+}
 </pre></div>
 </div>
 <p>Y así tenemos listo un scaffold.</p>
@@ -463,28 +478,28 @@
 * mainAxisAligment: Sirve para alinear horizontalmente los elementos que veremos.
 * children: es el lugar donde colocaremos los widgets cargados siempre en una matriz de widgets.</p>
 <p>Ejemplo de uso:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span><span class="p">{</span>
+class HomePage extends StatelessWidget{
 
-<span class="nd">@override</span>
-<span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Título&quot;</span><span class="p">),</span>
-            <span class="p">),</span>
-            <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
-                <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
-                <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">center</span><span class="p">,</span>
-                <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">25</span><span class="p">)),</span>
-                    <span class="p">],</span>
-                <span class="p">),</span>
-            <span class="p">),</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+@override
+Widget build(BuildContext context){
+        return Scaffold(
+            appBar: AppBar(
+                title: Text(&quot;Título&quot;),
+            ),
+            body: Center(
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                    Text(&#39;Hola&#39;, style: TextStyle(fontSize: 25)),
+                    ],
+                ),
+            ),
+        );
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -496,35 +511,35 @@
 <li><p>child: Recibe un icono o un texto.</p></li>
 <li><p>onPressed: Ejecuta un método anónimo personalizado.</p></li>
 </ul>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span><span class="p">{</span>
+class HomePage extends StatelessWidget{
 
-    <span class="nd">@override</span>
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Título&quot;</span><span class="p">),</span>
-            <span class="p">),</span>
-        <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
-            <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
-                <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">center</span><span class="p">,</span>
-                    <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                        <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">25</span><span class="p">)),</span>
-                    <span class="p">],</span>
-            <span class="p">),</span>
-        <span class="p">),</span>
-        <span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="p">(</span>
-                <span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
-                <span class="nl">onPressed:</span> <span class="p">(){</span>
-                <span class="n">print</span><span class="p">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">),</span>
-        <span class="nl">floatingActionButtonLocation:</span> <span class="n">FloatingActionButtonLocation</span><span class="p">.</span><span class="n">centerFloat</span><span class="p">,</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    @override
+    Widget build(BuildContext context){
+        return Scaffold(
+            appBar: AppBar(
+                title: Text(&quot;Título&quot;),
+            ),
+        body: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                    children: &lt;Widget&gt;[
+                        Text(&#39;Hola&#39;, style: TextStyle(fontSize: 25)),
+                    ],
+            ),
+        ),
+        floatingActionButton: FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: (){
+                print(&quot;Hola mundo&quot;);
+            }
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        );
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -532,46 +547,46 @@
 <h3><a class="toc-backref" href="#id14">StatefulWidget</a><a class="headerlink" href="#statefulwidget" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si vamos a hacer cambios en nuestra pantalla, lo idoneo es pasarse a un <strong>StatefulWidget</strong></p>
 <p>Ejemplo de StateFulWidget:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+class HomePage extends StatefulWidget {
 
-    <span class="nd">@override</span>
-    <span class="n">createState</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">_HomePageState</span><span class="p">();</span>
-<span class="p">}</span>
+    @override
+    createState() =&gt; _HomePageState();
+}
 
-<span class="kd">class</span> <span class="nc">_HomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">HomePage</span><span class="o">&gt;</span><span class="p">{</span>
+class _HomePageState extends State&lt;HomePage&gt;{
 
-    <span class="c1">// Esta variable es por lo que vamos a necesitar el stateful:</span>
-    <span class="kt">int</span> <span class="n">_contador</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    // Esta variable es por lo que vamos a necesitar el stateful:
+    int _contador = 0;
 
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Título&quot;</span><span class="p">),</span>
-            <span class="p">),</span>
-            <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
-                <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
-                <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">center</span><span class="p">,</span>
-                <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">25</span><span class="p">)),</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">_contador</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">20</span><span class="p">))</span>
-                <span class="p">],</span>
-                <span class="p">),</span>
-            <span class="p">),</span>
-            <span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="p">(</span>
-                <span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
-                <span class="nl">onPressed:</span> <span class="p">(){</span>
-                <span class="n">setState</span><span class="p">((){</span>
-                    <span class="n">_contador</span><span class="o">++</span><span class="p">;</span>
-                <span class="p">});</span>
-                <span class="p">}</span>
-            <span class="p">),</span>
-            <span class="nl">floatingActionButtonLocation:</span> <span class="n">FloatingActionButtonLocation</span><span class="p">.</span><span class="n">centerFloat</span><span class="p">,</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    Widget build(BuildContext context){
+        return Scaffold(
+            appBar: AppBar(
+                title: Text(&quot;Título&quot;),
+            ),
+            body: Center(
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                    Text(&#39;Hola&#39;, style: TextStyle(fontSize: 25)),
+                    Text(&#39;$_contador&#39;, style: TextStyle(fontSize: 20))
+                ],
+                ),
+            ),
+            floatingActionButton: FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: (){
+                setState((){
+                    _contador++;
+                });
+                }
+            ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        );
+    }
+}
 </pre></div>
 </div>
 <div class="admonition hint">
@@ -596,50 +611,50 @@
 <li><p>children: Recibe una lista de widgets que irá mostrando de izquierda a derecha.</p></li>
 </ul>
 <p>Ejemplo de uso:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+class HomePage extends StatefulWidget {
 
-    <span class="nd">@override</span>
-    <span class="n">createState</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">_HomePageState</span><span class="p">();</span>
-    <span class="p">}</span>
+    @override
+    createState() =&gt; _HomePageState();
+    }
 
-    <span class="kd">class</span> <span class="nc">_HomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">HomePage</span><span class="o">&gt;</span><span class="p">{</span>
+    class _HomePageState extends State&lt;HomePage&gt;{
 
-    <span class="c1">// Esta variable es por lo que vamos a necesitar el stateful:</span>
-    <span class="kt">int</span> <span class="n">_contador</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    // Esta variable es por lo que vamos a necesitar el stateful:
+    int _contador = 0;
 
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Título&quot;</span><span class="p">),</span>
-        <span class="p">),</span>
-        <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
-            <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
-                <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">center</span><span class="p">,</span>
-                <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">25</span><span class="p">)),</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">_contador</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">20</span><span class="p">))</span>
-                <span class="p">],</span>
-            <span class="p">),</span>
-        <span class="p">),</span>
-        <span class="nl">floatingActionButton:</span> <span class="n">Row</span><span class="p">(</span>
-            <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">spaceAround</span><span class="p">,</span>
-            <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                <span class="n">SizedBox</span><span class="p">(</span><span class="nl">width:</span><span class="m">30</span><span class="p">),</span>
-                <span class="n">FloatingActionButton</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">exposure_zero</span><span class="p">),</span> <span class="nl">onPressed:</span> <span class="p">(){}</span>
-                <span class="p">),</span>
-                <span class="n">Expanded</span><span class="p">(</span><span class="nl">child:</span> <span class="n">SizedBox</span><span class="p">()),</span>
-                <span class="n">FloatingActionButton</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span> <span class="nl">onPressed:</span> <span class="p">(){}),</span>
-                <span class="n">SizedBox</span><span class="p">(</span><span class="nl">width:</span> <span class="m">5.0</span><span class="p">),</span>
-                <span class="n">FloatingActionButton</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">remove</span><span class="p">),</span> <span class="nl">onPressed:</span> <span class="p">(){}),</span>
-            <span class="p">],</span>
-        <span class="p">),</span>
-        <span class="nl">floatingActionButtonLocation:</span> <span class="n">FloatingActionButtonLocation</span><span class="p">.</span><span class="n">centerFloat</span><span class="p">,</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    Widget build(BuildContext context){
+        return Scaffold(
+            appBar: AppBar(
+                title: Text(&quot;Título&quot;),
+        ),
+        body: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                    Text(&#39;Hola&#39;, style: TextStyle(fontSize: 25)),
+                    Text(&#39;$_contador&#39;, style: TextStyle(fontSize: 20))
+                ],
+            ),
+        ),
+        floatingActionButton: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: &lt;Widget&gt;[
+                SizedBox(width:30),
+                FloatingActionButton(child: Icon(Icons.exposure_zero), onPressed: (){}
+                ),
+                Expanded(child: SizedBox()),
+                FloatingActionButton(child: Icon(Icons.add), onPressed: (){}),
+                SizedBox(width: 5.0),
+                FloatingActionButton(child: Icon(Icons.remove), onPressed: (){}),
+            ],
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        );
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -647,66 +662,66 @@
 <h3><a class="toc-backref" href="#id16">Crear tus propios widgets</a><a class="headerlink" href="#crear-tus-propios-widgets" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Crear tus propios widgets es muy útil para separar código en las páginas y así poder hacer el código mas legible.</p>
 <p>Ejemplo para crear un Widget:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+class HomePage extends StatefulWidget {
 
-    <span class="nd">@override</span>
-    <span class="n">createState</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">_HomePageState</span><span class="p">();</span>
-<span class="p">}</span>
+    @override
+    createState() =&gt; _HomePageState();
+}
 
-<span class="kd">class</span> <span class="nc">_HomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">HomePage</span><span class="o">&gt;</span><span class="p">{</span>
+class _HomePageState extends State&lt;HomePage&gt;{
 
-    <span class="c1">// Esta variable es por lo que vamos a necesitar el stateful:</span>
-    <span class="kt">int</span> <span class="n">_contador</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    // Esta variable es por lo que vamos a necesitar el stateful:
+    int _contador = 0;
 
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">){</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Título&quot;</span><span class="p">),</span>
-            <span class="p">),</span>
-            <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
-                <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
-                <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">center</span><span class="p">,</span>
-                <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Hola&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">25</span><span class="p">)),</span>
-                    <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">_contador</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span> <span class="m">20</span><span class="p">))</span>
-                <span class="p">],</span>
-                <span class="p">),</span>
-            <span class="p">),</span><span class="c1">// Llamamos aquí en su lugar al nuevo widget _botonera():</span>
-            <span class="nl">floatingActionButton:</span> <span class="n">_botonera</span><span class="p">(),</span>
-            <span class="nl">floatingActionButtonLocation:</span> <span class="n">FloatingActionButtonLocation</span><span class="p">.</span><span class="n">centerFloat</span><span class="p">,</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-    <span class="c1">// Creamos un método de tipo widget:</span>
-    <span class="n">Widget</span> <span class="n">_botonera</span><span class="p">(){</span>
-        <span class="c1">// retornamos un widget con el contenido que queremos mostrar:</span>
-        <span class="k">return</span> <span class="n">Row</span><span class="p">(</span>
-            <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="p">.</span><span class="n">spaceAround</span><span class="p">,</span>
-            <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-                <span class="n">SizedBox</span><span class="p">(</span><span class="nl">width:</span><span class="m">30</span><span class="p">),</span>
-                    <span class="n">FloatingActionButton</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">exposure_zero</span><span class="p">),</span> <span class="nl">onPressed:</span> <span class="n">_reiniciar</span><span class="p">),</span>
-                    <span class="n">Expanded</span><span class="p">(</span><span class="nl">child:</span> <span class="n">SizedBox</span><span class="p">()),</span>
-                    <span class="n">FloatingActionButton</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span> <span class="nl">onPressed:</span> <span class="n">_sumar</span><span class="p">),</span>
-                    <span class="n">SizedBox</span><span class="p">(</span><span class="nl">width:</span> <span class="m">5.0</span><span class="p">),</span>
-                    <span class="n">FloatingActionButton</span><span class="p">(</span><span class="nl">child:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">remove</span><span class="p">),</span> <span class="nl">onPressed:</span> <span class="n">_restar</span><span class="p">),</span>
-                <span class="p">],</span>
-                <span class="p">);</span> <span class="c1">// recuerda poner el ; en lugar de ,</span>
-            <span class="p">}</span>
+    Widget build(BuildContext context){
+        return Scaffold(
+            appBar: AppBar(
+                title: Text(&quot;Título&quot;),
+            ),
+            body: Center(
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                    Text(&#39;Hola&#39;, style: TextStyle(fontSize: 25)),
+                    Text(&#39;$_contador&#39;, style: TextStyle(fontSize: 20))
+                ],
+                ),
+            ),// Llamamos aquí en su lugar al nuevo widget _botonera():
+            floatingActionButton: _botonera(),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        );
+    }
+    // Creamos un método de tipo widget:
+    Widget _botonera(){
+        // retornamos un widget con el contenido que queremos mostrar:
+        return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: &lt;Widget&gt;[
+                SizedBox(width:30),
+                    FloatingActionButton(child: Icon(Icons.exposure_zero), onPressed: _reiniciar),
+                    Expanded(child: SizedBox()),
+                    FloatingActionButton(child: Icon(Icons.add), onPressed: _sumar),
+                    SizedBox(width: 5.0),
+                    FloatingActionButton(child: Icon(Icons.remove), onPressed: _restar),
+                ],
+                ); // recuerda poner el ; en lugar de ,
+            }
 
-                <span class="c1">// aprovechamos para agregar metodos que alteren el número para suma, resta y reinicio:</span>
-                <span class="kt">void</span> <span class="n">_reiniciar</span><span class="p">(){</span>
-                    <span class="n">setState</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="n">_contador</span> <span class="o">=</span> <span class="m">0</span><span class="p">);</span>
-                <span class="p">}</span>
-                <span class="kt">void</span> <span class="n">_sumar</span><span class="p">(){</span>
-                    <span class="n">setState</span><span class="p">(()</span><span class="o">=&gt;</span> <span class="n">_contador</span><span class="o">++</span><span class="p">);</span>
-                <span class="p">}</span>
-                <span class="kt">void</span> <span class="n">_restar</span><span class="p">(){</span>
-                    <span class="n">setState</span><span class="p">(()</span><span class="o">=&gt;</span> <span class="n">_contador</span><span class="o">--</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-<span class="p">}</span>
+                // aprovechamos para agregar metodos que alteren el número para suma, resta y reinicio:
+                void _reiniciar(){
+                    setState(() =&gt; _contador = 0);
+                }
+                void _sumar(){
+                    setState(()=&gt; _contador++);
+                }
+                void _restar(){
+                    setState(()=&gt; _contador--);
+                }
+            }
+}
 </pre></div>
 </div>
 </div>
@@ -729,76 +744,76 @@
 </li>
 </ul>
 <p>Ejemplo de uso:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
-    <span class="nd">@override</span>
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Listas&#39;</span><span class="p">)</span>
-        <span class="p">),</span>
-        <span class="nl">body:</span> <span class="n">ListView</span><span class="p">(</span>
-            <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
-            <span class="n">ListTile</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Titulo de elemento&#39;</span><span class="p">)</span>
-            <span class="p">),</span>
-            <span class="n">Divider</span><span class="p">(),</span>
-            <span class="n">ListTile</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Titulo de elemento 2&#39;</span><span class="p">)</span>
-            <span class="p">),</span>
-            <span class="n">Divider</span><span class="p">(),</span>
-            <span class="n">ListTile</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Titulo de elemento 3&#39;</span><span class="p">)</span>
-            <span class="p">)</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+class HomePage extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Listas&#39;)
+        ),
+        body: ListView(
+            children: &lt;Widget&gt;[
+            ListTile(
+                title: Text(&#39;Titulo de elemento&#39;)
+            ),
+            Divider(),
+            ListTile(
+                title: Text(&#39;Titulo de elemento 2&#39;)
+            ),
+            Divider(),
+            ListTile(
+                title: Text(&#39;Titulo de elemento 3&#39;)
+            )
+            ]
+        )
+        );
+    }
+}
 </pre></div>
 </div>
 <div class="section" id="pasar-lista-de-dart-a-list-de-flutter">
 <h4><a class="toc-backref" href="#id19">pasar Lista de dart a List de Flutter</a><a class="headerlink" href="#pasar-lista-de-dart-a-list-de-flutter" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Lo mas común en Flutter es encontrarse listas dart con la información y es necesario realizar una serie de pasos para mostrarla en un ListView.</p>
 <p>Ejemplo de conversión:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
-    <span class="c1">// Creamos una lista de la compra:</span>
-    <span class="kd">final</span> <span class="n">compra</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;leche&#39;</span><span class="p">,</span> <span class="s1">&#39;galletas&#39;</span><span class="p">,</span> <span class="s1">&#39;huevos&#39;</span><span class="p">,</span> <span class="s1">&#39;patatas&#39;</span><span class="p">,</span> <span class="s1">&#39;arroz&#39;</span><span class="p">];</span>
+class HomePage extends StatelessWidget {
+    // Creamos una lista de la compra:
+    final compra = [&#39;leche&#39;, &#39;galletas&#39;, &#39;huevos&#39;, &#39;patatas&#39;, &#39;arroz&#39;];
 
-    <span class="nd">@override</span>
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-            <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-                <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Listas&#39;</span><span class="p">)</span>
-            <span class="p">),</span>
-            <span class="nl">body:</span> <span class="n">ListView</span><span class="p">(</span>
-                <span class="nl">children:</span> <span class="n">_crearListado</span><span class="p">()</span>
-            <span class="p">)</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            appBar: AppBar(
+                title: Text(&#39;Listas&#39;)
+            ),
+            body: ListView(
+                children: _crearListado()
+            )
+        );
+    }
 
-    <span class="c1">// Creamos un nuevo List de tipo widget que contendrá los ListTile de nuestra lista:</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span> <span class="n">_crearListado</span><span class="p">(){</span>
-        <span class="c1">// Ahora vamos a crear otra lista dentro para guardar los elementos de la lista en dart:</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span> <span class="n">lista</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="c1">// Recorremos la lista con un bucle:</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">String</span> <span class="n">c</span> <span class="k">in</span> <span class="n">compra</span><span class="p">){</span>
-        <span class="c1">// Guardamos cada elemento de la lista en un listtile:</span>
-        <span class="kd">final</span> <span class="n">compraTemp</span> <span class="o">=</span> <span class="n">ListTile</span><span class="p">(</span>
-            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-        <span class="p">);</span>
-        <span class="c1">// añadimos cada listtile al List:</span>
-        <span class="n">lista</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">compraTemp</span><span class="p">);</span>
-        <span class="c1">// y añadimos un divisor:</span>
-        <span class="n">lista</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Divider</span><span class="p">());</span>
-        <span class="p">}</span>
-        <span class="c1">// devolvemos la lista:</span>
-        <span class="k">return</span> <span class="n">lista</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    // Creamos un nuevo List de tipo widget que contendrá los ListTile de nuestra lista:
+    List&lt;Widget&gt; _crearListado(){
+        // Ahora vamos a crear otra lista dentro para guardar los elementos de la lista en dart:
+        List&lt;Widget&gt; lista = new List&lt;Widget&gt;();
+        // Recorremos la lista con un bucle:
+        for(String c in compra){
+        // Guardamos cada elemento de la lista en un listtile:
+        final compraTemp = ListTile(
+            title: Text(c)
+        );
+        // añadimos cada listtile al List:
+        lista.add(compraTemp);
+        // y añadimos un divisor:
+        lista.add(Divider());
+        }
+        // devolvemos la lista:
+        return lista;
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -871,61 +886,61 @@
 </pre></div>
 </div>
 <p>Ahora nos vamos a la página donde queremos cargar el listado y utilizamos un <strong>Future Builder</strong> para realizar promesas en Flutter:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
-<span class="c1">// Importamos el archivo menuProvider:</span>
-<span class="k">import</span> <span class="s1">&#39;package:flutterapp/src/providers/menu_provider.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+// Importamos el archivo menuProvider:
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
-    <span class="kd">final</span> <span class="n">compra</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;leche&#39;</span><span class="p">,</span> <span class="s1">&#39;galletas&#39;</span><span class="p">,</span> <span class="s1">&#39;huevos&#39;</span><span class="p">,</span> <span class="s1">&#39;patatas&#39;</span><span class="p">,</span> <span class="s1">&#39;arroz&#39;</span><span class="p">];</span>
+class HomePage extends StatelessWidget {
+    final compra = [&#39;leche&#39;, &#39;galletas&#39;, &#39;huevos&#39;, &#39;patatas&#39;, &#39;arroz&#39;];
 
-    <span class="nd">@override</span>
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Menu Principal&#39;</span><span class="p">)</span>
-        <span class="p">),</span><span class="c1">// cargamos el nuevo widget menu:</span>
-        <span class="nl">body:</span> <span class="n">_menu</span><span class="p">()</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Menu Principal&#39;)
+        ),// cargamos el nuevo widget menu:
+        body: _menu()
+        );
+    }
 
-    <span class="c1">// Creamos un Widget para mostrar el provider:</span>
-    <span class="n">Widget</span> <span class="n">_menu</span><span class="p">(){</span>
-        <span class="n">print</span><span class="p">(</span><span class="n">menuProvider</span><span class="p">.</span><span class="n">opciones</span><span class="p">);</span>
-        <span class="c1">// devolvemos un Future builder:</span>
-        <span class="k">return</span> <span class="n">FutureBuilder</span><span class="p">(</span>
-        <span class="nl">future:</span> <span class="n">menuProvider</span><span class="p">.</span><span class="n">cargarDatos</span><span class="p">(),</span> <span class="c1">// en future ejecutamos la llamada a la informacion</span>
-        <span class="nl">initialData:</span> <span class="p">[],</span> <span class="c1">// por defecto tenemos que asignar un initialData vacío</span>
-        <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">AsyncSnapshot</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span> <span class="n">snapshot</span><span class="p">){</span> <span class="c1">// en el builder crearemos el ListView con los datos del JSON</span>
-            <span class="k">return</span> <span class="n">ListView</span><span class="p">(</span>
-            <span class="nl">children:</span> <span class="n">_opciones</span><span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">data</span><span class="p">),</span> <span class="c1">// Los listtiles los construiremos en un nuevo método</span>
-            <span class="p">);</span>
-        <span class="p">}</span>
+    // Creamos un Widget para mostrar el provider:
+    Widget _menu(){
+        print(menuProvider.opciones);
+        // devolvemos un Future builder:
+        return FutureBuilder(
+        future: menuProvider.cargarDatos(), // en future ejecutamos la llamada a la informacion
+        initialData: [], // por defecto tenemos que asignar un initialData vacío
+        builder: (BuildContext context, AsyncSnapshot&lt;List&lt;dynamic&gt;&gt; snapshot){ // en el builder crearemos el ListView con los datos del JSON
+            return ListView(
+            children: _opciones(snapshot.data), // Los listtiles los construiremos en un nuevo método
+            );
+        }
 
-        <span class="p">);</span>
-    <span class="p">}</span>
+        );
+    }
 
-    <span class="c1">// creamos el método que hará los listtiles como antes pero usando el JSON parseado:</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span> <span class="n">_opciones</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">dynamic</span><span class="o">&gt;</span> <span class="n">datos</span><span class="p">){</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span> <span class="n">opciones</span> <span class="o">=</span> <span class="p">[];</span>
-        <span class="c1">// recorremos los datos JSON recibidos por parametros:</span>
-        <span class="n">datos</span><span class="p">.</span><span class="n">forEach</span><span class="p">((</span><span class="n">opcion</span><span class="p">){</span>
-        <span class="kd">final</span> <span class="n">widgetTemp</span> <span class="o">=</span> <span class="n">ListTile</span><span class="p">(</span>
-            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">opcion</span><span class="p">[</span><span class="s1">&#39;texto&#39;</span><span class="p">]),</span>
-            <span class="nl">leading:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">account_circle</span><span class="p">,</span> <span class="nl">color:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">amber</span><span class="p">),</span>
-            <span class="nl">trailing:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">keyboard_arrow_right</span><span class="p">,</span> <span class="nl">color:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">amberAccent</span><span class="p">),</span>
-            <span class="nl">onTap:</span> <span class="p">(){</span>
+    // creamos el método que hará los listtiles como antes pero usando el JSON parseado:
+    List&lt;Widget&gt; _opciones(List&lt;dynamic&gt; datos){
+        final List&lt;Widget&gt; opciones = [];
+        // recorremos los datos JSON recibidos por parametros:
+        datos.forEach((opcion){
+        final widgetTemp = ListTile(
+            title: Text(opcion[&#39;texto&#39;]),
+            leading: Icon(Icons.account_circle, color: Colors.amber),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amberAccent),
+            onTap: (){
 
-            <span class="p">}</span>
-        <span class="p">);</span>
+            }
+        );
 
-        <span class="c1">// los vamos pasando como antes a la Lista:</span>
-        <span class="n">opciones</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">widgetTemp</span><span class="p">);</span>
-        <span class="n">opciones</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Divider</span><span class="p">());</span>
-        <span class="p">});</span>
+        // los vamos pasando como antes a la Lista:
+        opciones.add(widgetTemp);
+        opciones.add(Divider());
+        });
 
-        <span class="k">return</span> <span class="n">opciones</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+        return opciones;
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -949,57 +964,57 @@ Para eso nos creamos una utilidad, en la carpeta <strong>src</strong> creamos un
 </pre></div>
 </div>
 <p>Volvemos al listado para utilizar nuestro utilidad de iconos:</p>
-<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="s1">&#39;package:flutterapp/src/providers/menu_provider.dart&#39;</span><span class="p">;</span>
-<span class="c1">// importamos la utilidad:</span>
-<span class="k">import</span> <span class="s1">&#39;package:flutterapp/src/utils/icono_utils.dart&#39;</span><span class="p">;</span>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
+// importamos la utilidad:
+import &#39;package:flutterapp/src/utils/icono_utils.dart&#39;;
 
-<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
+class HomePage extends StatelessWidget {
 
-    <span class="nd">@override</span>
-    <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Menu Principal&#39;</span><span class="p">)</span>
-        <span class="p">),</span><span class="c1">//</span>
-        <span class="nl">body:</span> <span class="n">_menu</span><span class="p">()</span>
-        <span class="p">);</span>
-    <span class="p">}</span>
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Menu Principal&#39;)
+        ),//
+        body: _menu()
+        );
+    }
 
-    <span class="n">Widget</span> <span class="n">_menu</span><span class="p">(){</span>
-        <span class="n">print</span><span class="p">(</span><span class="n">menuProvider</span><span class="p">.</span><span class="n">opciones</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">FutureBuilder</span><span class="p">(</span>
-        <span class="nl">future:</span> <span class="n">menuProvider</span><span class="p">.</span><span class="n">cargarDatos</span><span class="p">(),</span>
-        <span class="nl">initialData:</span> <span class="p">[],</span>
-        <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">AsyncSnapshot</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span> <span class="n">snapshot</span><span class="p">){</span>
-            <span class="k">return</span> <span class="n">ListView</span><span class="p">(</span>
-            <span class="nl">children:</span> <span class="n">_opciones</span><span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">data</span><span class="p">),</span>
-            <span class="p">);</span>
-        <span class="p">}</span>
+    Widget _menu(){
+        print(menuProvider.opciones);
+        return FutureBuilder(
+        future: menuProvider.cargarDatos(),
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot&lt;List&lt;dynamic&gt;&gt; snapshot){
+            return ListView(
+            children: _opciones(snapshot.data),
+            );
+        }
 
-        <span class="p">);</span>
-    <span class="p">}</span>
+        );
+    }
 
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span> <span class="n">_opciones</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">dynamic</span><span class="o">&gt;</span> <span class="n">datos</span><span class="p">){</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span> <span class="n">opciones</span> <span class="o">=</span> <span class="p">[];</span>
-        <span class="n">datos</span><span class="p">.</span><span class="n">forEach</span><span class="p">((</span><span class="n">opcion</span><span class="p">){</span>
-        <span class="kd">final</span> <span class="n">widgetTemp</span> <span class="o">=</span> <span class="n">ListTile</span><span class="p">(</span>
-            <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">opcion</span><span class="p">[</span><span class="s1">&#39;texto&#39;</span><span class="p">]),</span>
-            <span class="c1">// le pasamos al leading la funcion getIcon y por parametros el codigo del icono:</span>
-            <span class="nl">leading:</span> <span class="n">getIcon</span><span class="p">(</span><span class="n">opcion</span><span class="p">[</span><span class="s1">&#39;icono&#39;</span><span class="p">]),</span>
-            <span class="nl">trailing:</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">keyboard_arrow_right</span><span class="p">,</span> <span class="nl">color:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">amberAccent</span><span class="p">),</span>
-            <span class="nl">onTap:</span> <span class="p">(){</span>
+    List&lt;Widget&gt; _opciones(List&lt;dynamic&gt; datos){
+        final List&lt;Widget&gt; opciones = [];
+        datos.forEach((opcion){
+        final widgetTemp = ListTile(
+            title: Text(opcion[&#39;texto&#39;]),
+            // le pasamos al leading la funcion getIcon y por parametros el codigo del icono:
+            leading: getIcon(opcion[&#39;icono&#39;]),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amberAccent),
+            onTap: (){
 
-            <span class="p">}</span>
-        <span class="p">);</span>
+            }
+        );
 
-        <span class="n">opciones</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">widgetTemp</span><span class="p">);</span>
-        <span class="n">opciones</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Divider</span><span class="p">());</span>
-        <span class="p">});</span>
+        opciones.add(widgetTemp);
+        opciones.add(Divider());
+        });
 
-        <span class="k">return</span> <span class="n">opciones</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+        return opciones;
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1022,430 @@ Para eso nos creamos una utilidad, en la carpeta <strong>src</strong> creamos un
 </div>
 <div class="section" id="navegacion">
 <h2><a class="toc-backref" href="#id22">Navegacion</a><a class="headerlink" href="#navegacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="navegacion-entre-paginas">
+<h3><a class="toc-backref" href="#id23">Navegación entre páginas</a><a class="headerlink" href="#navegacion-entre-paginas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Vamos a ver como navegar a través de distintas pantallas de flutter.</p>
+<p>Para ello nos valemos del punto anterior en el que creamos un listado y establecer un cambio.</p>
+<ul class="simple">
+<li><p>Vamos a la carpeta <strong>pages</strong> y creamos un archivo llamado <strong>avisos_page.dart</strong> en el que escribimos lo siguiente:</p></li>
+</ul>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+
+class AvisosPage extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Página de Avisos&#39;)
+        ),
+        body: Center(
+            child: Text(&#39;No existen avisos&#39;)
+        ),
+        );
+    }
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Regresamos a <strong>home_page.dart</strong> para agregar el vínculo:</p></li>
+</ul>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
+import &#39;package:flutterapp/src/utils/icono_utils.dart&#39;;
+
+// Importamos la página avisos:
+import &#39;package:flutterapp/src/pages/avisos_page.dart&#39;;
+
+class HomePage extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Menu Principal&#39;)
+        ),//
+        body: _menu()
+        );
+    }
+
+    Widget _menu(){
+        print(menuProvider.opciones);
+        return FutureBuilder(
+        future: menuProvider.cargarDatos(),
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot&lt;List&lt;dynamic&gt;&gt; snapshot){
+            return ListView(        // El widget opciones deberá enviar el contexto de la app:
+            children: _opciones(snapshot.data, context),
+            );
+        }
+
+        );
+    }
+                                                // del mismo modo lo recibirá:
+    List&lt;Widget&gt; _opciones(List&lt;dynamic&gt; datos, context){
+        final List&lt;Widget&gt; opciones = [];
+        datos.forEach((opcion){
+        final widgetTemp = ListTile(
+            title: Text(opcion[&#39;texto&#39;]),
+            leading: getIcon(opcion[&#39;icono&#39;]),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amberAccent),
+            onTap: (){
+                // Creamos la ruta:
+                final route = MaterialPageRoute(
+                // apuntamos la ruta con el metodo de la página de rutas:
+                builder: (context) =&gt; AvisosPage()
+                );
+
+                // realizamos la navegación agregandole el contexto y la ruta:
+                Navigator.push(context, route);
+            }
+        );
+
+        opciones.add(widgetTemp);
+        opciones.add(Divider());
+        });
+
+        return opciones;
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="navegacion-por-rutas">
+<h3><a class="toc-backref" href="#id24">Navegación por rutas</a><a class="headerlink" href="#navegacion-por-rutas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Desde nuestro main se puede configurar un sistema de enrutamiento con el atributo <strong>routes</strong> en el widget <strong>MaterialApp</strong>.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+// se importan las páginas que vamos a enrutar:
+import &#39;package:flutterapp/src/pages/home_page.dart&#39;;
+import &#39;package:flutterapp/src/pages/avisos_page.dart&#39;;
+
+void main(){
+    runApp(new MyApp());
+}
+
+class MyApp extends StatelessWidget{
+    @override
+    build(context){
+        return MaterialApp(
+        title: &#39;Mi aplicación de prueba&#39;,
+            debugShowCheckedModeBanner: false,
+            // cambiamos el home por initialRoute:
+            initialRoute: &#39;/&#39;,
+            // y ahora establecemos las rutas en routes:
+            routes: &lt;String, WidgetBuilder&gt;{
+            &#39;/&#39;: (BuildContext context) =&gt; HomePage(),
+            &#39;avisos&#39;: (BuildContext context) =&gt; AvisosPage()
+            }
+        );
+    }
+}
+</pre></div>
+</div>
+<p>Ahora veamos como sería la página <strong>home_page.dart</strong> con la navegación por rutas:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
+import &#39;package:flutterapp/src/utils/icono_utils.dart&#39;;
+
+
+class HomePage extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Menu Principal&#39;)
+        ),//
+        body: _menu()
+        );
+    }
+
+    Widget _menu(){
+        print(menuProvider.opciones);
+        return FutureBuilder(
+        future: menuProvider.cargarDatos(),
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot&lt;List&lt;dynamic&gt;&gt; snapshot){
+            return ListView(
+            children: _opciones(snapshot.data, context),
+            );
+        }
+
+        );
+    }
+
+    List&lt;Widget&gt; _opciones(List&lt;dynamic&gt; datos, context){
+        final List&lt;Widget&gt; opciones = [];
+        datos.forEach((opcion){
+        final widgetTemp = ListTile(
+            title: Text(opcion[&#39;texto&#39;]),
+            leading: getIcon(opcion[&#39;icono&#39;]),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amberAccent),
+            onTap: (){
+                // Utilizamos pushNmaed y le pasamos el contexto y nombre de la ruta asignada:
+                Navigator.pushNamed(context, &#39;avisos&#39;);
+            }
+        );
+
+        opciones.add(widgetTemp);
+        opciones.add(Divider());
+        });
+
+        return opciones;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tarjeta-o-card-widget">
+<h2><a class="toc-backref" href="#id25">Tarjeta o Card Widget</a><a class="headerlink" href="#tarjeta-o-card-widget" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las tarjetas en flutter se utilizan bastante para presentar conjunto de elementos y este widget se llama <strong>card</strong></p>
+<p>Los atributos mas comunes de <strong>card</strong>:</p>
+<ul class="simple">
+<li><p>child: se le adigna un widget hijo, puede ser una column o un row por ejemplo para añadir mas contenido.</p></li>
+</ul>
+<p>Veamos un ejemplo de uso en un listado:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
+
+class HomePage extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Menu Principal&#39;)
+        ),//
+        body: _menu()
+        );
+    }
+
+    Widget _menu(){
+        print(menuProvider.opciones);
+        return FutureBuilder(
+        future: menuProvider.cargarDatos(),
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot&lt;List&lt;dynamic&gt;&gt; snapshot){
+            return ListView(
+            children: &lt;Widget&gt;[
+                // vamos a crear un widget nuevo donde almacenar la tarjeta
+                _tarjeta()
+            ],
+            );
+        }
+
+        );
+    }
+
+    // Y aquí vemos como ir organizando en una columna la tarjeta:
+    Widget _tarjeta(){
+        return Card(
+        child: Column(
+            children: &lt;Widget&gt;[
+            ListTile(
+                leading: Icon(Icons.photo_album, color: Colors.red),
+                title: Text(&#39;Título de la tarjeta&#39;),
+                subtitle: Text(&#39;Subtítulo de la tarjeta&#39;),
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                FlatButton(
+                    child: Text(&#39;OK&#39;),
+                    onPressed: (){},
+                )
+                ]
+            )
+            ]
+        )
+        );
+    }
+
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="imagenes">
+<h2><a class="toc-backref" href="#id26">Imágenes</a><a class="headerlink" href="#imagenes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos cargar imágenes en Flutter con el widget FadeInImage.</p>
+<p>Atributos de FadeInImage:</p>
+<ul class="simple">
+<li><p>image: aquí colocaremos un widget de tipo networkImage o assetImage con una image desde internet o desde el dispositivo local.</p></li>
+<li><p>placeholder: es la imagen que se muestra mientras espera a que termine de cargar la imagen real porque esta anterior se encuentre en un servidor remoto.</p></li>
+<li><p>fadeInDuration: animacion programable en milisegundos para hacer un efecto fundido cuando se carge la imagen.</p></li>
+<li><p>height: alto de la imagen.</p></li>
+<li><p>width: ancho de la imagen.</p></li>
+</ul>
+<p>Por convención creamos en la raiz de nuestro proyecto una carpeta llamada <strong>assets</strong> y editamos el archivo <strong>pubspec.yaml</strong> para añadir una nueva línea al apartado assets:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nl">assets:</span>
+  <span class="o">-</span> <span class="p">...</span>
+  <span class="o">-</span> <span class="n">assets</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Ahora podemos cargar desde esa carpeta cualquier imagen en nuestro código:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
+
+class HomePage extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Menu Principal&#39;)
+        ),//
+        body: _menu()
+        );
+    }
+
+    Widget _menu(){
+        print(menuProvider.opciones);
+        return FutureBuilder(
+        future: menuProvider.cargarDatos(),
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot&lt;List&lt;dynamic&gt;&gt; snapshot){
+            return ListView(
+            children: &lt;Widget&gt;[
+                _tarjeta()
+            ],
+            );
+        }
+
+        );
+    }
+
+    Widget _tarjeta(){
+        return Card(
+        child: Column(
+            children: &lt;Widget&gt;[
+            FadeInImage( // podemos cargar una imagen desde la red:
+                image: NetworkImage(&#39;https://i11c.3djuegos.com/juegos/12860/resident_evil_5__2016_/fotos/ficha/resident_evil_5__2016_-3314278.jpg&#39;),
+                // o desde la carpeta assets:
+                placeholder: AssetImage(&#39;assets/re5.jpg&#39;),
+                fadeInDuration: Duration(milliseconds: 3000),
+                height: 300.0,
+            )
+        ]
+        )
+        );
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="alertas">
+<h2><a class="toc-backref" href="#id27">Alertas</a><a class="headerlink" href="#alertas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las alertas las realizamos con el widget <strong>showDialog</strong>.</p>
+<p>Este widget posee los siguientes atributos:</p>
+<ul class="simple">
+<li><p>context: recibe el contexto de los widgets.</p></li>
+<li><p>barrierDimissible: permite o no cerrar la alerta tocando fuera de esta.</p></li>
+<li><p>builder: es donde creamos la estructura de la alerta.</p></li>
+</ul>
+<p>Ejemplo de uso de una alerta:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutterapp/src/providers/menu_provider.dart&#39;;
+
+class HomePage extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Ejemplo de alerta&#39;)
+        ),//
+        body: Center(
+            child: RaisedButton(
+            child: Text(&#39;Lanzar alerta&#39;),
+            color: Colors.deepPurple,
+            textColor: Colors.amber,
+            shape: StadiumBorder(),
+            onPressed: () =&gt; _alerta(context)
+            )
+        )
+        );
+    }
+
+    // para crear una alerta creamos un nuevo método que no retorna nada:
+    void _alerta(BuildContext context){
+        // lanzamos el widget showDialog:
+        showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context){
+            // En el builder le pasamos el widget AlertDialog:
+            return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)), // el shape da forma a la ventana
+            title: Text(&#39;Título del mensaje&#39;),
+            content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: &lt;Widget&gt;[
+                Text(&#39;Este es el contenido de la alerta&#39;),
+                FlutterLogo(size: 80.0)
+                ]
+            ),// el atributo actions recibe los botones que ejecutarán diferentes eventos:
+            actions: &lt;Widget&gt;[
+                FlatButton(
+                child: Text(&#39;Cancelar&#39;),
+                onPressed: ()=&gt; Navigator.of(context).pop(),
+                ),
+                FlatButton(
+                child: Text(&#39;Aceptar&#39;),
+                onPressed: ()=&gt; Navigator.of(context).pop(),
+                )
+            ]
+            );
+        }
+        );
+    }
+
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="avatar-circular">
+<h2><a class="toc-backref" href="#id28">Avatar circular</a><a class="headerlink" href="#avatar-circular" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En Flutter se suele generar avatares circulares, esto se hace con la ayuda del widget <strong>CircleAvatar</strong>.</p>
+<p>Atributos del widget:</p>
+<ul class="simple">
+<li><p>child: Recibe un widget como por ejemplo un texto.</p></li>
+<li><p>backgroundColor: personaliza el color del circulo.</p></li>
+<li><p>backgroundImage: recibe una imagen</p></li>
+<li><p>radius: establece el tamaño de la esfera del avatar.</p></li>
+</ul>
+<p>Ejemplo de uso:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;package:flutter/material.dart&#39;;
+
+class HomePage extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        appBar: AppBar(
+            title: Text(&#39;Ejemplo de avatar&#39;),
+            actions: &lt;Widget&gt;[
+            Container(
+                padding: EdgeInsets.all(5.0),
+                child: CircleAvatar(
+                backgroundImage: AssetImage(&#39;assets/re5.jpg&#39;),
+                radius: 25.0,
+                )
+            )
+            ]
+        ),//
+        body: Center(
+            child: CircleAvatar(
+            child: Text(&#39;ICONO&#39;),
+            backgroundColor: Colors.deepPurple,
+            radius: 55.0
+            )
+        )
+        );
+    }
+
+}
+</pre></div>
+</div>
+<p><strong>PENDIENTE DE CONTINUAR</strong></p>
 </div>
 </div>
 
@@ -1018,7 +1456,7 @@ Para eso nos creamos una utilidad, en la carpeta <strong>src</strong> creamos un
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="unity.html" class="btn btn-neutral float-right" title="Unity" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../computer/raspberry.html" class="btn btn-neutral float-right" title="Raspberry Pi" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="djangorest.html" class="btn btn-neutral" title="Django Rest Framework" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

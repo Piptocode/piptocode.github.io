@@ -94,16 +94,56 @@
 <li class="toctree-l1"><a class="reference internal" href="../languages/javascript.html">JavaScript</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/c.html">C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/cpp.html">C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../languages/csharp.html">C#</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/dart.html">Dart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../languages/sql.html">SQL</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Frameworks y Entornos:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Django</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Django</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#primeros-pasos">Primeros Pasos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creacion-del-proyecto">Creación del proyecto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#primera-configuracion-settings-py">Primera configuración (settings.py)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arrancar-la-base-de-datos">Arrancar la base de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crear-un-administrador">Crear un Administrador</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crear-una-aplicacion">Crear una aplicación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rutas">Rutas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rutas-de-app">Rutas de app</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vistas">Vistas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fbv-function-based-views">FBV (Function-Based Views)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template-tags">Template Tags</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#template-tag-base">Template tag base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-tag-url">Template tag url</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-tag-static">Template tag static</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-tag-de-datos">Template tag de datos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-tag-for">Template tag for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-tag-if">Template tag if</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelos">Modelos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cargar-imagenes-en-modelos-con-pillow">Cargar imágenes en modelos con Pillow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generar-modelo-y-migrar-la-base-de-datos">Generar modelo y migrar la base de datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#panel-de-administracion">Panel de administración</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#puesta-en-marcha">Puesta en marcha</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mostrar-datos-de-nuestros-modelos">Mostrar datos de nuestros modelos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#personalizar-titulos-de-las-apps">Personalizar titulos de las Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#personalizar-tablas">Personalizar tablas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="djangorest.html">Django Rest Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flutter.html">Flutter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unity.html">Unity</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Informática y Hardware:</span></p>
 <ul>
@@ -177,8 +217,579 @@
            <div itemprop="articleBody">
             
   <div class="section" id="django">
-<h1>Django<a class="headerlink" href="#django" title="Enlazar permanentemente con este título">¶</a></h1>
-<p><strong>ESTE MANUAL SE CREARÁ PRÓXIMAMENTE</strong></p>
+<h1><a class="toc-backref" href="#id1">Django</a><a class="headerlink" href="#django" title="Enlazar permanentemente con este título">¶</a></h1>
+<a class="reference internal image-reference" href="../../_images/logo-django.png"><img alt="Logo HTML5" class="align-center" src="../../_images/logo-django.png" style="width: 275.0px; height: 275.0px;" /></a>
+<p>Última edición el día 2020-09-17 a las 14:17.</p>
+<p>Esta es la documentación que he recopilado para trabajar con Django, un framework basado en Python que sirve para desarrollar aplicaciones web.</p>
+<div class="contents topic" id="indice">
+<p class="topic-title">Índice</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#django" id="id1">Django</a></p>
+<ul>
+<li><p><a class="reference internal" href="#primeros-pasos" id="id2">Primeros Pasos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creacion-del-proyecto" id="id3">Creación del proyecto</a></p></li>
+<li><p><a class="reference internal" href="#primera-configuracion-settings-py" id="id4">Primera configuración (settings.py)</a></p></li>
+<li><p><a class="reference internal" href="#arrancar-la-base-de-datos" id="id5">Arrancar la base de datos</a></p></li>
+<li><p><a class="reference internal" href="#crear-un-administrador" id="id6">Crear un Administrador</a></p></li>
+<li><p><a class="reference internal" href="#crear-una-aplicacion" id="id7">Crear una aplicación</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#rutas" id="id8">Rutas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rutas-de-app" id="id9">Rutas de app</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#vistas" id="id10">Vistas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fbv-function-based-views" id="id11">FBV (Function-Based Views)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#templates" id="id12">Templates</a></p>
+<ul>
+<li><p><a class="reference internal" href="#template-tags" id="id13">Template Tags</a></p>
+<ul>
+<li><p><a class="reference internal" href="#template-tag-base" id="id14">Template tag base</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-url" id="id15">Template tag url</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-static" id="id16">Template tag static</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-de-datos" id="id17">Template tag de datos</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-for" id="id18">Template tag for</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-if" id="id19">Template tag if</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modelos" id="id20">Modelos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cargar-imagenes-en-modelos-con-pillow" id="id21">Cargar imágenes en modelos con Pillow</a></p></li>
+<li><p><a class="reference internal" href="#generar-modelo-y-migrar-la-base-de-datos" id="id22">Generar modelo y migrar la base de datos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#panel-de-administracion" id="id23">Panel de administración</a></p>
+<ul>
+<li><p><a class="reference internal" href="#puesta-en-marcha" id="id24">Puesta en marcha</a></p></li>
+<li><p><a class="reference internal" href="#mostrar-datos-de-nuestros-modelos" id="id25">Mostrar datos de nuestros modelos</a></p></li>
+<li><p><a class="reference internal" href="#personalizar-titulos-de-las-apps" id="id26">Personalizar titulos de las Apps</a></p></li>
+<li><p><a class="reference internal" href="#personalizar-tablas" id="id27">Personalizar tablas</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="primeros-pasos">
+<h2><a class="toc-backref" href="#id2">Primeros Pasos</a><a class="headerlink" href="#primeros-pasos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="creacion-del-proyecto">
+<h3><a class="toc-backref" href="#id3">Creación del proyecto</a><a class="headerlink" href="#creacion-del-proyecto" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Vamos a comenzar con Django, para ello lo primero que tenemos que hacer es crear un entorno virtual y ejecutarlo (recomendado).</p>
+<ul class="simple">
+<li><p>A continuación vamos a instalar django <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">django</span></code></p></li>
+<li><p>Una vez instalado podemos crear un nuevo proyecto ejecutando <code class="docutils literal notranslate"><span class="pre">django-admin</span> <span class="pre">startproject</span> <span class="pre">nombre_proyecto</span></code></p></li>
+<li><p>Ahora podemos ejecutar el proyecto para ver si funciona accediendo al directorio del mismo y ejecutando <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">runserver</span></code></p></li>
+<li><p>Nos vamos al navegador y escribimos <code class="docutils literal notranslate"><span class="pre">localhost:8000</span></code> para ver si arranca la pantalla de bienvenida de nuestro proyecto.</p></li>
+</ul>
+</div>
+<div class="section" id="primera-configuracion-settings-py">
+<h3><a class="toc-backref" href="#id4">Primera configuración (settings.py)</a><a class="headerlink" href="#primera-configuracion-settings-py" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Nos situamos en el directorio principal del proyecto y accedemos a la carpeta con el mismo nombre de este. Ahí podemos encontrar el archivo <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> que sirve para establecer
+configuraciones del proyecto.</p>
+<ul class="simple">
+<li><p>debug: <code class="docutils literal notranslate"><span class="pre">True</span></code> por defecto, mostrará errores en el navegador. <code class="docutils literal notranslate"><span class="pre">False</span></code> para evitar mostrarlos en producción.</p></li>
+<li><p>LANGUAGE_CODE: cambiamos el valor por <code class="docutils literal notranslate"><span class="pre">es</span></code> para tener el proyecto en español.</p></li>
+<li><p>TIME_ZONE: Si somos de España podemos cambiarlo a <code class="docutils literal notranslate"><span class="pre">Europe/Madrid</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="arrancar-la-base-de-datos">
+<h3><a class="toc-backref" href="#id5">Arrancar la base de datos</a><a class="headerlink" href="#arrancar-la-base-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para poner en marcha la base de datos del proyecto y que autogenere todo el <strong>CRUD</strong> ejecutamos el comando <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span></code> esto creará por defecto
+una base de datos SQLite, pero podemos cambiarla por una tipo <strong>MySQL</strong> o <strong>PostgreSQL</strong> en <code class="docutils literal notranslate"><span class="pre">settings.py</span></code></p>
+</div>
+<div class="section" id="crear-un-administrador">
+<h3><a class="toc-backref" href="#id6">Crear un Administrador</a><a class="headerlink" href="#crear-un-administrador" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una vez migrada la base de datos para crear un administrador ejecutamos el comando <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">createsuperuser</span></code> y cumplimentamos los
+datos de nuestro usario con el que podremos acceder al panel en la ruta del navegador <code class="docutils literal notranslate"><span class="pre">localhost:8000/admin</span></code></p>
+</div>
+<div class="section" id="crear-una-aplicacion">
+<h3><a class="toc-backref" href="#id7">Crear una aplicación</a><a class="headerlink" href="#crear-una-aplicacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Django es un Framework modular, lo que quiere decir que iremos creando aplicaciones en el para gestionar distintas páginas y así poder reutilizar código.
+* Vamos al terminal y ejecutamos <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">startapp</span> <span class="pre">nombre_de_tu_app</span></code>, esto nos genera una carpeta con los archivos esenciales para una app (views.py, models.py…)
+* Una vez creada una app es importante declararla en <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> en el apartado de aplicaciones instaladas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nombre_de_tu_app&#39;</span> <span class="c1"># Declaramos nuestra app en esta lista</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rutas">
+<h2><a class="toc-backref" href="#id8">Rutas</a><a class="headerlink" href="#rutas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El archivo de rutas principal de Django lo podemos encontrar en la carpeta que tiene el nombre del proyecto y se llama <code class="docutils literal notranslate"><span class="pre">urls.py</span></code>.
+En este archivo vamos a vincular las rutas que vayamos generando con cada una de las vistas.</p>
+<p>Ejemplo de archivo urls.py principal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># las dos primeras líneas importan el panel de administración y la librería path para agregar rutas</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">nombre_de_tu_app</span> <span class="kn">import</span> <span class="n">views</span> <span class="c1"># Este es el archivo de vista que importamos de la app creada anteriormente</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;home&#39;</span><span class="p">),</span> <span class="c1"># Definimos que &#39;&#39; (ruta raiz) apunte a la vista **home** y tenga el name &#39;home&#39; para luego usar un template tag de rutas.</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="rutas-de-app">
+<h3><a class="toc-backref" href="#id9">Rutas de app</a><a class="headerlink" href="#rutas-de-app" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos generar otros archivos <code class="docutils literal notranslate"><span class="pre">urls.py</span></code> dentro de cada aplicación para gestionar sus rutas internas.</p>
+<p>PENDIENTE….</p>
+</div>
+</div>
+<div class="section" id="vistas">
+<h2><a class="toc-backref" href="#id10">Vistas</a><a class="headerlink" href="#vistas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las vistas en Django sirven para precargar y procesar datos del servidor que provienen de las plantillas <strong>HTML</strong>. Existen dos formas de crear vistas, las <strong>FBV</strong> (Function-based Views) y las <strong>CBV</strong> (Class-based Views).</p>
+<div class="section" id="fbv-function-based-views">
+<h3><a class="toc-backref" href="#id11">FBV (Function-Based Views)</a><a class="headerlink" href="#fbv-function-based-views" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Son las vistas mas simples de Django, con ellas debes tener un control absoluto de lo que haces.</p>
+<ul class="simple">
+<li><p>Devolver respuesta HTML con <strong>HttpResponse</strong>:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">HttpResponse</span> <span class="c1"># el modulo HttpResponse carga una respuesta HTML directamente sin plantillas.</span>
+
+<span class="c1"># Creamos la función que gestionará la vista home definida como raiz en urls.py:</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Título de prueba&lt;/h1&gt;&lt;h2&gt;Subtítulo&lt;/h2&gt;&quot;</span><span class="p">)</span> <span class="c1"># esta va a retornar una respuesta html</span>
+</pre></div>
+</div>
+<p>Si nos vamos al navegador y ejecutamos la raiz veremos que el mensaje de bienvenida cambió por este último.</p>
+<ul class="simple">
+<li><p>Devolver una plantilla HTML con <strong>Render</strong>:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importamos render que suele venir importado por defecto:</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="c1"># creamos una función para gestionar los datos de vista:</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># dentro de esta vista retornamos render y le pasamos por el segundo parámetro la plantilla que vamos a usar:</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nombre_de_tu_app/home.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>Cuando hacemos esto es probable tener un error Template does not exist, se debe a que no hemos creado aun el template, que no hemos añadido la app a INSTALLED_APPS o simplemente cerramos el servidor y volvemos a lanzarlo par que funcione.</p>
+</div>
+</div>
+</div>
+<div class="section" id="templates">
+<h2><a class="toc-backref" href="#id12">Templates</a><a class="headerlink" href="#templates" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las plantillas son las que muestran el sitio web mediante etiquetas HTML y también imprimen resultados que gestiona el servidor con <strong>Template Tags</strong>.</p>
+<ul class="simple">
+<li><p>Para comenzar a utilizar templates creamos una carpeta llamada <strong>templates</strong> en el interior de la carpeta de nuestra app y dentro de templates otro directorio con el nombre de la app. (nombre_de_tu_app/templates/nombre_de_tu_app)</p></li>
+<li><p>Ahora creamos un archivo html por ejemplo home.html que cargará la página de inicio:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Página de prueba<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido a mi página de prueba<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Aquí haremos pruebas varias<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>Para que funcione debemos tener listo el render que devuelve este archivo html y al abrir el navegador se mostrará correctamente.</p>
+</div>
+<div class="section" id="template-tags">
+<h3><a class="toc-backref" href="#id13">Template Tags</a><a class="headerlink" href="#template-tags" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los Template Tags son un tipo de etiquetas especiales en Django que se utilizan en las plantillas para ejecutar respuestas backend.</p>
+<p>Estas etiquetas suelen tener dos tipos de estructuras: <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">instrucción</span> <span class="pre">%}</span></code> o <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">datos</span> <span class="pre">}}</span></code> según el tipo de tarea que vayamos a ejecutar.</p>
+<div class="section" id="template-tag-base">
+<h4><a class="toc-backref" href="#id14">Template tag base</a><a class="headerlink" href="#template-tag-base" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Una buena práctica para no repetir código en plantillas es coger todo el contenido común y almacenarlo en una plantilla base:</p>
+<ul class="simple">
+<li><p>Entramos en la carpeta <code class="docutils literal notranslate"><span class="pre">nombre_de_tu_app/templates/nombre_de_tu_app</span></code> y creamos un archivo llamado base.html donde copiaremos el contenido común:</p></li>
+<li><p>Ahora vamos a quitar el código de home.html y lo pegamos en base.html:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Página de prueba<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido a mi página de prueba<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Aquí haremos pruebas varias<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- Justo aquí enmedio utilizaremos el template tag base para extender una parte de otra plantilla  --&gt;</span>
+    {% block cuerpo %}{% endblock %}
+
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>Piptocode, hecho con cariño y para amantes de la programación<span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Finalmente vamos a usar home.html como una plantilla de extensión con su propio código:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- llamamos el template tag con extends: --&gt;</span>
+{% extends &#39;nombre_de_tu_app/base.html&#39; %}
+
+<span class="c">&lt;!-- Utilizamos el block content para definir donde irá el contenido de la pagina home respecto a la plantilla base --&gt;</span>
+{% block cuerpo %}
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Portada<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Esta es la página principal del sitio y utiliza una plantilla base para el contenido estático<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+<p>Siguiendo este patrón podemos reutilizar el código base de la web en nuevas páginas o incluso nuevas apps de Django.</p>
+</div>
+<div class="section" id="template-tag-url">
+<h4><a class="toc-backref" href="#id15">Template tag url</a><a class="headerlink" href="#template-tag-url" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Con este template tag podemos establecer vínculos a otras páginas enlazando los names del archivo de rutas.</p>
+<p>¿recuerdas las líneas que escribimos dentro de urls.py? <code class="docutils literal notranslate"><span class="pre">path('',</span> <span class="pre">views.home,</span> <span class="pre">name</span> <span class="pre">=</span> <span class="pre">'home'),</span></code>, el path recibe tres valores, la ruta del navegador, la ubicación de la vista y por último el nombre de la ruta,
+este tercer valor es el que utilizamos con el template tag <strong>url</strong></p>
+<ul class="simple">
+<li><p>vamos a editar el archivo base.html para añadir un menú de navegación:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Página de prueba<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido a mi página de prueba<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Aquí haremos pruebas varias<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- el template tag url lo usamos dentro del atribut href de un hipervínculo: --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;home&#39; %}&quot;</span><span class="p">&gt;</span>Índice<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="c">&lt;!-- lleva entre comillas simples el nombre de la ruta que vamos a vincular --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Sobre mí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Contacto<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+    {% block cuerpo %}{% endblock %}
+
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>Piptocode, hecho con cariño y para amantes de la programación<span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>Si añadimos un name que no existe en el archivo de rutas Django lanzará una pantalla de error en lugar de la plantilla.</p>
+</div>
+</div>
+<div class="section" id="template-tag-static">
+<h4><a class="toc-backref" href="#id16">Template tag static</a><a class="headerlink" href="#template-tag-static" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Con este template tag vamos a cargar archivos estáticos de nuestra web, entre ellos están las imágenes, videos, hojas de estilo y javascript.</p>
+<ul class="simple">
+<li><p>Siguiendo una práctica convencional creamos una carpeta llamada <strong>static</strong> dentro del directorio de la app y dentro de static una carpeta con el nombre de la app: <code class="docutils literal notranslate"><span class="pre">nombre_de_tu_app/static/nombre_de_tu_app</span></code>.</p></li>
+<li><p>Dentro de la última carpeta podemos ir añadiendo carpetas básica como css, js e img para ir añadiendo los archivos correspondientes.</p></li>
+<li><p>Ahora podemos utilizar archivos estáticos dentro de dichas rutas:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- cargamos el template tag static --&gt;</span>
+{% load static %}
+
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Página de prueba<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- ahora si queremos cargar un archivo estatico como una hoja de estilo lo hacemos así: --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% static &#39;nombre_de_tu_app/css/estilos.css&#39; %}&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido a mi página de prueba<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Aquí haremos pruebas varias<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;home&#39; %}&quot;</span><span class="p">&gt;</span>Índice<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Sobre mí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Contacto<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+    {% block cuerpo %}{% endblock %}
+
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>Piptocode, hecho con cariño y para amantes de la programación<span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-tag-de-datos">
+<h4><a class="toc-backref" href="#id17">Template tag de datos</a><a class="headerlink" href="#template-tag-de-datos" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Los template tags de datos muestran información que enviamos desde la vista al template.</p>
+<ul class="simple">
+<li><p>Si nos vamos a views.py para añadir un dato:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># creamos una variable:</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Guillermo Granados Gómez&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nombre_de_tu_app/home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:</span><span class="n">nombre</span><span class="p">})</span> <span class="c1"># devolvemos la información en un diccionario</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ahora que tenemos un dato, podemos mostrarlo en cualquier template de nuestra app:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Página de prueba<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>     <span class="c">&lt;!-- Ahora podemos mostrar el dato usando su clave --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido a la web de {{ nombre }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Aquí haremos pruebas varias<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;home&#39; %}&quot;</span><span class="p">&gt;</span>Índice<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Sobre mí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Contacto<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+    {% block cuerpo %}{% endblock %}
+
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>Piptocode, hecho con cariño y para amantes de la programación<span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-tag-for">
+<h4><a class="toc-backref" href="#id18">Template tag for</a><a class="headerlink" href="#template-tag-for" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>En los templates de Django para hacer un bucle for lo hacemos del siguiente modo:</p>
+<ul class="simple">
+<li><p>Para empezar necesitamos un diccionario al que acceder desde views.py:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># creamos un diccionario:</span>
+    <span class="n">personas</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;Pepe&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;Antonio&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="mi">38</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;María&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="mi">37</span><span class="p">}</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;pruebauno/home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;personas&#39;</span><span class="p">:</span><span class="n">personas</span><span class="p">})</span> <span class="c1"># devolvemos la información en un diccionario</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Y ahora podemos recorrer el diccionario en nuestro template con el template tag for:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Listado de Clientes<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    {% for persona in personas %} <span class="c">&lt;!-- Abrimos el bucle for en el template --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Nombre: {{ persona.nombre }}, Edad: {{ persona.edad }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span> <span class="c">&lt;!-- Creamos el elemento que va a iterar en la lista imprimiendo los valores --&gt;</span>
+    {% endfor %} <span class="c">&lt;!-- Y lleva una llave de cierre --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-tag-if">
+<h4><a class="toc-backref" href="#id19">Template tag if</a><a class="headerlink" href="#template-tag-if" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Con el template tag if podemos establecer condiciones dentro de los templates, retomando el ejemplo de for vamos a pintar de verde uno de los registros:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;h3&gt;Listado de Clientes&lt;/h3&gt;
+&lt;ul&gt;
+    {% for persona in personas %}
+        &lt;!-- Si en nombre se encuentra Antonio lo pintaremos de verde: --&gt;
+        &lt;li {% if &#39;Antonio&#39; in persona.nombre  %} style=&quot;color: green&quot; {% endif %}&gt;
+            Nombre: {{ persona.nombre }}, Edad: {{ persona.edad }}
+        &lt;/li&gt;
+    {% endfor %}
+&lt;/ul&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modelos">
+<h2><a class="toc-backref" href="#id20">Modelos</a><a class="headerlink" href="#modelos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los modelos en Django sirven para crear estructuras de bases de datos con las que podremos interactuar gracias a sus QuerySets.</p>
+<p>En cada app que creamos tenemos un archivo models.py, vamos a editar uno para ver que campos tiene:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Los modelos se crean usando una clase que hereda de la superclase Model:</span>
+<span class="k">class</span> <span class="nc">Prueba</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Título&quot;</span><span class="p">)</span> <span class="c1"># CharField es un campo de tipo texto, el primer parámetro que le pasamos define el tamaño máximo y es obligatorio, el segundo es opcional y sirve para todos los campos (verbose_name define como se mostrará la label del panel de administración)</span>
+    <span class="n">descripcion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Descripción&quot;</span><span class="p">)</span> <span class="c1"># Con TextField tenemos una caja de texto sin límite de rango.</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">URLField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Enlace&quot;</span><span class="p">)</span> <span class="c1"># URLField nos permite agregar una url válida.</span>
+    <span class="n">fecha_creacion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span> <span class="c1"># crea un campo de fecha y hora, podemos pasarle la fecha de una publicación de forma automática con auto_now_add.</span>
+    <span class="n">fecha_edicion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">auto_now</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span> <span class="c1"># aquí tenemos otra variante, en primer lugar DateField guarda solo la fecha y opcionalmente podemos decir que lo haga cuando editamos la entrada con auto_now.</span>
+
+
+    <span class="c1"># opcionalmente podemos usar la clase Meta para editar valores que nos servirán para mostrar los datos en el panel de administración:</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span> <span class="c1"># Nombre de la tabla en el panel.</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;pruebas&quot;</span> <span class="c1"># nombre en plural.</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-fecha_creacion&quot;</span><span class="p">]</span> <span class="c1"># Orden prioritario, en este caso por fecha descenciente.</span>
+
+    <span class="c1"># Con esta función podemos retornar en el panel de administración un valor de referencia</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">titulo</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>..attention</dt><dd><p>Tienes que tener registrada tu app en el apartado INSTALLED_APPS o sino dará error a la hora de migrar la base de datos.</p>
+</dd>
+</dl>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Los parámetros comunes para prácticamente todos los campos son verbose_name (nombre que muestra), blank (True o False para permitir el campo vacío), null (True o False para permitir campo nulo)</p>
+</div>
+<div class="section" id="cargar-imagenes-en-modelos-con-pillow">
+<h3><a class="toc-backref" href="#id21">Cargar imágenes en modelos con Pillow</a><a class="headerlink" href="#cargar-imagenes-en-modelos-con-pillow" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Pillow es una librería de Python que se utiliza para el tratamiento de imágenes. En Django la podemos utilizar para gestionar la carga de estas.</p>
+<ul class="simple">
+<li><p>Lo primero que tenemos que hacer es instalar Pillow en nuestro entorno: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Pillow</span></code></p></li>
+<li><p>Ahora vamos a editar nuestra clase de models.py:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Prueba</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Título&quot;</span><span class="p">)</span>
+    <span class="n">descripcion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Descripción&quot;</span><span class="p">)</span>
+    <span class="n">fecha_creacion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">fecha_edicion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">auto_now</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="c1"># con ImageField podemos subir una imagen a un directorio que elijamos:</span>
+    <span class="n">imagen</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s2">&quot;imagenes/&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;pruebas&quot;</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-fecha_creacion&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">titulo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Para poder subir las imágenes tenemos que añadir en settings.py la siguiente línea:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/media/&#39;</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Finalmente nos vamos al archivo de rutas principal (el que se encuentra dentro de la carpeta con el nombre de tu proyecto) y añadimos la siguiente configuración para poder visualizar las imágenes desde el panel:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">nombre_de_tu_app</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="c1"># Importamos la librería settings:</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;home&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c1"># Cargamos la ruta siempre que este en modo debug:</span>
+<span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+    <span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De este modo y mientras no estemos en producción podremos visualizar las imágenes desde el panel de administrador para probar que funciona correctamente.</p>
+</div>
+<div class="section" id="generar-modelo-y-migrar-la-base-de-datos">
+<h3><a class="toc-backref" href="#id22">Generar modelo y migrar la base de datos</a><a class="headerlink" href="#generar-modelo-y-migrar-la-base-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Cuando creamos un modelo nuevo lo primero que tenemos que hacer es maquetar la estructura que vamos a migrar cada vez que generemos la base de datos:</p>
+<ul class="simple">
+<li><p>Para crear el modelo de las tablas de una app ejecutamos <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span> <span class="pre">nombre_de_tu_app</span></code>.</p></li>
+<li><p>Si todo va bien, migramos la base de datos con <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span> <span class="pre">nombre_de_tu_app</span></code></p></li>
+</ul>
+<dl class="simple">
+<dt>..attention</dt><dd><p>Antes de hacer una migración debemos generar todo el Scaffold para el sistema de login por primera vez ejecutando <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span></code></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="panel-de-administracion">
+<h2><a class="toc-backref" href="#id23">Panel de administración</a><a class="headerlink" href="#panel-de-administracion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El panel de Administración de Django es un modelo CRUD ya definido por defecto con todo el Scaffold del sistema login preparado por defecto.</p>
+<div class="section" id="puesta-en-marcha">
+<h3><a class="toc-backref" href="#id24">Puesta en marcha</a><a class="headerlink" href="#puesta-en-marcha" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para poner en marcha el panel tenemos que hacer un par de cosas en consola:</p>
+<ul class="simple">
+<li><p>Primero tenemos que crear todo el Scaffold ejecutando <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span></code></p></li>
+<li><p>Después ejecutamos <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">createsuperuser</span></code> para generar un nuevo superusuario.</p></li>
+</ul>
+<p>Ahora ya podemos acceder al panel de administración desde la ruta <code class="docutils literal notranslate"><span class="pre">localhost:8000/admin</span></code></p>
+</div>
+<div class="section" id="mostrar-datos-de-nuestros-modelos">
+<h3><a class="toc-backref" href="#id25">Mostrar datos de nuestros modelos</a><a class="headerlink" href="#mostrar-datos-de-nuestros-modelos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El panel de Administración solo dispone por defecto de las tablas de usuarios. Pero si hemos creado un modelo debemos implementarlo,
+para ello en la carpeta de nuestra app veremos un archivo admin.py el cual editamos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="c1"># Importamos el modelo:</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prueba</span>
+
+<span class="c1"># Registramos en el panel el modelo:</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Prueba</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De este modo podremos leer, editar, borrar y añadir registros a esta tabla de nuestra app.</p>
+</div>
+<div class="section" id="personalizar-titulos-de-las-apps">
+<h3><a class="toc-backref" href="#id26">Personalizar titulos de las Apps</a><a class="headerlink" href="#personalizar-titulos-de-las-apps" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En el panel de administración vemos que las tablas se irán dividiendo en apartados según su app, si tenemos varias apps veremos que cada
+tabla esta dentro de apartados. Podemos cambiar el título de estos apartados accediendo a nuestra app y editando el archivo app.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">AppConfig</span>
+
+
+<span class="k">class</span> <span class="nc">nombre_de_tu_appConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;nombre_de_tu_app&#39;</span>
+
+    <span class="c1"># Podemos asignarle un nombre que veremos en el panel:</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;App de Prueba&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Para que esto funcione tenemos que exportar dicha configuración a settings.py:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nombre_de_tu_app.apps.nombre_de_tu_appConfig&#39;</span> <span class="c1"># cambiamos el nombre de la app por su clase configuradora.</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="personalizar-tablas">
+<h3><a class="toc-backref" href="#id27">Personalizar tablas</a><a class="headerlink" href="#personalizar-tablas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Cuando accedemos a una tabla podemos ver una lista con todos los títulos o el valor que hayamos devuelto en el modelo. Pero podemos modificar su comportamiento
+editando el archivo admin.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prueba</span>
+
+<span class="c1"># Creamos una clase que se encargará de editar las configuraciones de nuestro panel:</span>
+<span class="k">class</span> <span class="nc">PruebaAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c1"># con esta tupla definimos los campos que serán de solo lectura cuando abramos un registro.</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;fecha_creacion&#39;</span><span class="p">,</span> <span class="s1">&#39;fecha_edicion&#39;</span><span class="p">)</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Prueba</span><span class="p">,</span> <span class="n">PruebaAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 

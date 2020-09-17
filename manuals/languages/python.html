@@ -229,7 +229,7 @@
   <div class="section" id="python-3">
 <h1><a class="toc-backref" href="#id1">Python 3</a><a class="headerlink" href="#python-3" title="Enlazar permanentemente con este título">¶</a></h1>
 <a class="reference internal image-reference" href="../../_images/logo-python.png"><img alt="Logo JS" class="align-center" src="../../_images/logo-python.png" style="width: 256.0px; height: 256.0px;" /></a>
-<p>Última edición el día 2020-06-18 a las 17:58.</p>
+<p>Última edición el día 2020-09-14 a las 22:13.</p>
 <p>Esta es la documentación que he recopilado para trabajar con Python 3, el lenguaje de propósito general que me gusta utilizar en mis proyectos y en mi trabajo del día a dia.</p>
 <div class="contents topic" id="indice">
 <p class="topic-title">Índice</p>
@@ -324,7 +324,7 @@
 
 <span class="c1"># En las estructuras de control, funciones y clases de python sustituye las llaves por ``:``, y la identación del contenido es obligatoria:</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numeros</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -462,9 +462,9 @@ para recordar que es un dato que no debería ser mutable.</p>
 <span class="n">otraCadena</span> <span class="o">=</span> <span class="s1">&#39;Cadena de comillas simples es lo mismo&#39;</span>
 <span class="n">entero</span> <span class="o">=</span> <span class="mi">27</span>
 <span class="n">decimal</span> <span class="o">=</span> <span class="mf">22.83</span>
-<span class="n">booleano</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">booleano</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;Papiro&quot;</span><span class="p">]</span>
-<span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;guay&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;guay&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
 <span class="n">diccionario</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;profesion&#39;</span><span class="p">:</span> <span class="s1">&#39;programador&#39;</span><span class="p">,</span> <span class="s1">&#39;hobbie&#39;</span><span class="p">:</span><span class="s1">&#39;DIY&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -483,15 +483,15 @@ para recordar que es un dato que no debería ser mutable.</p>
 <li><p>Salida de datos:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cadena formateada:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Te llamas </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Te llamas {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">))</span>
 <span class="c1"># Cadena concatenada:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Te llamas &quot;</span> <span class="o">+</span> <span class="n">nombre</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Te llamas &quot;</span> <span class="o">+</span> <span class="n">nombre</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Como vemos en el ejemplo anterior tenemos dos formas de imprimir, concatenando con + cada una de las cadenas y variables
 o bien utilizar el formato que funciona introduciendo dentro de la cadena unas llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code> y luego justo despúes de la cadena
 la unimos con la función <code class="docutils literal notranslate"><span class="pre">.format()</span></code> en la cual iremos añadiendo cada una de las variables presentes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Te llamas </span><span class="si">{}</span><span class="s2">, tienes </span><span class="si">{}</span><span class="s2"> años y vives en </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="n">edad</span><span class="p">,</span><span class="n">ciudad</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Te llamas {}, tienes {} años y vives en {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="n">edad</span><span class="p">,</span><span class="n">ciudad</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -506,7 +506,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <span class="n">suma</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
 
 <span class="c1"># salida de datos:</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># si utilizamos + en cadenas las concatenamos:</span>
 <span class="n">cadenas</span> <span class="o">=</span> <span class="s2">&quot;cadena uno&quot;</span> <span class="o">+</span> <span class="s2">&quot; y &quot;</span> <span class="o">+</span> <span class="s2">&quot; cadena dos&quot;</span>
@@ -547,7 +547,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <p>Cuando hablamos del uso de un solo <code class="docutils literal notranslate"><span class="pre">=</span></code> nos referimos a la asignación de un valor en una variable.</p>
 <p>Como en muchos lenguajes, si imprimimos por consola la relación entre un valor y otro el resultado será True o False:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si decimos que 3 es mayor que 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1"># el resultado que sale por consola es True.</span>
 </pre></div>
 </div>
@@ -584,11 +584,11 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 </table>
 <p>Ejemplos:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultado False:</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
 <span class="c1"># Resultado True:</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="ow">or</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="ow">or</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
 <span class="c1"># Resultado True</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">6</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -602,16 +602,16 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">saludo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Di hola: &quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">saludo</span> <span class="o">==</span> <span class="s1">&#39;Hola&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola a tí también&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hola a tí también&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>También tenemos condiciones con una salida alternativa si no se cumple esta:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nacimiento</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Dime tu nacimiento: &#39;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">nacimiento</span> <span class="o">&lt;=</span> <span class="mi">2002</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres menor de edad&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Eres menor de edad&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -621,13 +621,13 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">edad</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Dime tu edad: &#39;</span><span class="p">):</span>
 
 <span class="k">if</span> <span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Eres mayor de edad&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">edad</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eres menor de edad&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Eres menor de edad&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ya eres un anciano&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ya eres un anciano&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No es una edad correcta&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;No es una edad correcta&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -641,7 +641,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;¿cuántas veces lo repito? &quot;</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numero</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">mensaje</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} : {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">mensaje</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -650,29 +650,29 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <p>El bucle While es similar a otros lenguajes, pero no se presenta la figura del bucle do-while.</p>
 <p>Ejemplo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">juego</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">juego</span> <span class="o">=</span> <span class="bp">True</span>
 
-<span class="k">while</span> <span class="n">juego</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="k">while</span> <span class="n">juego</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">adivina</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Adivinia el número &gt;&gt; &#39;</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fallaste!&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Fallaste!&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">adivina</span> <span class="o">==</span> <span class="n">numero</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Acertaste!&#39;</span><span class="p">)</span>
-        <span class="n">juego</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Acertaste!&#39;</span><span class="p">)</span>
+        <span class="n">juego</span> <span class="o">=</span> <span class="bp">False</span>
 </pre></div>
 </div>
 <p>Ejemplo con bucle infinito:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="c1"># al añadir True hacemos un bucle infinito:</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">adivina</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Adivinia el número &gt;&gt; &#39;</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">adivina</span> <span class="o">==</span> <span class="n">numero</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Acertaste!&#39;</span><span class="p">)</span>
-        <span class="o">//</span> <span class="n">Con</span> <span class="n">exit</span><span class="p">()</span> <span class="n">finalizamos</span> <span class="n">el</span> <span class="n">programa</span>
-        <span class="n">exit</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Acertaste!&#39;</span><span class="p">)</span>
+        <span class="o">//</span> <span class="n">Con</span> <span class="nb">exit</span><span class="p">()</span> <span class="n">finalizamos</span> <span class="n">el</span> <span class="n">programa</span>
+        <span class="nb">exit</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fallaste!&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Fallaste!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -682,7 +682,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <div class="section" id="listas">
 <h3><a class="toc-backref" href="#id25">Listas</a><a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Las listas son un tipo de dato mutable que agrupa un conjuto de valores de distintos tipos:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mf">3.81</span><span class="p">,</span> <span class="s2">&quot;cadena&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mf">3.81</span><span class="p">,</span> <span class="s2">&quot;cadena&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -691,52 +691,52 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;uno&quot;</span><span class="p">,</span> <span class="s2">&quot;dos&quot;</span><span class="p">,</span> <span class="s2">&quot;tres&quot;</span><span class="p">,</span> <span class="s2">&quot;cuatro&quot;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Ver cuantos elementos hay en una lista con <code class="docutils literal notranslate"><span class="pre">len()</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Imprime un elemento de la lista por su posición:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Muestra un rango de elementos de la lista:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Muestra el último elemento de la lista:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Borra el último elemento de la lista con <code class="docutils literal notranslate"><span class="pre">pop()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Borrar un elemento por su posición con <code class="docutils literal notranslate"><span class="pre">del</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Añadir un elemento a la lista con <code class="docutils literal notranslate"><span class="pre">append()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;nuevo texto&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">lista</span>
+<span class="k">print</span> <span class="n">lista</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -744,7 +744,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -752,7 +752,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -761,10 +761,10 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gato&quot;</span><span class="p">,</span> <span class="s2">&quot;nocilla&quot;</span><span class="p">,</span> <span class="s2">&quot;avión&quot;</span><span class="p">,</span> <span class="s2">&quot;leche&quot;</span><span class="p">]</span>
 
 <span class="c1"># Orden normal:</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
 
 <span class="c1"># Orden inverso:</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -781,40 +781,40 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <h3><a class="toc-backref" href="#id26">Tuplas</a><a class="headerlink" href="#tuplas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Las tuplas son similiares a las listas pero con la diferencia de que estas son inmutables.</p>
 <p>Ejemplo de lista:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;palabra&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">3.53</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;palabra&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mf">3.53</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Recorrer valores de una tupla e imprimirlos:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;palabra&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">3.53</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;palabra&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mf">3.53</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tupla</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Ver cuantos elementos hay en una tupla con <code class="docutils literal notranslate"><span class="pre">len()</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tupla</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tupla</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Imprime un elemento de la tupla por su posición:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Muestra un rango de elementos de la tupla:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Muestra el último elemento de la tupla:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -822,7 +822,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
 <span class="n">tupla</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -830,7 +830,7 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;hola&quot;</span><span class="p">,</span> <span class="mf">3.43</span><span class="p">]</span>
 <span class="n">tupla</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -839,10 +839,10 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Orden normal:</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">tupla</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">tupla</span><span class="p">))</span>
 
 <span class="c1"># Orden inverso:</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">tupla</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">tupla</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -852,48 +852,48 @@ la unimos con la función <code class="docutils literal notranslate"><span class
 Se construye por pares de datos que son clave y valor <code class="docutils literal notranslate"><span class="pre">{'nombre':'Antonio'}</span></code> y pueden anidar todo tipo de datos e incluso más diccionarios.</p>
 <p>Ejemplo de uso:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diccionario</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;nombre&#39;</span><span class="p">:</span><span class="s1">&#39;Pepe&#39;</span><span class="p">,</span> <span class="s1">&#39;edad&#39;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="s1">&#39;profesion&#39;</span><span class="p">:</span><span class="s1">&#39;agricultor&#39;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diccionario</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">diccionario</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Imprimir un valor del diccionario:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">diccionario</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">diccionario</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Convertir diccionario a tupla con <code class="docutils literal notranslate"><span class="pre">items()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span> <span class="o">=</span> <span class="n">diccionario</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Copiar un diccionario con <code class="docutils literal notranslate"><span class="pre">copy()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">otro</span> <span class="o">=</span> <span class="n">diccionario</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">otro</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">otro</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Recuperar solo las claves del diccionario con <code class="docutils literal notranslate"><span class="pre">keys()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">claves</span> <span class="o">=</span> <span class="n">diccionario</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">claves</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">claves</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Recuperar solo los valores del diccionario con <code class="docutils literal notranslate"><span class="pre">values()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">valores</span> <span class="o">=</span> <span class="n">diccionario</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">valores</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">valores</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Recorrer e imprimir todos los elementos del diccionario:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">diccionario</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="s2">&quot; Su valor es: &quot;</span> <span class="o">+</span> <span class="n">diccionario</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="s2">&quot; Su valor es: &quot;</span> <span class="o">+</span> <span class="n">diccionario</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -908,7 +908,7 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 <li><p>Para saber la longitud de una cadena con <code class="docutils literal notranslate"><span class="pre">len()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Alba María&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nombre</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nombre</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -916,28 +916,28 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mi">27</span>
 <span class="n">numero</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Convertir una cadena en una lista <code class="docutils literal notranslate"><span class="pre">split()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="n">nombre</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Reemplazar una cadena por otra con <code class="docutils literal notranslate"><span class="pre">replace()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Soy la persona mas afortunada&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Soy&#39;</span><span class="p">,</span> <span class="s1">&#39;Era&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Soy&#39;</span><span class="p">,</span> <span class="s1">&#39;Era&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Convertir a mayúsculas la cadena con <code class="docutils literal notranslate"><span class="pre">upper()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Hace buen día&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -945,7 +945,7 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;MI nombre Es Alfredo&quot;</span>
 <span class="n">frase</span> <span class="o">=</span> <span class="n">frase</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -956,46 +956,46 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 <li><p>Convertir un valor a entero con <code class="docutils literal notranslate"><span class="pre">int()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;introduce un número: &quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Convertir un valor a decimal con <code class="docutils literal notranslate"><span class="pre">float()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;introduce un número: &quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Redondear un valor decimal con <code class="docutils literal notranslate"><span class="pre">round()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mf">13.583</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">numero</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">numero</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Crear un rango de números con <code class="docutils literal notranslate"><span class="pre">range()</span></code>:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rango</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Mostrar el valor mayor de un rango con <code class="docutils literal notranslate"><span class="pre">max()</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Mostrar el valor mínimo de un rango con <code class="docutils literal notranslate"><span class="pre">min()</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Sumar todos los valores de un rango con <code class="docutils literal notranslate"><span class="pre">sum()</span></code>:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">rango</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1016,7 +1016,7 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 <p>Las funciones en Python se declaran con <code class="docutils literal notranslate"><span class="pre">def</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">function</span></code> como en muchos otros lenguajes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creación:</span>
 <span class="k">def</span> <span class="nf">saludar</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hola mundo&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hola mundo&#39;</span><span class="p">)</span>
 
 <span class="c1"># Llamada:</span>
 <span class="n">saludar</span><span class="p">()</span>
@@ -1030,7 +1030,7 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 
 <span class="c1"># Creamos la función que recibirá un valor que imprimimos:</span>
 <span class="n">saludar</span><span class="p">(</span><span class="n">persona</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hola {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="p">))</span>
 
 <span class="c1"># y llamamos a la función pasándole la variable nombre:</span>
 <span class="n">saludar</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
@@ -1041,7 +1041,7 @@ Se construye por pares de datos que son clave y valor <code class="docutils lite
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">miFuncion</span><span class="p">(</span><span class="o">*</span><span class="n">unNombre</span><span class="p">):</span>
 <span class="k">for</span> <span class="n">persona</span> <span class="ow">in</span> <span class="n">unNombre</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Se llama </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Se llama {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="p">))</span>
 
 <span class="n">miFuncion</span><span class="p">(</span><span class="s2">&quot;Pepe&quot;</span><span class="p">,</span> <span class="s2">&quot;Antonio&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfredo&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1071,7 +1071,7 @@ pasarlo a los métodos que vayan a utilizar atributos de la clase (osea practica
 
     <span class="c1"># Métodos:</span>
     <span class="k">def</span> <span class="nf">datos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Su nombre es </span><span class="si">{}</span><span class="s2">, su género </span><span class="si">{}</span><span class="s2">, pesa </span><span class="si">{}</span><span class="s2"> kilos y mide </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">genero</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peso</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">estatura</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Su nombre es {}, su género {}, pesa {} kilos y mide {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">genero</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peso</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">estatura</span><span class="p">))</span>
 
 
 <span class="c1"># creacion del objeto:</span>
@@ -1096,7 +1096,7 @@ pasarlo a los métodos que vayan a utilizar atributos de la clase (osea practica
             <span class="bp">self</span><span class="o">.</span><span class="n">estatura</span> <span class="o">=</span> <span class="n">para_estatura</span>
 
         <span class="k">def</span> <span class="nf">datos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Su nombre es </span><span class="si">{}</span><span class="s2">, su género </span><span class="si">{}</span><span class="s2">, pesa </span><span class="si">{}</span><span class="s2"> kilos y mide </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">genero</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peso</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">estatura</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Su nombre es {}, su género {}, pesa {} kilos y mide {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">genero</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peso</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">estatura</span><span class="p">))</span>
 
 <span class="c1"># Al crear el objeto le enviamos los parámetros correspondientes:</span>
 <span class="n">antonio</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Antonio&#39;</span><span class="p">,</span> <span class="s1">&#39;Masculino&#39;</span> <span class="p">,</span><span class="mi">79</span><span class="p">,</span> <span class="mi">168</span><span class="p">)</span>
@@ -1124,11 +1124,11 @@ pasarlo a los métodos que vayan a utilizar atributos de la clase (osea practica
 <h2><a class="toc-backref" href="#id34">Manejo de errores</a><a class="headerlink" href="#manejo-de-errores" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El manejo de errores en Python se hace con <code class="docutils literal notranslate"><span class="pre">try</span></code> y <code class="docutils literal notranslate"><span class="pre">except</span></code> seguido opcionalmente por <code class="docutils literal notranslate"><span class="pre">finally</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No has escrito un nombre&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;No has escrito un nombre&#39;</span><span class="p">)</span>
 <span class="k">finally</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fin de la ejecución&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Fin de la ejecución&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1137,8 +1137,8 @@ pasarlo a los métodos que vayan a utilizar atributos de la clase (osea practica
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">IOError</span>
 <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ocurrió un error&#39;</span><span class="p">)</span>
-    <span class="n">exit</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ocurrió un error&#39;</span><span class="p">)</span>
+    <span class="nb">exit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1262,7 +1262,7 @@ print(felizVeinte)</p>
 <span class="n">lista</span> <span class="o">=</span> <span class="n">archivo</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 
 <span class="n">archivo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
