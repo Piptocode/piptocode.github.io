@@ -110,10 +110,25 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#rutas">Rutas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rutas-de-app">Rutas de app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rutas-con-parametros">rutas con parámetros</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#vistas">Vistas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#fbv-function-based-views">FBV (Function-Based Views)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cbv-class-based-views">CBV (Class-Based Views)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#templateview">TemplateView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listview">ListView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detailview">DetailView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createview">CreateView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updateview">UpdateView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleteview">DeleteView</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#establecer-ruta-cuando-usamos-cbv">Establecer ruta cuando usamos CBV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pasarle-un-formulario-a-una-cbv">Pasarle un formulario a una CBV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crear-un-nuevo-contexto">Crear un nuevo contexto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recuperar-datos-de-post-o-get">Recuperar datos de POST o GET</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decoradores">Decoradores</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a><ul>
@@ -130,7 +145,19 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#modelos">Modelos</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cargar-imagenes-en-modelos-con-pillow">Cargar imágenes en modelos con Pillow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo-de-muchos-a-muchos">Modelo de muchos a muchos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generar-modelo-y-migrar-la-base-de-datos">Generar modelo y migrar la base de datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#orm-de-django-y-sus-querysets">ORM de Django y sus QuerySets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#realizar-querysets-desde-vista-y-pasarlos-a-template">Realizar QuerySets desde vista y pasarlos a template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#formularios">Formularios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#crear-un-formulario">Crear un formulario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crear-un-formulario-usando-su-modelo">Crear un formulario usando su modelo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilizar-un-formulario">Utilizar un formulario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validar-un-formulario">Validar un formulario</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#panel-de-administracion">Panel de administración</a><ul>
@@ -219,7 +246,7 @@
   <div class="section" id="django">
 <h1><a class="toc-backref" href="#id1">Django</a><a class="headerlink" href="#django" title="Enlazar permanentemente con este título">¶</a></h1>
 <a class="reference internal image-reference" href="../../_images/logo-django.png"><img alt="Logo HTML5" class="align-center" src="../../_images/logo-django.png" style="width: 275.0px; height: 275.0px;" /></a>
-<p>Última edición el día 2020-09-17 a las 14:17.</p>
+<p>Última edición el día 2020-09-19 a las 00:41.</p>
 <p>Esta es la documentación que he recopilado para trabajar con Django, un framework basado en Python que sirve para desarrollar aplicaciones web.</p>
 <div class="contents topic" id="indice">
 <p class="topic-title">Índice</p>
@@ -238,39 +265,69 @@
 <li><p><a class="reference internal" href="#rutas" id="id8">Rutas</a></p>
 <ul>
 <li><p><a class="reference internal" href="#rutas-de-app" id="id9">Rutas de app</a></p></li>
+<li><p><a class="reference internal" href="#rutas-con-parametros" id="id10">rutas con parámetros</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#vistas" id="id10">Vistas</a></p>
+<li><p><a class="reference internal" href="#vistas" id="id11">Vistas</a></p>
 <ul>
-<li><p><a class="reference internal" href="#fbv-function-based-views" id="id11">FBV (Function-Based Views)</a></p></li>
+<li><p><a class="reference internal" href="#fbv-function-based-views" id="id12">FBV (Function-Based Views)</a></p></li>
+<li><p><a class="reference internal" href="#cbv-class-based-views" id="id13">CBV (Class-Based Views)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#templateview" id="id14">TemplateView</a></p></li>
+<li><p><a class="reference internal" href="#listview" id="id15">ListView</a></p></li>
+<li><p><a class="reference internal" href="#detailview" id="id16">DetailView</a></p></li>
+<li><p><a class="reference internal" href="#createview" id="id17">CreateView</a></p></li>
+<li><p><a class="reference internal" href="#updateview" id="id18">UpdateView</a></p></li>
+<li><p><a class="reference internal" href="#deleteview" id="id19">DeleteView</a></p></li>
+<li><p><a class="reference internal" href="#establecer-ruta-cuando-usamos-cbv" id="id20">Establecer ruta cuando usamos CBV</a></p></li>
+<li><p><a class="reference internal" href="#pasarle-un-formulario-a-una-cbv" id="id21">Pasarle un formulario a una CBV</a></p></li>
+<li><p><a class="reference internal" href="#crear-un-nuevo-contexto" id="id22">Crear un nuevo contexto</a></p></li>
+<li><p><a class="reference internal" href="#recuperar-datos-de-post-o-get" id="id23">Recuperar datos de POST o GET</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#templates" id="id12">Templates</a></p>
+<li><p><a class="reference internal" href="#decoradores" id="id24">Decoradores</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#templates" id="id25">Templates</a></p>
 <ul>
-<li><p><a class="reference internal" href="#template-tags" id="id13">Template Tags</a></p>
+<li><p><a class="reference internal" href="#template-tags" id="id26">Template Tags</a></p>
 <ul>
-<li><p><a class="reference internal" href="#template-tag-base" id="id14">Template tag base</a></p></li>
-<li><p><a class="reference internal" href="#template-tag-url" id="id15">Template tag url</a></p></li>
-<li><p><a class="reference internal" href="#template-tag-static" id="id16">Template tag static</a></p></li>
-<li><p><a class="reference internal" href="#template-tag-de-datos" id="id17">Template tag de datos</a></p></li>
-<li><p><a class="reference internal" href="#template-tag-for" id="id18">Template tag for</a></p></li>
-<li><p><a class="reference internal" href="#template-tag-if" id="id19">Template tag if</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-base" id="id27">Template tag base</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-url" id="id28">Template tag url</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-static" id="id29">Template tag static</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-de-datos" id="id30">Template tag de datos</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-for" id="id31">Template tag for</a></p></li>
+<li><p><a class="reference internal" href="#template-tag-if" id="id32">Template tag if</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#modelos" id="id20">Modelos</a></p>
+<li><p><a class="reference internal" href="#modelos" id="id33">Modelos</a></p>
 <ul>
-<li><p><a class="reference internal" href="#cargar-imagenes-en-modelos-con-pillow" id="id21">Cargar imágenes en modelos con Pillow</a></p></li>
-<li><p><a class="reference internal" href="#generar-modelo-y-migrar-la-base-de-datos" id="id22">Generar modelo y migrar la base de datos</a></p></li>
+<li><p><a class="reference internal" href="#cargar-imagenes-en-modelos-con-pillow" id="id34">Cargar imágenes en modelos con Pillow</a></p></li>
+<li><p><a class="reference internal" href="#modelo-de-muchos-a-muchos" id="id35">Modelo de muchos a muchos</a></p></li>
+<li><p><a class="reference internal" href="#generar-modelo-y-migrar-la-base-de-datos" id="id36">Generar modelo y migrar la base de datos</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#panel-de-administracion" id="id23">Panel de administración</a></p>
+<li><p><a class="reference internal" href="#orm-de-django-y-sus-querysets" id="id37">ORM de Django y sus QuerySets</a></p>
 <ul>
-<li><p><a class="reference internal" href="#puesta-en-marcha" id="id24">Puesta en marcha</a></p></li>
-<li><p><a class="reference internal" href="#mostrar-datos-de-nuestros-modelos" id="id25">Mostrar datos de nuestros modelos</a></p></li>
-<li><p><a class="reference internal" href="#personalizar-titulos-de-las-apps" id="id26">Personalizar titulos de las Apps</a></p></li>
-<li><p><a class="reference internal" href="#personalizar-tablas" id="id27">Personalizar tablas</a></p></li>
+<li><p><a class="reference internal" href="#realizar-querysets-desde-vista-y-pasarlos-a-template" id="id38">Realizar QuerySets desde vista y pasarlos a template</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#formularios" id="id39">Formularios</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crear-un-formulario" id="id40">Crear un formulario</a></p></li>
+<li><p><a class="reference internal" href="#crear-un-formulario-usando-su-modelo" id="id41">Crear un formulario usando su modelo</a></p></li>
+<li><p><a class="reference internal" href="#utilizar-un-formulario" id="id42">Utilizar un formulario</a></p></li>
+<li><p><a class="reference internal" href="#validar-un-formulario" id="id43">Validar un formulario</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#panel-de-administracion" id="id44">Panel de administración</a></p>
+<ul>
+<li><p><a class="reference internal" href="#puesta-en-marcha" id="id45">Puesta en marcha</a></p></li>
+<li><p><a class="reference internal" href="#mostrar-datos-de-nuestros-modelos" id="id46">Mostrar datos de nuestros modelos</a></p></li>
+<li><p><a class="reference internal" href="#personalizar-titulos-de-las-apps" id="id47">Personalizar titulos de las Apps</a></p></li>
+<li><p><a class="reference internal" href="#personalizar-tablas" id="id48">Personalizar tablas</a></p></li>
 </ul>
 </li>
 </ul>
@@ -346,14 +403,69 @@ En este archivo vamos a vincular las rutas que vayamos generando con cada una de
 <div class="section" id="rutas-de-app">
 <h3><a class="toc-backref" href="#id9">Rutas de app</a><a class="headerlink" href="#rutas-de-app" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos generar otros archivos <code class="docutils literal notranslate"><span class="pre">urls.py</span></code> dentro de cada aplicación para gestionar sus rutas internas.</p>
-<p>PENDIENTE….</p>
+<ul class="simple">
+<li><p>En el archivo principal de rutas alojado en la carpeta con el mismo nombre del proyecto:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span> <span class="c1"># Cargamos la librería include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="c1"># importamos el archivo urls de nuestra app:</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;nombre_de_tu_app.urls&#39;</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Este archivo todavía no existe así que vamos a crearlo en la carpeta de la app con el nombre urls.py:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span> <span class="k">as</span> <span class="n">nombre_de_tu_app</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">nombre_de_tu_app</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;home&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;sobremi/&#39;</span><span class="p">,</span> <span class="n">nombre_de_tu_app</span><span class="o">.</span><span class="n">about</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sobremi&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Y con esto podemos gestionar las rutas de cada app individualmente.</p>
+</div>
+<div class="section" id="rutas-con-parametros">
+<h3><a class="toc-backref" href="#id10">rutas con parámetros</a><a class="headerlink" href="#rutas-con-parametros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las rutas pueden gestioanr parámetros, veamos un ejemplo de como hacerlo:</p>
+<ul class="simple">
+<li><p>En el archivo de rutas de la app urls.py:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span> <span class="k">as</span> <span class="n">nombre_de_tu_app</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">nombre_de_tu_app</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;home&#39;</span><span class="p">),</span>
+    <span class="c1"># despues del slash pasamos entre símbolos menor y mayor que el tipo de variable y el parámetro. si no lleva nada lo reconoce como cadena</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;sobremi/&lt;int:id_entrada&gt;&#39;</span><span class="p">,</span> <span class="n">nombre_de_tu_app</span><span class="o">.</span><span class="n">about</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sobremi&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Desde la vista podemos coger el parámetro y procesarlo:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prueba</span>
+
+<span class="c1"># la función recibe por parámetros la id de la entrada:</span>
+<span class="k">def</span> <span class="nf">about</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">id_entrada</span><span class="p">):</span>
+    <span class="c1"># este parámetro lo podemos usar por ejemplo para encontrar una entrada ya que django por defecto les asigna un id</span>
+    <span class="n">entrada</span> <span class="o">=</span> <span class="n">Prueba</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">id_entrada</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nombre_de_tu_app/about.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;entrada&#39;</span><span class="p">:</span><span class="n">entrada</span><span class="p">})</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="vistas">
-<h2><a class="toc-backref" href="#id10">Vistas</a><a class="headerlink" href="#vistas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Vistas</a><a class="headerlink" href="#vistas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Las vistas en Django sirven para precargar y procesar datos del servidor que provienen de las plantillas <strong>HTML</strong>. Existen dos formas de crear vistas, las <strong>FBV</strong> (Function-based Views) y las <strong>CBV</strong> (Class-based Views).</p>
 <div class="section" id="fbv-function-based-views">
-<h3><a class="toc-backref" href="#id11">FBV (Function-Based Views)</a><a class="headerlink" href="#fbv-function-based-views" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">FBV (Function-Based Views)</a><a class="headerlink" href="#fbv-function-based-views" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Son las vistas mas simples de Django, con ellas debes tener un control absoluto de lo que haces.</p>
 <ul class="simple">
 <li><p>Devolver respuesta HTML con <strong>HttpResponse</strong>:</p></li>
@@ -383,9 +495,238 @@ En este archivo vamos a vincular las rutas que vayamos generando con cada una de
 <p>Cuando hacemos esto es probable tener un error Template does not exist, se debe a que no hemos creado aun el template, que no hemos añadido la app a INSTALLED_APPS o simplemente cerramos el servidor y volvemos a lanzarlo par que funcione.</p>
 </div>
 </div>
+<div class="section" id="cbv-class-based-views">
+<h3><a class="toc-backref" href="#id13">CBV (Class-Based Views)</a><a class="headerlink" href="#cbv-class-based-views" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las vistas basadas en clases son otro tipo de vistas estandarizas muy útiles para trabajar ahorrando líneas de código.</p>
+<div class="section" id="templateview">
+<h4><a class="toc-backref" href="#id14">TemplateView</a><a class="headerlink" href="#templateview" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Clase de vista estandar, se utiliza comunmente para renderizar templates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="c1"># Importamos la librería templateview:</span>
+<span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+
+<span class="c1"># Utilizamos las de tipo templateview para devolver un template:</span>
+<span class="k">class</span> <span class="nc">HomePageView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;nombre_de_tu_app/home.html&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listview">
+<h4><a class="toc-backref" href="#id15">ListView</a><a class="headerlink" href="#listview" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Con ListView podemos devolver una tabla de la base de datos de forma sencilla:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="c1"># Importamos el listview y la base de datos:</span>
+<span class="kn">from</span> <span class="nn">django.views.generic.list</span> <span class="kn">import</span> <span class="n">ListView</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Page</span>
+
+<span class="c1"># Ahora creamos la clase de tipo ListView:</span>
+<span class="k">class</span> <span class="nc">PageListView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span> <span class="c1"># Gestionará el modelo page</span>
+    <span class="n">paginate_by</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># así de sencillo se paginan resultados.</span>
+</pre></div>
+</div>
+<p>De esta forma tenemos un listado en el template listo para recorrer usando el bucle sobre el valor object_list <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">for</span> <span class="pre">pagina</span> <span class="pre">in</span> <span class="pre">object_list</span> <span class="pre">%}</span></code></p>
+<dl class="simple">
+<dt>..attention</dt><dd><p>Para que funcione esta vista y encuentre su template por defecto sería <strong>page_list.html</strong> y la colocamos dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">templates/nombre_de_tu_app/</span></code></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="detailview">
+<h4><a class="toc-backref" href="#id16">DetailView</a><a class="headerlink" href="#detailview" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Con la vista detalle recuperamos un elemento de la base de datos para visualizarlo, veamos views.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos el detailview:</span>
+<span class="kn">from</span> <span class="nn">django.views.generic.detail</span> <span class="kn">import</span> <span class="n">DetailView</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Page</span>
+
+
+<span class="c1"># Ahora vamos a integrar la clase de pagina simple con el detailview:</span>
+<span class="k">class</span> <span class="nc">PageDetailView</span><span class="p">(</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span> <span class="c1"># cargamos el modelo Page</span>
+</pre></div>
+</div>
+<p>En la ruta deberemos asignar el parámetro <code class="docutils literal notranslate"><span class="pre">&lt;int:pk&gt;</span></code> para poder recibir el id del elemento.</p>
+<dl class="simple">
+<dt>..attention</dt><dd><p>Debemos crear el template dentro de templates/nombre_de_tu_app/ con el nombre page_detail.html, ahora solo falta imprimir los datos usando el template tag {{page}}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="createview">
+<h4><a class="toc-backref" href="#id17">CreateView</a><a class="headerlink" href="#createview" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Como su nombre indica, es la vista para crear elementos, vamos a probarla en views.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos CreateView:</span>
+<span class="kn">from</span> <span class="nn">django.views.generic.edit</span> <span class="kn">import</span> <span class="n">CreateView</span>
+<span class="c1"># e importamos la librería para hacer redirecciones:</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Page</span>
+
+<span class="c1"># Y creamos la vista con CreateView para crear registros:</span>
+<span class="k">class</span> <span class="nc">PageCreate</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span> <span class="c1"># Cargamos el modelo.</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">]</span> <span class="c1"># Y ahora añadimos los campos que vamos a permitir que se puedan crear</span>
+    <span class="c1"># Opcionalmente hacemos un reverse_lazy que retorna a la página que le indicamos:</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;pages:pages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Con esto solo nos falta el template llamado page_create.html y utilizar un formulario que suba dichos campos.</p>
+</div>
+<div class="section" id="updateview">
+<h4><a class="toc-backref" href="#id18">UpdateView</a><a class="headerlink" href="#updateview" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Esta vista sirve para actualizar registros, hay que pasarle un pk para poder editar la página correcta.</p>
+<ul class="simple">
+<li><p>Editamos views.py:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos el update:</span>
+<span class="kn">from</span> <span class="nn">django.views.generic.edit</span> <span class="kn">import</span> <span class="n">UpdateView</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Page</span>
+
+<span class="c1"># Ahora creamos la vista update:</span>
+<span class="k">class</span> <span class="nc">PageUpdate</span><span class="p">(</span><span class="n">UpdateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">]</span>
+    <span class="c1"># Ahora le pasamos el sufijo que tendrá la página (page_update_form.html):</span>
+    <span class="n">template_name_suffix</span> <span class="o">=</span> <span class="s1">&#39;_update_form&#39;</span>
+
+    <span class="c1"># Ahora vamos a retornar al formulario una vez terminada la edición esta vez necesariamente con un método específico de django:</span>
+    <span class="k">def</span> <span class="nf">get_success_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># Le pasamos por argumenoto la id:</span>
+    <span class="k">return</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;pages:update&#39;</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">id</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;?ok&#39;</span> <span class="c1"># Le pasamos por parámetros un valor ok para verificarlo en el template</span>
+</pre></div>
+</div>
+<p>De este modo solo nos falta el archivo page_update.html y en la ruta pasarle un parámetro con el nombre &lt;int:pk&gt;, en el template ponemos un formulario tal cual como en CreateView.</p>
+</div>
+<div class="section" id="deleteview">
+<h4><a class="toc-backref" href="#id19">DeleteView</a><a class="headerlink" href="#deleteview" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Sirve para borrar entradas, funciona de un modo similar a UpdateView, veamos views.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic.edit</span> <span class="kn">import</span> <span class="n">DeleteView</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Page</span>
+
+<span class="c1"># Creamos la vista delete:</span>
+<span class="k">class</span> <span class="nc">PageDelete</span><span class="p">(</span><span class="n">DeleteView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;pages:pages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Con esto le pasamos a la ruta un parámetro tipo &lt;int:pk&gt; y crear el template DeleteView.as_view()</p>
+</div>
+<div class="section" id="establecer-ruta-cuando-usamos-cbv">
+<h4><a class="toc-backref" href="#id20">Establecer ruta cuando usamos CBV</a><a class="headerlink" href="#establecer-ruta-cuando-usamos-cbv" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>La forma de importar vista en las rutas cambia un poco con las CBV, veamos urls.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="c1"># Importamos las vistas:</span>
+<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">HomePageView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Devolvemos las urls con el metodo as_view para que las muestre como tal:</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">HomePageView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;home&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pasarle-un-formulario-a-una-cbv">
+<h4><a class="toc-backref" href="#id21">Pasarle un formulario a una CBV</a><a class="headerlink" href="#pasarle-un-formulario-a-una-cbv" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Para pasarle un formulario a un CBV hacemos lo siguiente en views.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.views.generic.edit</span> <span class="kn">import</span> <span class="n">CreateView</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Page</span>
+<span class="c1"># Importamos el formulario de forms:</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">PageForm</span>
+
+<span class="k">class</span> <span class="nc">PageCreate</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PageForm</span> <span class="c1"># Asignamos el formulario que vamos a utilizar</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;pages:pages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="crear-un-nuevo-contexto">
+<h4><a class="toc-backref" href="#id22">Crear un nuevo contexto</a><a class="headerlink" href="#crear-un-nuevo-contexto" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Este concepto se resume en la manera de exportar datos desde las vistas CBV al Template y este sería el modo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+
+<span class="k">class</span> <span class="nc">HomePageView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;core/home.html&#39;</span>
+    <span class="c1"># Podemos pasarle valores a la vista a través de un diccionario de contexto con un método específico:</span>
+    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Cargamos del padre la estructura del diccionario:</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_context_data</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Y ahora podemos grabar por ejemplo un título:</span>
+        <span class="n">context</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Título de mi web&#39;</span>
+        <span class="c1"># La devolvemos al Template para que pueda usarlo:</span>
+        <span class="k">return</span> <span class="n">context</span>
+</pre></div>
+</div>
+<p>Imagina ahora que queremos usar ese contexto en un título del template, pues escribimos <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;{{titulo}}&lt;/h1&gt;</span></code> y listo.</p>
+</div>
+<div class="section" id="recuperar-datos-de-post-o-get">
+<h4><a class="toc-backref" href="#id23">Recuperar datos de POST o GET</a><a class="headerlink" href="#recuperar-datos-de-post-o-get" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Para recuperar datos desde GET o POST utilizamos la función con su nombre que viene ya preparada en la clase superior:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prueba</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">ContactoForm</span>
+
+<span class="k">class</span> <span class="nc">RegistroView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;nombre_de_tu_app/index.html&#39;</span>
+
+    <span class="c1"># Se utiliza la función predefinida llamada post o get con los parámetros que vemos:</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># guardamos el formulario en una variable con los datos rellenos:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form_class</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="c1"># comprobamos que sea válido:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># preparamos los datos para guardar:</span>
+            <span class="n">registro</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="c1"># podemos editar algun dato por el camino:</span>
+            <span class="n">registro</span><span class="o">.</span><span class="n">fecha_creacion</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+            <span class="c1"># y guardamos el registro en el modelo:</span>
+            <span class="n">registro</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="c1"># regresamos a la página de vuelta:</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ContactoForm</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>De este modo una vez recibe datos los almacena en el modelo.</p>
+</div>
+</div>
+<div class="section" id="decoradores">
+<h3><a class="toc-backref" href="#id24">Decoradores</a><a class="headerlink" href="#decoradores" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los decoradores sirven para hacer modificaciones en las vistas, como por ejemplo definir si una url la puede ver solo usuarios registrados o si es del staff:</p>
+<ul class="simple">
+<li><p>Decoradores en CBV:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se le pasa el decorador a la clase directamente:</span>
+<span class="nd">@method_decorator</span><span class="p">(</span><span class="n">login_required</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;dispatch&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ProfileUpdate</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;registration/profile_form.html&#39;</span>
+
+<span class="c1"># podemos definir si es un usuario registrado o si solo puede acceder el staff</span>
+<span class="nd">@method_decorator</span><span class="p">(</span><span class="n">staff_member_required</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;dispatch&#39;</span><span class="p">)</span> <span class="c1"># Para que el decorador de metodos sepa cual es el que tiene que decorar lo asignamos con un parámetro name</span>
+<span class="k">class</span> <span class="nc">PageCreate</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Page</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PageForm</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;pages:pages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Añadimos lo siguiente al final de settings.py para definir hacia donde irá para inciar sesión:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Este es el path al que queremos que redireccione:</span>
+<span class="n">LOGIN_REDIRECT_URL</span> <span class="o">=</span> <span class="s1">&#39;pages:pages&#39;</span>
+<span class="n">LOGOUT_REDIRECT_URL</span> <span class="o">=</span> <span class="s1">&#39;home&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="templates">
-<h2><a class="toc-backref" href="#id12">Templates</a><a class="headerlink" href="#templates" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Templates</a><a class="headerlink" href="#templates" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Las plantillas son las que muestran el sitio web mediante etiquetas HTML y también imprimen resultados que gestiona el servidor con <strong>Template Tags</strong>.</p>
 <ul class="simple">
 <li><p>Para comenzar a utilizar templates creamos una carpeta llamada <strong>templates</strong> en el interior de la carpeta de nuestra app y dentro de templates otro directorio con el nombre de la app. (nombre_de_tu_app/templates/nombre_de_tu_app)</p></li>
@@ -410,11 +751,11 @@ En este archivo vamos a vincular las rutas que vayamos generando con cada una de
 <p>Para que funcione debemos tener listo el render que devuelve este archivo html y al abrir el navegador se mostrará correctamente.</p>
 </div>
 <div class="section" id="template-tags">
-<h3><a class="toc-backref" href="#id13">Template Tags</a><a class="headerlink" href="#template-tags" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Template Tags</a><a class="headerlink" href="#template-tags" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los Template Tags son un tipo de etiquetas especiales en Django que se utilizan en las plantillas para ejecutar respuestas backend.</p>
 <p>Estas etiquetas suelen tener dos tipos de estructuras: <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">instrucción</span> <span class="pre">%}</span></code> o <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">datos</span> <span class="pre">}}</span></code> según el tipo de tarea que vayamos a ejecutar.</p>
 <div class="section" id="template-tag-base">
-<h4><a class="toc-backref" href="#id14">Template tag base</a><a class="headerlink" href="#template-tag-base" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id27">Template tag base</a><a class="headerlink" href="#template-tag-base" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Una buena práctica para no repetir código en plantillas es coger todo el contenido común y almacenarlo en una plantilla base:</p>
 <ul class="simple">
 <li><p>Entramos en la carpeta <code class="docutils literal notranslate"><span class="pre">nombre_de_tu_app/templates/nombre_de_tu_app</span></code> y creamos un archivo llamado base.html donde copiaremos el contenido común:</p></li>
@@ -455,7 +796,7 @@ En este archivo vamos a vincular las rutas que vayamos generando con cada una de
 <p>Siguiendo este patrón podemos reutilizar el código base de la web en nuevas páginas o incluso nuevas apps de Django.</p>
 </div>
 <div class="section" id="template-tag-url">
-<h4><a class="toc-backref" href="#id15">Template tag url</a><a class="headerlink" href="#template-tag-url" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id28">Template tag url</a><a class="headerlink" href="#template-tag-url" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Con este template tag podemos establecer vínculos a otras páginas enlazando los names del archivo de rutas.</p>
 <p>¿recuerdas las líneas que escribimos dentro de urls.py? <code class="docutils literal notranslate"><span class="pre">path('',</span> <span class="pre">views.home,</span> <span class="pre">name</span> <span class="pre">=</span> <span class="pre">'home'),</span></code>, el path recibe tres valores, la ruta del navegador, la ubicación de la vista y por último el nombre de la ruta,
 este tercer valor es el que utilizamos con el template tag <strong>url</strong></p>
@@ -493,7 +834,7 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </div>
 </div>
 <div class="section" id="template-tag-static">
-<h4><a class="toc-backref" href="#id16">Template tag static</a><a class="headerlink" href="#template-tag-static" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id29">Template tag static</a><a class="headerlink" href="#template-tag-static" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Con este template tag vamos a cargar archivos estáticos de nuestra web, entre ellos están las imágenes, videos, hojas de estilo y javascript.</p>
 <ul class="simple">
 <li><p>Siguiendo una práctica convencional creamos una carpeta llamada <strong>static</strong> dentro del directorio de la app y dentro de static una carpeta con el nombre de la app: <code class="docutils literal notranslate"><span class="pre">nombre_de_tu_app/static/nombre_de_tu_app</span></code>.</p></li>
@@ -531,7 +872,7 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </div>
 </div>
 <div class="section" id="template-tag-de-datos">
-<h4><a class="toc-backref" href="#id17">Template tag de datos</a><a class="headerlink" href="#template-tag-de-datos" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id30">Template tag de datos</a><a class="headerlink" href="#template-tag-de-datos" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Los template tags de datos muestran información que enviamos desde la vista al template.</p>
 <ul class="simple">
 <li><p>Si nos vamos a views.py para añadir un dato:</p></li>
@@ -573,7 +914,7 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </div>
 </div>
 <div class="section" id="template-tag-for">
-<h4><a class="toc-backref" href="#id18">Template tag for</a><a class="headerlink" href="#template-tag-for" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id31">Template tag for</a><a class="headerlink" href="#template-tag-for" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>En los templates de Django para hacer un bucle for lo hacemos del siguiente modo:</p>
 <ul class="simple">
 <li><p>Para empezar necesitamos un diccionario al que acceder desde views.py:</p></li>
@@ -603,7 +944,7 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </div>
 </div>
 <div class="section" id="template-tag-if">
-<h4><a class="toc-backref" href="#id19">Template tag if</a><a class="headerlink" href="#template-tag-if" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id32">Template tag if</a><a class="headerlink" href="#template-tag-if" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Con el template tag if podemos establecer condiciones dentro de los templates, retomando el ejemplo de for vamos a pintar de verde uno de los registros:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;h3&gt;Listado de Clientes&lt;/h3&gt;
 &lt;ul&gt;
@@ -620,11 +961,12 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </div>
 </div>
 <div class="section" id="modelos">
-<h2><a class="toc-backref" href="#id20">Modelos</a><a class="headerlink" href="#modelos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Modelos</a><a class="headerlink" href="#modelos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los modelos en Django sirven para crear estructuras de bases de datos con las que podremos interactuar gracias a sus QuerySets.</p>
 <p>En cada app que creamos tenemos un archivo models.py, vamos a editar uno para ver que campos tiene:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Los modelos se crean usando una clase que hereda de la superclase Model:</span>
 <span class="k">class</span> <span class="nc">Prueba</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Autor&quot;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span> <span class="c1"># El primero es una clave foranea para vincular otras tablas como la de usuarios que viene por defecto</span>
     <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Título&quot;</span><span class="p">)</span> <span class="c1"># CharField es un campo de tipo texto, el primer parámetro que le pasamos define el tamaño máximo y es obligatorio, el segundo es opcional y sirve para todos los campos (verbose_name define como se mostrará la label del panel de administración)</span>
     <span class="n">descripcion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Descripción&quot;</span><span class="p">)</span> <span class="c1"># Con TextField tenemos una caja de texto sin límite de rango.</span>
     <span class="n">link</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">URLField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Enlace&quot;</span><span class="p">)</span> <span class="c1"># URLField nos permite agregar una url válida.</span>
@@ -652,13 +994,14 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 <p>Los parámetros comunes para prácticamente todos los campos son verbose_name (nombre que muestra), blank (True o False para permitir el campo vacío), null (True o False para permitir campo nulo)</p>
 </div>
 <div class="section" id="cargar-imagenes-en-modelos-con-pillow">
-<h3><a class="toc-backref" href="#id21">Cargar imágenes en modelos con Pillow</a><a class="headerlink" href="#cargar-imagenes-en-modelos-con-pillow" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">Cargar imágenes en modelos con Pillow</a><a class="headerlink" href="#cargar-imagenes-en-modelos-con-pillow" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Pillow es una librería de Python que se utiliza para el tratamiento de imágenes. En Django la podemos utilizar para gestionar la carga de estas.</p>
 <ul class="simple">
 <li><p>Lo primero que tenemos que hacer es instalar Pillow en nuestro entorno: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Pillow</span></code></p></li>
 <li><p>Ahora vamos a editar nuestra clase de models.py:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Prueba</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Autor&quot;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
     <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Título&quot;</span><span class="p">)</span>
     <span class="n">descripcion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Descripción&quot;</span><span class="p">)</span>
     <span class="n">fecha_creacion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
@@ -704,8 +1047,47 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </div>
 <p>De este modo y mientras no estemos en producción podremos visualizar las imágenes desde el panel de administrador para probar que funciona correctamente.</p>
 </div>
+<div class="section" id="modelo-de-muchos-a-muchos">
+<h3><a class="toc-backref" href="#id35">Modelo de muchos a muchos</a><a class="headerlink" href="#modelo-de-muchos-a-muchos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En base de datos un modelo de muchos a muchos nos sirve para establecer una relación entre múltiples componentes de ambas tablas, como por ejemplo crear una lista de categorías:
+* Sería algo así nuestro modelo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># primero creamos un modelo para guardar las categorías:</span>
+<span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Nombre&quot;</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Fecha de creación&quot;</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Fecha de edición&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;categoria&quot;</span>
+    <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;categorias&quot;</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-created&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+<span class="k">class</span> <span class="nc">Prueba</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;Autor&quot;</span><span class="p">,</span> <span class="n">on_delete</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Título&quot;</span><span class="p">)</span>
+    <span class="n">descripcion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Descripción&quot;</span><span class="p">)</span>
+    <span class="n">fecha_creacion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">fecha_edicion</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">auto_now</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">imagen</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s2">&quot;imagenes/&quot;</span><span class="p">)</span>
+    <span class="c1"># Ahora vamos a recuperar todas las categorías en la tabla que queremos usar:</span>
+    <span class="n">categorias</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;Categorías&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;pruebas&quot;</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-fecha_creacion&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">titulo</span>
+</pre></div>
+</div>
+<p>Ahora podemos generar categorías incluso desde la tabla de pruebas cuando ingresamos o editamos un registro.</p>
+</div>
 <div class="section" id="generar-modelo-y-migrar-la-base-de-datos">
-<h3><a class="toc-backref" href="#id22">Generar modelo y migrar la base de datos</a><a class="headerlink" href="#generar-modelo-y-migrar-la-base-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">Generar modelo y migrar la base de datos</a><a class="headerlink" href="#generar-modelo-y-migrar-la-base-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Cuando creamos un modelo nuevo lo primero que tenemos que hacer es maquetar la estructura que vamos a migrar cada vez que generemos la base de datos:</p>
 <ul class="simple">
 <li><p>Para crear el modelo de las tablas de una app ejecutamos <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span> <span class="pre">nombre_de_tu_app</span></code>.</p></li>
@@ -717,11 +1099,154 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 </dl>
 </div>
 </div>
+<div class="section" id="orm-de-django-y-sus-querysets">
+<h2><a class="toc-backref" href="#id37">ORM de Django y sus QuerySets</a><a class="headerlink" href="#orm-de-django-y-sus-querysets" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los QuerySets son listas de objetos que se recuperan de la base de datos de forma similar a una consulta SQL. Existen una serie de
+sentencias trabajar con estos datos.</p>
+<ul class="simple">
+<li><p>Lo primero que vamos a hacer es ejecutar <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">shell</span></code>, esto abrirá la consola del ORM.</p></li>
+<li><p>Una vez arrancada lo primero que tenemos que hacer para las pruebas es importar un modelo <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">nombre_de_tu_app</span> <span class="pre">import</span> <span class="pre">Prueba</span></code></p></li>
+</ul>
+<p>Ahora vamos a conocer los distintos comandos para realizar QuerySets:</p>
+<ul class="simple">
+<li><p>Prueba.objects.all(): devuelve todos los registros de la tabla Prueba</p></li>
+<li><p>Prueba.objects.create(titulo=»Ejemplo», descripcion=»esto es una entrada»): Genera un nuevo registro en la tabla Prueba, ten en cuenta que esten todos los campos o sino que puedan estar en blanco (blank=True)</p></li>
+<li><p>Prueba.objects.filter(titulo__contains = “Ejemplo”): Permite filtrar las tablas para devolver solo aquellos que contienen la palabra clave, si quitamos __contains solo obtendrá los que tengan exactamente y únicamente esa palabra.</p></li>
+<li><p>Prueba.objects.order_by(“fecha_creacion”): Permite ordenar los registros de la tabla nuevamente cuando se cargan en la vista.</p></li>
+<li><p>Prueba.objects.delete(titulo=»Ejemplo»): Elimina un valor según el campo que hayamos elegido para buscarlo</p></li>
+</ul>
+<p>Para salir de la consola ORM escribimos <code class="docutils literal notranslate"><span class="pre">exit()</span></code> y pulsamos intro</p>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Podemos encadenar algunos querysets por ejemplo recuperar todos los datos y ordenarlos por fecha: <code class="docutils literal notranslate"><span class="pre">Prueba.objects.all().order_by('-fecha_creacion')</span></code></p>
+</div>
+<div class="section" id="realizar-querysets-desde-vista-y-pasarlos-a-template">
+<h3><a class="toc-backref" href="#id38">Realizar QuerySets desde vista y pasarlos a template</a><a class="headerlink" href="#realizar-querysets-desde-vista-y-pasarlos-a-template" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Es algo muy común, y es que cuando trabajamos con vistas FBV es el método estandar, para trabajar datos del modelo en la vista lo hacemos del siguiente modo, editamos views.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="c1"># Importamos el Modelo:</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">Prueba</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># creamos una variable:</span>
+    <span class="n">cosas</span> <span class="o">=</span> <span class="n">Prueba</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nombre_de_tu_app/home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;cosas&#39;</span><span class="p">:</span><span class="n">cosas</span><span class="p">})</span> <span class="c1"># pasamos el queryset por una variable y este lo trata en el template como un diccionario.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="formularios">
+<h2><a class="toc-backref" href="#id39">Formularios</a><a class="headerlink" href="#formularios" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En Django podemos crear formularios individuales y reutilizables.</p>
+<div class="section" id="crear-un-formulario">
+<h3><a class="toc-backref" href="#id40">Crear un formulario</a><a class="headerlink" href="#crear-un-formulario" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># importamos la librería forms:</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="k">import</span> <span class="n">forms</span>
+<span class="c1"># Esto se importa opcionalmente si usamos fechas:</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># Creamos un formulario utilizando una clase que hereda de forms:</span>
+<span class="k">class</span> <span class="nc">ContactoForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="c1"># Cada campo recibe un tipo de dato con un label que es la etiqueta html y si es requerido:</span>
+    <span class="n">nombre</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Nombre&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># CharField es para campo de texto</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Correo&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Email para correos</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">URLField</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="s1">&#39;https://&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Web&quot;</span><span class="p">)</span> <span class="c1"># Este sirve para insertar una url y le podemos pasar un valor inicial</span>
+    <span class="n">fecha_nacimiento</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">)</span> <span class="c1"># este sirve para añadir una fecha y podemos pasarle la de hoy si importamos &#39;datetime&#39;</span>
+    <span class="n">contenido</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;contenido&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">)</span> <span class="c1"># con widget le cambiamos el aspecto directamente para que sea un textarea</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="crear-un-formulario-usando-su-modelo">
+<h3><a class="toc-backref" href="#id41">Crear un formulario usando su modelo</a><a class="headerlink" href="#crear-un-formulario-usando-su-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Este otro método es mas fácil de personalizar a mi parecer, y organiza mejor todo ademas de permitir elegir que campos se mostrarán del modelo de datos, así pues editamos forms.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prueba</span>
+
+<span class="k">class</span> <span class="nc">PruebaForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="c1"># elegimos el modelo de datos:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Prueba</span>
+        <span class="c1"># Elegimos los campos que se mostrarán de dicho modelo:</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;titulo&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;contenido&#39;</span><span class="p">]</span>
+        <span class="c1"># añadimos widgets para configurar el diseño de los campos del formulario:</span>
+        <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>                 <span class="c1"># podemos pasarle el atributo al input que queramos.</span>
+            <span class="s1">&#39;titulo&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;formulario&#39;</span><span class="p">}),</span> <span class="c1"># Le asignamos la clase formulario</span>
+            <span class="s1">&#39;contenido&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;formulario&#39;</span><span class="p">}),</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;formulario&#39;</span><span class="p">})</span>
+        <span class="p">}</span>
+        <span class="c1"># Así se puede esconder opcionalmente las labels o cambiar su texto:</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span>
+        <span class="p">}</span>
+
+<span class="n">De</span> <span class="n">este</span> <span class="n">modo</span> <span class="n">tenemos</span> <span class="n">otra</span> <span class="n">forma</span> <span class="n">de</span> <span class="n">sacar</span> <span class="n">los</span> <span class="n">formularios</span><span class="p">,</span> <span class="n">lo</span> <span class="n">demás</span> <span class="n">es</span> <span class="n">todo</span> <span class="n">igual</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilizar-un-formulario">
+<h3><a class="toc-backref" href="#id42">Utilizar un formulario</a><a class="headerlink" href="#utilizar-un-formulario" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si queremos usar un formulario lo importamos a la vista del siguiente modo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="c1"># importamos el formulario:</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">ContactoForm</span>
+
+<span class="k">def</span> <span class="nf">contacto</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">ContactoForm</span><span class="p">()</span> <span class="c1"># cargamos el formulario en una variable</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nombre_de_tu_app/contacto.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span> <span class="c1"># finalmente lo pasamos al template.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Para cargar el formulario en la vista editamos el archivo html y lo añadimos:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+    {% csrf_token %} <span class="c">&lt;!-- le pasamos el token --&gt;</span>
+    {{formulario.as_p}} <span class="c">&lt;!-- pasamos el formulario y lo formateamos en parrafos, si usamos as_table se formateará en tabla --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Enviar mensaje<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span><span class="c">&lt;!-- no olvides el botón submit --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- por último podemos depurar lo que envía el formulario con el siguiente tag: --&gt;</span>
+{{request.POST}}
+</pre></div>
+</div>
+</div>
+<div class="section" id="validar-un-formulario">
+<h3><a class="toc-backref" href="#id43">Validar un formulario</a><a class="headerlink" href="#validar-un-formulario" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El formulario se valida una vez enviado a la vista antes de ser guardado o gestionado por la base de datos, veamoslo en views.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">ContactoForm</span>
+
+<span class="k">def</span> <span class="nf">contacto</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">ContactoForm</span><span class="p">()</span>
+
+    <span class="c1"># comprobamos que hemos recibido una petición post:</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="c1"># le pasamos los datos a la plantilla del formulario:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">ContactoForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+        <span class="c1"># validamos el formulario y si es correcto guardamos los datos en cada campo:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># preparamos los datos para guardar:</span>
+            <span class="n">registro</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="c1"># podemos editar algun dato por el camino:</span>
+            <span class="n">registro</span><span class="o">.</span><span class="n">fecha_creacion</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+            <span class="c1"># y guardamos el registro en el modelo:</span>
+            <span class="n">registro</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="c1"># regresamos a la página de vuelta:</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ContactoForm</span><span class="p">()</span>
+
+    <span class="c1"># si no se ha recibido ninguna petición post se carga como tal:</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;nombre_de_tu_app/contacto.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="panel-de-administracion">
-<h2><a class="toc-backref" href="#id23">Panel de administración</a><a class="headerlink" href="#panel-de-administracion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">Panel de administración</a><a class="headerlink" href="#panel-de-administracion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El panel de Administración de Django es un modelo CRUD ya definido por defecto con todo el Scaffold del sistema login preparado por defecto.</p>
 <div class="section" id="puesta-en-marcha">
-<h3><a class="toc-backref" href="#id24">Puesta en marcha</a><a class="headerlink" href="#puesta-en-marcha" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id45">Puesta en marcha</a><a class="headerlink" href="#puesta-en-marcha" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Para poner en marcha el panel tenemos que hacer un par de cosas en consola:</p>
 <ul class="simple">
 <li><p>Primero tenemos que crear todo el Scaffold ejecutando <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span></code></p></li>
@@ -730,7 +1255,7 @@ este tercer valor es el que utilizamos con el template tag <strong>url</strong><
 <p>Ahora ya podemos acceder al panel de administración desde la ruta <code class="docutils literal notranslate"><span class="pre">localhost:8000/admin</span></code></p>
 </div>
 <div class="section" id="mostrar-datos-de-nuestros-modelos">
-<h3><a class="toc-backref" href="#id25">Mostrar datos de nuestros modelos</a><a class="headerlink" href="#mostrar-datos-de-nuestros-modelos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id46">Mostrar datos de nuestros modelos</a><a class="headerlink" href="#mostrar-datos-de-nuestros-modelos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El panel de Administración solo dispone por defecto de las tablas de usuarios. Pero si hemos creado un modelo debemos implementarlo,
 para ello en la carpeta de nuestra app veremos un archivo admin.py el cual editamos:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
@@ -745,7 +1270,7 @@ para ello en la carpeta de nuestra app veremos un archivo admin.py el cual edita
 <p>De este modo podremos leer, editar, borrar y añadir registros a esta tabla de nuestra app.</p>
 </div>
 <div class="section" id="personalizar-titulos-de-las-apps">
-<h3><a class="toc-backref" href="#id26">Personalizar titulos de las Apps</a><a class="headerlink" href="#personalizar-titulos-de-las-apps" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id47">Personalizar titulos de las Apps</a><a class="headerlink" href="#personalizar-titulos-de-las-apps" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En el panel de administración vemos que las tablas se irán dividiendo en apartados según su app, si tenemos varias apps veremos que cada
 tabla esta dentro de apartados. Podemos cambiar el título de estos apartados accediendo a nuestra app y editando el archivo app.py:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">AppConfig</span>
@@ -774,7 +1299,7 @@ tabla esta dentro de apartados. Podemos cambiar el título de estos apartados ac
 </div>
 </div>
 <div class="section" id="personalizar-tablas">
-<h3><a class="toc-backref" href="#id27">Personalizar tablas</a><a class="headerlink" href="#personalizar-tablas" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id48">Personalizar tablas</a><a class="headerlink" href="#personalizar-tablas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Cuando accedemos a una tabla podemos ver una lista con todos los títulos o el valor que hayamos devuelto en el modelo. Pero podemos modificar su comportamiento
 editando el archivo admin.py:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
@@ -784,6 +1309,16 @@ editando el archivo admin.py:</p>
 <span class="k">class</span> <span class="nc">PruebaAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
     <span class="c1"># con esta tupla definimos los campos que serán de solo lectura cuando abramos un registro.</span>
     <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;fecha_creacion&#39;</span><span class="p">,</span> <span class="s1">&#39;fecha_edicion&#39;</span><span class="p">)</span>
+    <span class="c1"># Con list_display definimos que campos se mostrarán en el listado:</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;titulo&#39;</span><span class="p">,</span> <span class="s1">&#39;autor&#39;</span><span class="p">,</span> <span class="s1">&#39;descripcion&#39;</span><span class="p">,</span> <span class="s1">&#39;fecha_creacion&#39;</span><span class="p">)</span>
+    <span class="c1"># Aquí también podemos establecer el orden de lista:</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;fecha_creacion&#39;</span><span class="p">,</span> <span class="s1">&#39;titulo&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Opcionalmente podemos cambiar la jerarquía de los breadcums para que se muestren por fecha de publicación:</span>
+    <span class="n">date_hierarchy</span> <span class="o">=</span> <span class="s1">&#39;fecha_publicacion&#39;</span>
+
+    <span class="c1"># Filtrar también los datos que se muestran en la barra lateral derecha:</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;autor__username&#39;</span><span class="p">,</span> <span class="s1">&#39;fecha_creacion&#39;</span><span class="p">)</span>
 
 <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Prueba</span><span class="p">,</span> <span class="n">PruebaAdmin</span><span class="p">)</span>
 </pre></div>
