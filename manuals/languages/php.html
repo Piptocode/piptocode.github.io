@@ -1,0 +1,1767 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PHP 7 &mdash; documentación de Piptocode - 1.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../../search.html"/>
+    <link rel="top" title="documentación de Piptocode - 1.0" href="../../index.html"/>
+        <link rel="next" title="SQL" href="sql.html"/>
+        <link rel="prev" title="JavaScript" href="javascript.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Piptocode
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Lenguajes de Marcado:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web/html5.html">HTML5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/css3.html">CSS3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/reStructuredText.html">reStructuredText</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/markdown.html">MarkDown</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lenguajes de Programación:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript.html">JavaScript</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PHP 7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#elementos-basicos-del-lenguaje">Elementos básicos del lenguaje</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comentarios">Comentarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estructura-en-php">Estructura en php</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extension">Extensión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejecucion">Ejecución</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#informacion-de-nuestro-servidor">Información de nuestro servidor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentacion-de-php-oficial">Documentación de PHP oficial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#palabras-reservadas-de-php-7">Palabras reservadas de PHP 7</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-y-tipos-de-datos">Variables y tipos de datos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constantes">Constantes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipos-de-datos-primitivos">Tipos de datos primitivos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#entrada-y-salida-de-datos">Entrada y Salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operadores">Operadores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-aritmeticos">Operadores Aritméticos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-relacionales">Operadores Relacionales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operadores-logicos">Operadores Lógicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asignacion">Asignación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#estructuras-de-control">Estructuras de control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-if">Condicional if</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-if-else-if">Condicional if-else if</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condicional-switch">Condicional Switch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucle-for">Bucle for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucle-foreach">Bucle foreach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucle-while">Bucle while</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#estructuras-de-datos">Estructuras de datos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matrices">Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#array-asociativos">Array Asociativos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#arrays-asociativos-multidimensionales">Arrays asociativos multidimensionales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recorrer-array-multidimensional-asociativo-con-foreach">Recorrer array multidimensional asociativo con foreach</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#funciones-internas">Funciones Internas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#funciones-de-cadenas">Funciones de cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funciones-numericas">Funciones numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otras-funciones-comunes">Otras funciones comunes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#funciones">Funciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ambito-en-funciones">Ambito en funciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-predefinidas">Variables predefinidas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variable-get">Variable GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-post">Variable POST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-server">Variable SERVER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-files">Variable FILES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-session">Variable SESSION</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clases">Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manejor-de-archivos">Manejor de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conectar-a-bases-de-datos-con-pdo">Conectar a bases de datos con PDO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php-cli">PHP CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mongodb.html">MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csharp.html">C#</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dart.html">Dart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scratch.html">Scratch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Frameworks y Entornos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/django.html">Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/djangorest.html">Django Rest Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/flask.html">Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/vue.html">Vue.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/wordpress.html">Wordpress Codex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/nodejs.html">Node.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/express.html">Express.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/electron.html">Electron.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/cordova.html">Apache Cordova</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/angular.html">Angular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/flutter.html">Flutter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/laravel.html">Laravel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frameworks/unity.html">Unity</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Librerías de desarrollo:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/bootstrap.html">CSS3 - Bootstrap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/jquery.html">Javascript - jQuery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/jqueryui.html">Javascript - JQuery UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/fullcalendar.html">Javascript - FullCalendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/phaserjs.html">Javascript - Phaser.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/composer.html">PHP - Composer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/html2pdf.html">PHP - HTML2Pdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/phpmailer.html">PHP - PHPMailer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/docstrings.html">Python - Docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/doctset.html">Python - Doctset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/getpass.html">Python - Getpass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/matplotlib.html">Python - Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/MIMEMultipart%26smtplib.html">Python - SMTPLib y MIMEMultipart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/numpy.html">Python - Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/pandas.html">Python - Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/pillow.html">Python - Pillow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/pipenv.html">Python - Pipenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/pygame.html">Python - Pygame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/recognizer.html">Python - Recognizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/requests.html">Python - Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/seaborn.html">Python - Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/simplejson.html">Python - JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/speech_recognition.html">Python - Speech_recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/unittest.html">Python - Unittest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/gtk.html">C - GTK</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Informática y Hardware:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computer/linux.html">Ubuntu Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/git.html">Git y GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/nginx.html">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/raspberry.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/arduinouno.html">Arduino UNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/arduboy.html">Arduboy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer/microbit.html">Micro:bit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Piptocode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>PHP 7</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/manuals/languages/php.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="php-7">
+<h1><a class="toc-backref" href="#id1">PHP 7</a><a class="headerlink" href="#php-7" title="Enlazar permanentemente con este título">¶</a></h1>
+<a class="reference internal image-reference" href="../../_images/logo-php.png"><img alt="Logo PHP" class="align-center" src="../../_images/logo-php.png" style="width: 360.0px; height: 188.54999999999998px;" /></a>
+<p>Última edición el día 2020-11-17 a las 01:13.</p>
+<p>Esta es la documentación que he recopilado para trabajar con PHP 7, el lenguaje de la web y uno de los mas usados para desarrollo backend.</p>
+<div class="contents topic" id="indice">
+<p class="topic-title">Índice</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#php-7" id="id1">PHP 7</a></p>
+<ul>
+<li><p><a class="reference internal" href="#elementos-basicos-del-lenguaje" id="id2">Elementos básicos del lenguaje</a></p>
+<ul>
+<li><p><a class="reference internal" href="#comentarios" id="id3">Comentarios</a></p></li>
+<li><p><a class="reference internal" href="#estructura-en-php" id="id4">Estructura en php</a></p></li>
+<li><p><a class="reference internal" href="#extension" id="id5">Extensión</a></p></li>
+<li><p><a class="reference internal" href="#ejecucion" id="id6">Ejecución</a></p></li>
+<li><p><a class="reference internal" href="#informacion-de-nuestro-servidor" id="id7">Información de nuestro servidor</a></p></li>
+<li><p><a class="reference internal" href="#documentacion-de-php-oficial" id="id8">Documentación de PHP oficial</a></p></li>
+<li><p><a class="reference internal" href="#palabras-reservadas-de-php-7" id="id9">Palabras reservadas de PHP 7</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#variables-y-tipos-de-datos" id="id10">Variables y tipos de datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#variables" id="id11">Variables</a></p></li>
+<li><p><a class="reference internal" href="#constantes" id="id12">Constantes</a></p></li>
+<li><p><a class="reference internal" href="#tipos-de-datos-primitivos" id="id13">Tipos de datos primitivos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#entrada-y-salida-de-datos" id="id14">Entrada y Salida de datos</a></p></li>
+<li><p><a class="reference internal" href="#operadores" id="id15">Operadores</a></p>
+<ul>
+<li><p><a class="reference internal" href="#operadores-aritmeticos" id="id16">Operadores Aritméticos</a></p></li>
+<li><p><a class="reference internal" href="#operadores-relacionales" id="id17">Operadores Relacionales</a></p></li>
+<li><p><a class="reference internal" href="#operadores-logicos" id="id18">Operadores Lógicos</a></p></li>
+<li><p><a class="reference internal" href="#asignacion" id="id19">Asignación</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#estructuras-de-control" id="id20">Estructuras de control</a></p>
+<ul>
+<li><p><a class="reference internal" href="#condicional-if" id="id21">Condicional if</a></p></li>
+<li><p><a class="reference internal" href="#condicional-if-else-if" id="id22">Condicional if-else if</a></p></li>
+<li><p><a class="reference internal" href="#condicional-switch" id="id23">Condicional Switch</a></p></li>
+<li><p><a class="reference internal" href="#bucle-for" id="id24">Bucle for</a></p></li>
+<li><p><a class="reference internal" href="#bucle-foreach" id="id25">Bucle foreach</a></p></li>
+<li><p><a class="reference internal" href="#bucle-while" id="id26">Bucle while</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#estructuras-de-datos" id="id27">Estructuras de datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#matrices" id="id28">Matrices</a></p></li>
+<li><p><a class="reference internal" href="#array-asociativos" id="id29">Array Asociativos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#arrays-asociativos-multidimensionales" id="id30">Arrays asociativos multidimensionales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#recorrer-array-multidimensional-asociativo-con-foreach" id="id31">Recorrer array multidimensional asociativo con foreach</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#funciones-internas" id="id32">Funciones Internas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#funciones-de-cadenas" id="id33">Funciones de cadenas</a></p></li>
+<li><p><a class="reference internal" href="#funciones-numericas" id="id34">Funciones numéricas</a></p></li>
+<li><p><a class="reference internal" href="#otras-funciones-comunes" id="id35">Otras funciones comunes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#funciones" id="id36">Funciones</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ambito-en-funciones" id="id37">Ambito en funciones</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#variables-predefinidas" id="id38">Variables predefinidas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#variable-get" id="id39">Variable GET</a></p></li>
+<li><p><a class="reference internal" href="#variable-post" id="id40">Variable POST</a></p></li>
+<li><p><a class="reference internal" href="#variable-server" id="id41">Variable SERVER</a></p></li>
+<li><p><a class="reference internal" href="#variable-files" id="id42">Variable FILES</a></p></li>
+<li><p><a class="reference internal" href="#variable-session" id="id43">Variable SESSION</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#clases" id="id44">Clases</a></p></li>
+<li><p><a class="reference internal" href="#manejor-de-archivos" id="id45">Manejor de archivos</a></p></li>
+<li><p><a class="reference internal" href="#conectar-a-bases-de-datos-con-pdo" id="id46">Conectar a bases de datos con PDO</a></p></li>
+<li><p><a class="reference internal" href="#php-cli" id="id47">PHP CLI</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="elementos-basicos-del-lenguaje">
+<h2><a class="toc-backref" href="#id2">Elementos básicos del lenguaje</a><a class="headerlink" href="#elementos-basicos-del-lenguaje" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="comentarios">
+<h3><a class="toc-backref" href="#id3">Comentarios</a><a class="headerlink" href="#comentarios" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los comentarios se pueden realizar de dos tipos:</p>
+<ul class="simple">
+<li><p>Comentarios de una sola línea:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// Comentario de una sola línea</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Comentarios multilínea:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&#39;&#39;&#39;</span>
+<span class="x">/* Este comentario</span>
+<span class="x">tiene más de una línea.</span>
+<span class="x">Puede servir para escribir</span>
+<span class="x">un manual u otras cosas.</span>
+<span class="x">*/</span>
+<span class="x">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estructura-en-php">
+<h3><a class="toc-backref" href="#id4">Estructura en php</a><a class="headerlink" href="#estructura-en-php" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La estructura de PHP 7 se presenta de un modo similar a lenguajes como C o Perl:</p>
+<ul class="simple">
+<li><p>Un vistazo a PHP puro:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// el código php se inicia siempre con su simbolo menor que interrogación y php:</span>
+<span class="cp">&lt;?php</span>
+    <span class="c1">// declaramos las variables usando una llave y podemos inicializarlas directamente:</span>
+    <span class="nv">$variable</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="c1">// en condicionales o estructuras de control es identico a otros lenguajes:</span>
+    <span class="k">if</span><span class="p">(</span><span class="nv">$valor</span> <span class="o">==</span> <span class="mi">20</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;el valor es igual&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"> // y finaliza del mismo modo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ejecutando código php junto a HTML:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// podemos tener código php incrustado en HTML gracias a sus símbolos de inicio y fin:</span>
+    <span class="nv">$titulo</span> <span class="o">=</span> <span class="s2">&quot;practicando PHP&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;head&gt;</span>
+<span class="x">    &lt;/head&gt;</span>
+<span class="x">    &lt;body&gt;</span>
+<span class="x">        &lt;!-- E incrustar valores impresos en etiquetas html entre otras cosas: --&gt;</span>
+<span class="x">        &lt;h1&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$titulo</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="x">    &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>También podemos cargar etiquetas HTML con PHP:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Etiqueta incrustada desde php&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Otro dato importante como en la mayoría de lenguajes hay que evitar la ausencia de ; ya que en algunos casos no da error pero en otros si.</p>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>Para cargar los archivos PHP correctamente desde el navegador deben estar alojados en la carpeta del directorio web.</p>
+</div>
+</div>
+<div class="section" id="extension">
+<h3><a class="toc-backref" href="#id5">Extensión</a><a class="headerlink" href="#extension" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La extensión utilizada por los archivos php es <code class="docutils literal notranslate"><span class="pre">php</span></code></p>
+</div>
+<div class="section" id="ejecucion">
+<h3><a class="toc-backref" href="#id6">Ejecución</a><a class="headerlink" href="#ejecucion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Existen dos métodos para ejecutar código PHP:</p>
+<ul class="simple">
+<li><p>El primero y mas común es cargar el archivo desde la url en el servidor local o remoto.</p></li>
+<li><p>El segundo es ejecutandolo desde PHP-CLI, por ejemplo: <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">hola.php</span></code>. Muy útil para probar partes del código.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para utilizar PHP-CLI tenemos que instalarlo ejecutando <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">php7.4-cli</span></code></p>
+</div>
+</div>
+<div class="section" id="informacion-de-nuestro-servidor">
+<h3><a class="toc-backref" href="#id7">Información de nuestro servidor</a><a class="headerlink" href="#informacion-de-nuestro-servidor" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si queremos conocer la información de nuestro servidor basta con crearnos un archivo con el nombre por ejemplo info.php y añadir la siguiente función:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">phpinfo</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Abrimos el archivo en el navegador desde el servidor y se mostrará toda la info de este.</p>
+</div>
+<div class="section" id="documentacion-de-php-oficial">
+<h3><a class="toc-backref" href="#id8">Documentación de PHP oficial</a><a class="headerlink" href="#documentacion-de-php-oficial" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La documentación oficial de php nos brinda cientos de funciones que pueden ayudarnos en nuestro día a dia.</p>
+<p>Podemos acceder en el siguiente <a class="reference external" href="https://www.php.net/docs.php">enlace</a>.</p>
+</div>
+<div class="section" id="palabras-reservadas-de-php-7">
+<h3><a class="toc-backref" href="#id9">Palabras reservadas de PHP 7</a><a class="headerlink" href="#palabras-reservadas-de-php-7" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En php existen las siguientes palabras reservadas:</p>
+<ul class="simple">
+<li><p>__halt_compiler()</p></li>
+<li><p>abstract</p></li>
+<li><p>and</p></li>
+<li><p>array()</p></li>
+<li><p>as</p></li>
+<li><p>break</p></li>
+<li><p>callable</p></li>
+<li><p>clase</p></li>
+<li><p>catch</p></li>
+<li><p>class</p></li>
+<li><p>clone</p></li>
+<li><p>const</p></li>
+<li><p>continue</p></li>
+<li><p>declare</p></li>
+<li><p>default</p></li>
+<li><p>die()</p></li>
+<li><p>do</p></li>
+<li><p>echo</p></li>
+<li><p>else</p></li>
+<li><p>elseif</p></li>
+<li><p>empty()</p></li>
+<li><p>enddeclare</p></li>
+<li><p>endfor</p></li>
+<li><p>endforeach</p></li>
+<li><p>endif</p></li>
+<li><p>endswitch</p></li>
+<li><p>endwhile</p></li>
+<li><p>eval()</p></li>
+<li><p>exit()</p></li>
+<li><p>extends</p></li>
+<li><p>final</p></li>
+<li><p>finally</p></li>
+<li><p>for</p></li>
+<li><p>foreach</p></li>
+<li><p>function</p></li>
+<li><p>global</p></li>
+<li><p>goto</p></li>
+<li><p>if</p></li>
+<li><p>implements</p></li>
+<li><p>include</p></li>
+<li><p>include_once</p></li>
+<li><p>instanceof</p></li>
+<li><p>insteadof</p></li>
+<li><p>interface</p></li>
+<li><p>isset()</p></li>
+<li><p>list()</p></li>
+<li><p>namespace</p></li>
+<li><p>new</p></li>
+<li><p>or</p></li>
+<li><p>print</p></li>
+<li><p>private</p></li>
+<li><p>protected</p></li>
+<li><p>public</p></li>
+<li><p>require</p></li>
+<li><p>require_once</p></li>
+<li><p>return</p></li>
+<li><p>static</p></li>
+<li><p>switch</p></li>
+<li><p>throw</p></li>
+<li><p>trait</p></li>
+<li><p>try</p></li>
+<li><p>unset()</p></li>
+<li><p>use</p></li>
+<li><p>var</p></li>
+<li><p>while</p></li>
+<li><p>xor</p></li>
+<li><p>yield</p></li>
+<li><p>yield from</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="variables-y-tipos-de-datos">
+<h2><a class="toc-backref" href="#id10">Variables y tipos de datos</a><a class="headerlink" href="#variables-y-tipos-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="variables">
+<h3><a class="toc-backref" href="#id11">Variables</a><a class="headerlink" href="#variables" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las variables se definen de forma similar a Perl, con una llave inicial.</p>
+<p>Ejemplo:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$variable</span> <span class="o">=</span> <span class="s2">&quot;contenido de variable&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Atención</p>
+<p>Es imprescindible almacenar contenido en las variables para que no genere errores. Por ejemplo poner unas comillas «».</p>
+</div>
+</div>
+<div class="section" id="constantes">
+<h3><a class="toc-backref" href="#id12">Constantes</a><a class="headerlink" href="#constantes" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para definir constantes tenemos que recurrir a una función llamada define()</p>
+<p>Ejemplo:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="c1">// Recibe dos parámetros, el primero el nombre de la constante en mayúsculas y el segundo el valor.</span>
+    <span class="nb">define</span><span class="p">(</span><span class="s2">&quot;NOMBRE&quot;</span><span class="p">,</span>     <span class="s2">&quot;Ariana&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tipos-de-datos-primitivos">
+<h3><a class="toc-backref" href="#id13">Tipos de datos primitivos</a><a class="headerlink" href="#tipos-de-datos-primitivos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los tipos de datos mas comunes son los siguientes:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 50%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de dato</p></th>
+<th class="head"><p>Denominación</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>string</p></td>
+<td><p>Cadena de texto</p></td>
+<td><p>“cadena”, «cadena»</p></td>
+</tr>
+<tr class="row-odd"><td><p>integer</p></td>
+<td><p>Número Entero</p></td>
+<td><p>20, 5, -3, 0</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p>Número con decimales</p></td>
+<td><p>20.53, 12.5, -18.353</p></td>
+</tr>
+<tr class="row-odd"><td><p>bool</p></td>
+<td><p>Verdadero o falso</p></td>
+<td><p>true, false</p></td>
+</tr>
+<tr class="row-even"><td><p>array</p></td>
+<td><p>Matriz de datos</p></td>
+<td><p>array(“valor”, “otro_valor”)</p></td>
+</tr>
+<tr class="row-odd"><td><p>array asociativo</p></td>
+<td><p>Objeto con orden de tipo clave:valor</p></td>
+<td><p>array(“clave” =&gt; “valor”)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$cadena = &quot;Dia de paga&quot;</span>
+<span class="x">$otraCadena = &#39;Cadena de comillas simples es lo mismo&#39;</span>
+<span class="x">$entero = 27</span>
+<span class="x">$decimal = 22.83</span>
+<span class="x">$booleano = true</span>
+<span class="x">$array = array(2.4, true, 6, &#39;Metro&#39;);</span>
+<span class="x">$array_asociativo = array(</span>
+<span class="x">    &#39;nombre&#39; =&gt; &#39;Guillermo&#39;,</span>
+<span class="x">    &#39;apellidos&#39; =&gt; &#39;Granados Gómez&#39;,</span>
+<span class="x">    &#39;telefono&#39; =&gt; &#39;744607487&#39;,</span>
+<span class="x">    &#39;ciudad&#39; =&gt; &#39;Málaga&#39;</span>
+<span class="x">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="entrada-y-salida-de-datos">
+<h2><a class="toc-backref" href="#id14">Entrada y Salida de datos</a><a class="headerlink" href="#entrada-y-salida-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para realizar la entrada de datos en PHP al ser un lenguaje definido para web se utilizan formularios y se realiza mediante POST:</p>
+<ul class="simple">
+<li><p>Entrada de datos:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$valor</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Salida de datos:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nv">$valor</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Luego para concatenar utilizamos el <code class="docutils literal notranslate"><span class="pre">.</span></code> en cada elemento:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;tu nombre es &quot;</span> <span class="o">.</span> <span class="nv">$nombre</span> <span class="s2">&quot; y vives en &quot;</span> <span class="o">.</span> <span class="nv">$ciudad</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores">
+<h2><a class="toc-backref" href="#id15">Operadores</a><a class="headerlink" href="#operadores" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="operadores-aritmeticos">
+<h3><a class="toc-backref" href="#id16">Operadores Aritméticos</a><a class="headerlink" href="#operadores-aritmeticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los operadores aritméticos que se presentan en php son los mismos que en la mayoría de lenguajes,
+<code class="docutils literal notranslate"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">/,</span> <span class="pre">%</span></code></p>
+<p>Estos podemos utilizarlos del siguiente modo:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// Estos son los operadores aritméticos:</span>
+    <span class="nv">$suma</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="nv">$resta</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$multiplicar</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">x</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="nv">$dividir</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$resto</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">%</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// Y estos son operadores de incremento y decremento:</span>
+
+    <span class="nv">$valor</span><span class="o">++</span><span class="p">;</span>
+    <span class="nv">$valor</span><span class="o">--</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores-relacionales">
+<h3><a class="toc-backref" href="#id17">Operadores Relacionales</a><a class="headerlink" href="#operadores-relacionales" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los operadores relacionales en php son los mismos que en la mayoría de lenguajes de programación:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 65%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operador</p></th>
+<th class="head"><p>símbolo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mayor que</p></td>
+<td><p>&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>Menor que</p></td>
+<td><p>&lt;</p></td>
+</tr>
+<tr class="row-even"><td><p>Igual que</p></td>
+<td><p>==</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mayor igual que</p></td>
+<td><p>&gt;=</p></td>
+</tr>
+<tr class="row-even"><td><p>Menor igual que</p></td>
+<td><p>&lt;=</p></td>
+</tr>
+</tbody>
+</table>
+<p>Cuando hablamos del uso de un solo <code class="docutils literal notranslate"><span class="pre">=</span></code> nos referimos a la asignación de un valor en una variable.</p>
+<p>Como en muchos lenguajes, si imprimimos por consola la relación entre un valor y otro el resultado será True o False:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// Si decimos que 3 es mayor que 2</span>
+    <span class="k">echo</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">2</span>
+    <span class="c1">// el resultado que sale por consola es True.</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operadores-logicos">
+<h3><a class="toc-backref" href="#id18">Operadores Lógicos</a><a class="headerlink" href="#operadores-logicos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En php se utilizan los mismos operadores lógicos que en la mayoría de lenguajes de programación, sin embargo presentan un aspecto diferente:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operador</p></th>
+<th class="head"><p>símbolo</p></th>
+<th class="head"><p>condición</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Y (and)</p></td>
+<td><p>&amp;&amp;</p></td>
+<td><p>La condición se cumple si todos son verdaderos</p></td>
+</tr>
+<tr class="row-odd"><td><p>O (or)</p></td>
+<td><p>||</p></td>
+<td><p>La condición se cumple si al menos uno es verdadero</p></td>
+</tr>
+<tr class="row-even"><td><p>NO (not)</p></td>
+<td><p>!</p></td>
+<td><p>La condición se cumple si es diferente a lo que se compara</p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x"># Resultado False:</span>
+<span class="x">print(5 &gt; 7 &amp;&amp; 3 &lt; 6)</span>
+<span class="x"># Resultado True:</span>
+<span class="x">print(5 &gt; 7 || 3 &lt; 6)</span>
+<span class="x"># Resultado True</span>
+<span class="x">print(6 != 3)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asignacion">
+<h3><a class="toc-backref" href="#id19">Asignación</a><a class="headerlink" href="#asignacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Nos permiten asignar datos a variables. Esto ya lo hemos visto también en ejemplos anteriores:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// Podemos asignar cadenas o números:</span>
+    <span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">&quot;Guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$numero</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="c1">// Y podemos asignarle el valor de otras variables:</span>
+    <span class="nv">$otroNumero</span> <span class="o">=</span> <span class="nv">$numero</span><span class="p">;</span>
+
+    <span class="c1">// Y asignar incrementos directamente a los valores que ya posean:</span>
+    <span class="nv">$numero</span> <span class="o">-=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$numero</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$numero</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$numero</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<p>Con este último operaremos con el valor asignado sumando, restando, multiplicando o dividiendo el valor que ya posee.</p>
+</div>
+</div>
+<div class="section" id="estructuras-de-control">
+<h2><a class="toc-backref" href="#id20">Estructuras de control</a><a class="headerlink" href="#estructuras-de-control" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En php disponemos de estructuras de control como <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">switch</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<div class="section" id="condicional-if">
+<h3><a class="toc-backref" href="#id21">Condicional if</a><a class="headerlink" href="#condicional-if" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las condiciones sencillas en php funcionan del siguiente modo:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$saludo</span> <span class="o">=</span> <span class="s1">&#39;Hola&#39;</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$saludo</span> <span class="o">==</span> <span class="s1">&#39;Hola&#39;</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s1">&#39;Hola a tí también&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<p>También tenemos condiciones con una salida alternativa si no se cumple esta:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$nacimiento</span> <span class="o">=</span> <span class="mi">2003</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$nacimiento</span> <span class="o">&lt;=</span> <span class="mi">2002</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s1">&#39;Eres mayor de edad&#39;</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;Eres menor de edad&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condicional-if-else-if">
+<h3><a class="toc-backref" href="#id22">Condicional if-else if</a><a class="headerlink" href="#condicional-if-else-if" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las condiciones compuestas nos ofrecen varios caminos posibles:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$edad = 66:</span>
+
+<span class="x">if($edad &gt;= 18){</span>
+<span class="x">    echo &#39;Eres mayor de edad&#39;;</span>
+<span class="x">}else if($edad &lt; 18){</span>
+<span class="x">    echo &#39;Eres menor de edad&#39;;</span>
+<span class="x">}else if($edad &gt;= 65){</span>
+<span class="x">    echo &#39;Ya eres un anciano&#39;;</span>
+<span class="x">}else{</span>
+<span class="x">    echo &#39;No es una edad correcta&#39;;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condicional-switch">
+<h3><a class="toc-backref" href="#id23">Condicional Switch</a><a class="headerlink" href="#condicional-switch" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El switch podemos utilizarlo para tomar distintos caminos fijos. Se utiliza a menudo en PHP.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$valor</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="k">switch</span><span class="p">(</span><span class="nv">$valor</span><span class="p">){</span>
+        <span class="k">case</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">:</span>
+            <span class="k">echo</span> <span class="s2">&quot;el número es 1&quot;</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">:</span>
+            <span class="k">echo</span> <span class="s2">&quot;el número es 2&quot;</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">:</span>
+            <span class="k">echo</span> <span class="s2">&quot;el número es 1&quot;</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="p">(</span><span class="s1">&#39;Juan&#39;</span><span class="p">)</span><span class="o">:</span>
+            <span class="k">echo</span> <span class="s2">&quot;no es un número, ¡es Juan!&quot;</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">echo</span> <span class="s2">&quot;No encuentro el número&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bucle-for">
+<h3><a class="toc-backref" href="#id24">Bucle for</a><a class="headerlink" href="#bucle-for" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El bucle for en php se presenta de un modo muy similar al de lenguajes como Javascript o Perl:</p>
+<ul class="simple">
+<li><p>Uso con rango definido:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">for</span><span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;repetición &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Bucle for multidimensional:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;table border=&#39;1&#39;&gt;&quot;</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;tr&gt; &quot;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="nv">$j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">echo</span> <span class="s2">&quot;&lt;td&gt;&quot;</span> <span class="o">.</span> <span class="nv">$i</span> <span class="o">.</span> <span class="s2">&quot;&lt;/td&gt;&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;/tr&gt;&quot;</span><span class="p">;</span>
+
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;/table&gt;&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bucle-foreach">
+<h3><a class="toc-backref" href="#id25">Bucle foreach</a><a class="headerlink" href="#bucle-foreach" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El bucle diseñado para iterar con matrices de datos en PHP, el cual es similar a for-in que se utiliza en Python o Javascript:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$matriz</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Pedro&quot;</span><span class="p">,</span><span class="s2">&quot;Luis&quot;</span><span class="p">,</span><span class="s2">&quot;Antonio&quot;</span><span class="p">);</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$matriz</span> <span class="k">as</span> <span class="nv">$nombres</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="nv">$nombres</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bucle-while">
+<h3><a class="toc-backref" href="#id26">Bucle while</a><a class="headerlink" href="#bucle-while" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El bucle While es similar a Perl o Javascript entro otros.</p>
+<ul class="simple">
+<li><p>Ejemplo de bucle while:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="nv">$numero</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="nv">$numero</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;impresión numero&quot;</span> <span class="o">.</span> <span class="nv">$numero</span><span class="p">;</span>
+        <span class="c1">//Atención, si no establecemos un incrementador se imprimirá de forma infinita:</span>
+        <span class="nv">$numero</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Bucle do-while:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$numero</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;ejecucion numero &quot;</span> <span class="o">.</span> <span class="nv">$numero</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="nv">$numero</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="estructuras-de-datos">
+<h2><a class="toc-backref" href="#id27">Estructuras de datos</a><a class="headerlink" href="#estructuras-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="matrices">
+<h3><a class="toc-backref" href="#id28">Matrices</a><a class="headerlink" href="#matrices" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las matrices o arrays en PHP son bastante útiles para organizar datos.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$matriz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mf">3.81</span><span class="p">,</span> <span class="s2">&quot;cadena&quot;</span><span class="p">,</span> <span class="k">True</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="s2">&quot;Tengo &quot;</span> <span class="o">.</span> <span class="nv">$matriz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; años&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Recorrer valores de una matriz e imprimirlos con <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;Estos son los medios de transportes disponibles: &lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;- &quot;</span> <span class="o">.</span> <span class="nv">$transporte</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ver cuantos elementos hay en una lista con <code class="docutils literal notranslate"><span class="pre">count()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">count</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Imprime un elemento de la lista por su posición:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nv">$matriz</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Borra el último elemento de la lista con <code class="docutils literal notranslate"><span class="pre">array_pop()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">array_pop</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Borrar un elemento por su posición con <code class="docutils literal notranslate"><span class="pre">unset()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">unset</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Añadir un elemento al final de la lista con <code class="docutils literal notranslate"><span class="pre">array_push()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">array_push</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">,</span> <span class="s1">&#39;nocilla&#39;</span><span class="p">,</span> <span class="s1">&#39;galleras&#39;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Convertir lista a cadena de texto con <code class="docutils literal notranslate"><span class="pre">implode()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">implode</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="nv">$matriz</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ordenar elementos de listas por orden numérico o alfabético:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gato&quot;</span><span class="p">,</span> <span class="s2">&quot;nocilla&quot;</span><span class="p">,</span> <span class="s2">&quot;avión&quot;</span><span class="p">,</span> <span class="s2">&quot;leche&quot;</span><span class="p">]</span>
+
+    <span class="nb">sort</span><span class="p">(</span><span class="nv">$lista</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Verificar si se encuentra un elemento en la lista y devuelve true o false:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nb">array_search</span><span class="p">(</span><span class="s1">&#39;verde&#39;</span><span class="p">,</span> <span class="nv">$matriz</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="array-asociativos">
+<h3><a class="toc-backref" href="#id29">Array Asociativos</a><a class="headerlink" href="#array-asociativos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los arrays asociativos vienen a ser lo mismo que los diccionarios en Python o los Objetos en Javascript.</p>
+<p>Se construye por pares de datos que son clave y valor del mismo modo que en Python o Javascript.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// asignar datos uno a uno:</span>
+    <span class="nv">$datos</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$datos</span><span class="p">[</span><span class="s1">&#39;ciudad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Málaga&quot;</span><span class="p">;</span>
+
+    <span class="c1">// asignar multiples valores de una vez:</span>
+    <span class="nv">$datos</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">&quot;nombre&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Guillermo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ciudad&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Málaga&quot;</span>
+    <span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Imprimir un valor del diccionario:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nv">$datos</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; de &quot;</span> <span class="o">.</span> <span class="nv">$datos</span><span class="p">[</span><span class="s1">&#39;apellidos&#39;</span><span class="p">];</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ver la estructura del array con <code class="docutils literal notranslate"><span class="pre">print_r()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$datos</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Recuperar solo las claves del diccionario con <code class="docutils literal notranslate"><span class="pre">array_keys()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$array</span><span class="p">));</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Recorrer e imprimir todos los elementos del array asociativo:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$datos</span> <span class="k">as</span> <span class="nv">$dato</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="nv">$dato</span> <span class="o">.</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Recorrer e imprimir todos los elementos por clave =&gt; valor:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$datos</span> <span class="k">as</span> <span class="nv">$clave</span> <span class="o">=&gt;</span> <span class="nv">$valor</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="nv">$clave</span> <span class="o">.</span> <span class="s2">&quot;: &quot;</span> <span class="o">.</span> <span class="nv">$valor</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="arrays-asociativos-multidimensionales">
+<h2><a class="toc-backref" href="#id30">Arrays asociativos multidimensionales</a><a class="headerlink" href="#arrays-asociativos-multidimensionales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los arrays asociativos multidimensionales son similares a arrays de objetos o listas de diccionarios según que lenguaje.</p>
+<ul class="simple">
+<li><p>Añadiendo los valores de forma manual:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?php
+    // Añadir manualmente los distintos objetos de la matriz multidimensional:
+    $datos[0][&#39;nombre&#39;] = &quot;Eduardo&quot;;
+    $datos[0][&#39;apellidos&#39;] = &quot;Lopez Aguirre&quot;;
+    $datos[0][&#39;telefono&#39;] = &quot;667248135&quot;;
+    $datos[0][&#39;ciudad&#39;] = &quot;Sevilla&quot;;
+
+    $datos[1][&#39;nombre&#39;] = &quot;Antonia&quot;;
+    $datos[1][&#39;apellidos&#39;] = &quot;Martinez Santos&quot;;
+    $datos[1][&#39;telefono&#39;] = &quot;67748970&quot;;
+    $datos[1][&#39;ciudad&#39;] = &quot;Cádiz&quot;;
+
+    $datos[2][&#39;nombre&#39;] = &quot;Enrique&quot;;
+    $datos[2][&#39;apellidos&#39;] = &quot;Casas Nuñez&quot;;
+    $datos[2][&#39;telefono&#39;] = &quot;609752147&quot;;
+    $datos[2][&#39;ciudad&#39;] = &quot;Madrid&quot;;
+
+    // Para imprimir hacemos lo mismo que arriba pero añadiendo el índice correspondiente:
+    echo &quot;Me llamo &quot; . $datos[1][&#39;nombre&#39;] . &quot; &quot; . $datos[1][&#39;apellidos&#39;] . &quot; soy de &quot; . $datos[1][&#39;ciudad&#39;] . &quot; y mi número de teléfono es: &quot; . $datos[1][&#39;telefono&#39;];
+
+?&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Añadiendo los valores de forma masiva:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// Añadir manualmente los distintos objetos de la matriz multidimensional:</span>
+    <span class="nv">$datos</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="mi">0</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Eduardo&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;apellidos&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Lopez Aguirre&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;telefono&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;667248135&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;ciudad&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Sevilla&quot;</span>
+        <span class="p">),</span>
+        <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Antonia&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;apellidos&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Martinez Santos&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;telefono&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;67748970&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;ciudad&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Cádiz&quot;</span>
+        <span class="p">),</span>
+        <span class="mi">2</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Enrique&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;apellidos&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Casas Nuñez&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;telefono&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;609752147&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;ciudad&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Madrid&quot;</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
+
+    <span class="c1">// Del mismo modo podemos imprimir los valores:</span>
+    <span class="k">echo</span> <span class="s2">&quot;Me llamo &quot;</span> <span class="o">.</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; &quot;</span> <span class="o">.</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;apellidos&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; soy de &quot;</span> <span class="o">.</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;ciudad&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; y mi número de teléfono es: &quot;</span> <span class="o">.</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;telefono&#39;</span><span class="p">];</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="section" id="recorrer-array-multidimensional-asociativo-con-foreach">
+<h3><a class="toc-backref" href="#id31">Recorrer array multidimensional asociativo con foreach</a><a class="headerlink" href="#recorrer-array-multidimensional-asociativo-con-foreach" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Gracias al uso del <strong>foreach</strong> nuestro trabajo siempre será mas sencillo aunque se trate de un array multidimensional:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// Añadir manualmente los distintos objetos de la matriz multidimensional:</span>
+    <span class="nv">$datos</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="mi">0</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Eduardo&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;apellidos&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Lopez Aguirre&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;telefono&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;667248135&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;ciudad&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Sevilla&quot;</span>
+        <span class="p">),</span>
+        <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Antonia&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;apellidos&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Martinez Santos&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;telefono&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;67748970&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;ciudad&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Cádiz&quot;</span>
+        <span class="p">),</span>
+        <span class="mi">2</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Enrique&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;apellidos&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Casas Nuñez&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;telefono&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;609752147&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;ciudad&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Madrid&quot;</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;&lt;table border=&#39;1&#39;&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;tr&gt;</span>
+<span class="s2">            &lt;td&gt; Nombre &lt;/td&gt;</span>
+<span class="s2">            &lt;td&gt; Apellidos &lt;/td&gt;</span>
+<span class="s2">            &lt;td&gt; Teléfono &lt;/td&gt;</span>
+<span class="s2">            &lt;td&gt; Ciudad &lt;/td&gt;</span>
+<span class="s2">    &lt;/tr&gt;&quot;</span><span class="p">;</span>
+    <span class="c1">// Con foreach ya no es necesario pasarle una variable de incremento al índice porque el bucle ya recorre todo el array horizontal y verticalmente.</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$datos</span> <span class="k">as</span> <span class="nv">$listado</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;tr&gt;&quot;</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="s2">&quot;&lt;td&gt;&quot;</span> <span class="o">.</span> <span class="nv">$listado</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;/td&gt;&quot;</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="s2">&quot;&lt;td&gt;&quot;</span> <span class="o">.</span> <span class="nv">$listado</span><span class="p">[</span><span class="s1">&#39;apellidos&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;/td&gt;&quot;</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="s2">&quot;&lt;td&gt;&quot;</span> <span class="o">.</span> <span class="nv">$listado</span><span class="p">[</span><span class="s1">&#39;telefono&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;/td&gt;&quot;</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="s2">&quot;&lt;td&gt;&quot;</span> <span class="o">.</span> <span class="nv">$listado</span><span class="p">[</span><span class="s1">&#39;ciudad&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;/td&gt;&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;/tr&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;/table&gt;&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="funciones-internas">
+<h2><a class="toc-backref" href="#id32">Funciones Internas</a><a class="headerlink" href="#funciones-internas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Como en la mayoría de lenguajes de programación, en php existen funciones predefinidas.</p>
+<div class="section" id="funciones-de-cadenas">
+<h3><a class="toc-backref" href="#id33">Funciones de cadenas</a><a class="headerlink" href="#funciones-de-cadenas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Aquí tenemos las funciones mas utilizadas para tratamiento de cadenas de texto:</p>
+<ul class="simple">
+<li><p>Para saber la longitud de una cadena con <code class="docutils literal notranslate"><span class="pre">strlen()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">&quot;Alba María&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Convertir valor numérico a cadena con <code class="docutils literal notranslate"><span class="pre">(String)</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$numero</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
+    <span class="nv">$cadena</span> <span class="o">=</span> <span class="p">(</span><span class="nx">String</span><span class="p">)</span><span class="nv">$numero</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$cadena</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Convertir una cadena en una lista <code class="docutils literal notranslate"><span class="pre">explode()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$cadena</span> <span class="o">=</span> <span class="s2">&quot;Galletas,Pan,Atún,Patatas&quot;</span><span class="p">;</span>
+    <span class="nv">$matriz</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="nv">$cadena</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="nv">$matriz</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Reemplazar una cadena por otra con <code class="docutils literal notranslate"><span class="pre">str_replace()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$frase</span> <span class="o">=</span> <span class="s2">&quot;Estaba estudiando programación </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;Estaba&quot;</span><span class="p">,</span> <span class="s2">&quot;Estoy&quot;</span><span class="p">,</span> <span class="nv">$frase</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Convertir a mayúsculas la cadena con <code class="docutils literal notranslate"><span class="pre">strtoupper()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$frase</span> <span class="o">=</span> <span class="s2">&quot;Estaba estudiando programación </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$frase</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Convertir a minúsculas la cadena con <code class="docutils literal notranslate"><span class="pre">strtolower()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$frase</span> <span class="o">=</span> <span class="s2">&quot;ESTABA estudiando programación </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$frase</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="funciones-numericas">
+<h3><a class="toc-backref" href="#id34">Funciones numéricas</a><a class="headerlink" href="#funciones-numericas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Estas son las funciones numéricas mas comunes en php:</p>
+<ul class="simple">
+<li><p>Convertir un valor a entero con <code class="docutils literal notranslate"><span class="pre">(int)</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+     <span class="nv">$cadena</span> <span class="o">=</span> <span class="s2">&quot;237&quot;</span><span class="p">;</span>
+     <span class="nv">$numero</span> <span class="o">=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span><span class="nv">$cadena</span><span class="p">;</span>
+     <span class="k">echo</span> <span class="nv">$numero</span><span class="p">;</span>
+ <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Convertir un valor a decimal con <code class="docutils literal notranslate"><span class="pre">(float)</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$cadena</span> <span class="o">=</span> <span class="s2">&quot;237&quot;</span><span class="p">;</span>
+    <span class="nv">$numero</span> <span class="o">=</span> <span class="p">(</span><span class="nx">float</span><span class="p">)</span><span class="nv">$cadena</span> <span class="o">+</span> <span class="mf">10.25</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$numero</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Redondear un valor decimal con <code class="docutils literal notranslate"><span class="pre">round()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nb">round</span><span class="p">(</span><span class="mf">1.95583</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Crear un rango de números con <code class="docutils literal notranslate"><span class="pre">range()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$numeros</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="nv">$numeros</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Mostrar el valor mayor de un rango con <code class="docutils literal notranslate"><span class="pre">max()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Mostrar el valor mínimo de un rango con <code class="docutils literal notranslate"><span class="pre">min()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sumar todos los valores de un rango con <code class="docutils literal notranslate"><span class="pre">array_sum()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$matriz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nb">array_sum</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="otras-funciones-comunes">
+<h3><a class="toc-backref" href="#id35">Otras funciones comunes</a><a class="headerlink" href="#otras-funciones-comunes" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Tenemos una serie de funciones de uso común en php:</p>
+<ul class="simple">
+<li><p>Averiguar que tipo de dato contiene una variable con <code class="docutils literal notranslate"><span class="pre">gettype()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$matriz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nb">gettype</span><span class="p">(</span><span class="nv">$matriz</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Trabajar las fechas con la función <code class="docutils literal notranslate"><span class="pre">date()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;Dia: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Inicial del día: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Día de la semana: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Días transcurridos desde que comenzó el año: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Semanas transcurridas desde que comenzó el año: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Mes en el que estoy: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Mes en el que estoy sin cero: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Iniciales del mes el que estoy sin cero: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Dias que tiene el mes en el que estoy: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Año en el que estoy: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Año abreviado: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="c1">// Si nos da 0 es false y si da 1 es true:</span>
+    <span class="k">echo</span> <span class="s2">&quot;Saber si es año bisiesto: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Fecha formato ISO-8601: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="c1">// Este formato es ideal para almacenar fechas en bases de datos:</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora UNIX: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+    <span class="c1">// AJUSTES DE TIEMPO:</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora AM o PM: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora AM o PM en mayúsculas: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora en formato Swatch Internet Time : &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora en formato 12: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora en formato 24: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora formato 12 con 0 inicial: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hora formato 24 con 0 inicial: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Minutos con cero: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Segundos con ceros: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Microsengundos: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Zona temporal: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="c1">// 0 false, 1 true:</span>
+    <span class="k">echo</span> <span class="s2">&quot;Horario de sol reducido: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;Desfase frente al meridiano de Greenwitch: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;O&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Comprobar si existe una variable con <code class="docutils literal notranslate"><span class="pre">isset()</span></code> y eliminarla con <code class="docutils literal notranslate"><span class="pre">unset()</span></code>:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$valor</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">;</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;La variable tiene un valor igual a &quot;</span> <span class="o">.</span> <span class="nv">$valor</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+    <span class="nb">unset</span><span class="p">(</span><span class="nv">$valor</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$valor</span><span class="p">)){</span>
+        <span class="k">echo</span> <span class="s2">&quot;La variable tiene un valor igual a &quot;</span> <span class="o">.</span> <span class="nv">$valor</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;Ya no tiene ningún valor&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="funciones">
+<h2><a class="toc-backref" href="#id36">Funciones</a><a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las funciones en php se declaran del siguiente modo:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+     <span class="k">function</span> <span class="nf">saludar</span><span class="p">(){</span>
+         <span class="k">echo</span> <span class="s2">&quot;Hola amigo&quot;</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="c1">// ejecutar función:</span>
+     <span class="nx">saludar</span><span class="p">();</span>
+ <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Recibir parametros en una función:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">function</span> <span class="nf">tablas</span><span class="p">(</span><span class="nv">$numero</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="nv">$multiplicar</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$multiplicar</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$multiplicar</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">echo</span> <span class="nv">$numero</span> <span class="o">.</span> <span class="s2">&quot; x &quot;</span> <span class="o">.</span> <span class="nv">$multiplicar</span> <span class="o">.</span> <span class="s2">&quot; = &quot;</span> <span class="o">.</span> <span class="nv">$numero</span> <span class="o">*</span> <span class="nv">$multiplicar</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">tablas</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="section" id="ambito-en-funciones">
+<h3><a class="toc-backref" href="#id37">Ambito en funciones</a><a class="headerlink" href="#ambito-en-funciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El ambito de las funciones en php nos facilita el uso de variables que se encuentran fuera de una función
+para poder manejarlas sin tener que pasarlas por parámetros.</p>
+<p>ejemplo:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// esto es una variable que se encuentra fuera de la función</span>
+    <span class="nv">$saludo</span> <span class="o">=</span> <span class="s2">&quot;Hola amigo&quot;</span><span class="p">;</span>
+
+    <span class="k">function</span> <span class="nf">saludar</span><span class="p">(){</span>
+        <span class="c1">// para recuperarla sin pasarla por parámetros podemos usar el modificador global:</span>
+        <span class="k">global</span> <span class="nv">$saludo</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="nv">$saludo</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">saludar</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul>
+<li><p>Recibir parametros infinitos añadiendo <code class="docutils literal notranslate"><span class="pre">*</span></code> a un parametro:</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">def miFuncion(*unNombre):</span>
+<span class="x">for persona in unNombre:</span>
+<span class="x">    print(&quot;Se llama {}&quot;.format(persona))</span>
+
+<span class="x">miFuncion(&quot;Pepe&quot;, &quot;Antonio&quot;, &quot;Alfredo&quot;)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="variables-predefinidas">
+<h2><a class="toc-backref" href="#id38">Variables predefinidas</a><a class="headerlink" href="#variables-predefinidas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>PHP cuenta con un set de variables predefinidas disponibles en cualquier parte del programa para tratar distintos aspectos
+como peticiones GET y POST, recuperar archivos con FILES, etc.</p>
+<div class="section" id="variable-get">
+<h3><a class="toc-backref" href="#id39">Variable GET</a><a class="headerlink" href="#variable-get" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Con <strong>$_GET</strong> Recuperamos la información recibida por parametros en la barra de navegación. Esto muestra la información
+que recibimos como ya es de saber:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;form method=&quot;GET&quot;&gt;</span>
+<span class="x">    &lt;label for=&quot;nombre&quot;&gt;Introduce tu nombre&lt;/label&gt;</span>
+<span class="x">    &lt;input type=&quot;text&quot; name=&quot;nombre&quot;&gt;</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    &lt;input type=&quot;submit&quot; value=&quot;Mostrar&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+
+<span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;Tu nombre es &quot;</span> <span class="o">.</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">];</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-post">
+<h3><a class="toc-backref" href="#id40">Variable POST</a><a class="headerlink" href="#variable-post" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos enviar los datos via post y utilizar la variable <strong>$_POST</strong> para recuperarlos:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;form method=&quot;POST&quot;&gt;</span>
+<span class="x">    &lt;label for=&quot;nombre&quot;&gt;Introduce tu nombre&lt;/label&gt;</span>
+<span class="x">    &lt;input type=&quot;text&quot; name=&quot;nombre&quot;&gt;</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    &lt;input type=&quot;submit&quot; value=&quot;Mostrar&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+
+<span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;Tu nombre es &quot;</span> <span class="o">.</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">];</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-server">
+<h3><a class="toc-backref" href="#id41">Variable SERVER</a><a class="headerlink" href="#variable-server" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Con la variable <strong>$_SERVER</strong> podemos recuperar información de quien visita la web.</p>
+<p>Estas son algunas de las cosas que podemos recuperar:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// Para saber la ip del visitante:</span>
+<span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Tu ip es: &quot;</span> <span class="o">.</span> <span class="nv">$ip</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">// Para saber el puerto que esta usando el cliente:</span>
+<span class="nv">$puerto</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_PORT&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Estas usando el puerto: &quot;</span> <span class="o">.</span> <span class="nv">$puerto</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">// Para saber la ip del servidor:</span>
+<span class="nv">$serverIP</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SERVER_ADDR&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;La ip del servidor es: &quot;</span> <span class="o">.</span> <span class="nv">$serverIP</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">// Para saber el nombre del Servidor (por defecto la ip de este si no tiene nombre definido):</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;El nombre del servidor es: &quot;</span> <span class="o">.</span> <span class="nv">$host</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">//Para saber el navegador:</span>
+<span class="nv">$navegador</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_USER_AGENT&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Tu navegador es: &quot;</span> <span class="o">.</span>  <span class="nv">$navegador</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">//Para saber el archivo donde te encuentras de la web:</span>
+<span class="nv">$ruta</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;PHP_SELF&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Estas en: &quot;</span> <span class="o">.</span>  <span class="nv">$ruta</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">//El metodo con el que se esta procesando la url:</span>
+<span class="nv">$metodo</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Se esta usando el Método: &quot;</span> <span class="o">.</span>  <span class="nv">$metodo</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">//Ver la url que se utilizo para realizar la petición:</span>
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Se esta usando el Método: &quot;</span> <span class="o">.</span>  <span class="nv">$uri</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">//Visualizar la raiz del directorio donde se encuentra el archivo:</span>
+<span class="nv">$raiz</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;DOCUMENT_ROOT&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;La raiz del servidor es: &quot;</span> <span class="o">.</span>  <span class="nv">$raiz</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1">//Ofrece un valor no vacío si la petición se realiza en https:</span>
+<span class="nv">$peticion_segura</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTPS&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="s2">&quot;Se vera algo si estamos usando https: &quot;</span> <span class="o">.</span>  <span class="nv">$peticion_segura</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-files">
+<h3><a class="toc-backref" href="#id42">Variable FILES</a><a class="headerlink" href="#variable-files" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La variable <strong>$_FILES</strong> recupera un archivo subido desde un formulario.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;form method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;</span>
+<span class="x">    &lt;input type=&quot;file&quot; name=&quot;archivo&quot;&gt;</span>
+<span class="x">    &lt;input type=&quot;submit&quot; value=&quot;cargar&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+
+<span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span><span class="p">;</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivo&#39;</span><span class="p">]);</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;/pre&gt;&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-session">
+<h3><a class="toc-backref" href="#id43">Variable SESSION</a><a class="headerlink" href="#variable-session" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La variable <strong>$_SESSION</strong> se utiliza para recordar datos en el navegador del cliente
+como usuarios, procesos de compras y otras cosas.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// Para poder invocar en cualquier parte de nuestro sitio una variable de sesión tenemos que inicializar la sesión:</span>
+    <span class="nb">session_start</span><span class="p">();</span>
+
+    <span class="c1">// La asignamos a una variable de sesión:</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Información importante&quot;</span><span class="p">;</span>
+
+    <span class="c1">// Y ahora podemos utilizar las variables de sesión:</span>
+    <span class="k">echo</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">];</span>
+
+    <span class="c1">// Si queremos borrar las variables de sesión de nuestra web utilizamos este parametro:</span>
+    <span class="nb">session_destroy</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="clases">
+<h2><a class="toc-backref" href="#id44">Clases</a><a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>EN PROCESO…</p>
+</div>
+<div class="section" id="manejor-de-archivos">
+<h2><a class="toc-backref" href="#id45">Manejor de archivos</a><a class="headerlink" href="#manejor-de-archivos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En php podemos crear y modificar archivos con la función <code class="docutils literal notranslate"><span class="pre">fopen()</span></code>:</p>
+<p>Cuando abrimos un archivo en php siempre asignamos un permiso:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Permiso</p></th>
+<th class="head"><p>Nomenclatura</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Escritura</p></td>
+<td><p>w - w+</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lectura</p></td>
+<td><p>r - r+</p></td>
+</tr>
+<tr class="row-even"><td><p>Actualización</p></td>
+<td><p>a - a+</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>En el caso de escritura:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">];</span>
+    <span class="nv">$navegador</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_USER_AGENT&#39;</span><span class="p">];</span>
+    <span class="nv">$contenido</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; - Fecha: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y/m/d - H:i:s&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; - Navegador: &quot;</span> <span class="o">.</span> <span class="nv">$navegador</span> <span class="o">.</span> <span class="s2">&quot; - IP: &quot;</span> <span class="o">.</span> <span class="nv">$ip</span> <span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+
+    <span class="c1">// establecemos el nombre de archivo que vamos a editar:</span>
+    <span class="nv">$archivoLogs</span> <span class="o">=</span> <span class="s1">&#39;logs.dat&#39;</span><span class="p">;</span>
+    <span class="c1">// abrimos con permisos de creación extras:</span>
+    <span class="nv">$manejador</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$archivoLogs</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">);</span>
+    <span class="c1">// escribimos los cambios:</span>
+    <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$manejador</span><span class="p">,</span><span class="nv">$contenido</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>En caso de lectura:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$archivoLogs</span> <span class="o">=</span> <span class="s1">&#39;logs.dat&#39;</span><span class="p">;</span>
+    <span class="c1">// abrimos el archivo con permisos de lectura:</span>
+    <span class="nv">$manejador</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$archivoLogs</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+
+    <span class="c1">// establecemos la condición con fgetcsv() de manera que los dividirá:</span>
+    <span class="k">while</span><span class="p">(</span><span class="nv">$datos</span> <span class="o">=</span> <span class="nb">fgetcsv</span><span class="p">(</span><span class="nv">$manejador</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)){</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span><span class="p">;</span>
+        <span class="nb">print_r</span><span class="p">(</span><span class="nv">$datos</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s2">&quot;&lt;/pre&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$manejador</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>En caso de actualización:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">];</span>
+    <span class="nv">$navegador</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_USER_AGENT&#39;</span><span class="p">];</span>
+    <span class="nv">$contenido</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; - Fecha: &quot;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y/m/d - H:i:s&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; - Navegador: &quot;</span> <span class="o">.</span> <span class="nv">$navegador</span> <span class="o">.</span> <span class="s2">&quot; - IP: &quot;</span> <span class="o">.</span> <span class="nv">$ip</span> <span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+
+    <span class="c1">// establecemos el nombre de archivo que vamos a editar:</span>
+    <span class="nv">$archivoLogs</span> <span class="o">=</span> <span class="s1">&#39;logs.dat&#39;</span><span class="p">;</span>
+    <span class="c1">// abrimos con permisos de actualizacion extras:</span>
+    <span class="nv">$manejador</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$archivoLogs</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">);</span>
+    <span class="c1">// escribimos los cambios:</span>
+    <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$manejador</span><span class="p">,</span><span class="nv">$contenido</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conectar-a-bases-de-datos-con-pdo">
+<h2><a class="toc-backref" href="#id46">Conectar a bases de datos con PDO</a><a class="headerlink" href="#conectar-a-bases-de-datos-con-pdo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>PDO sirve para conectarse a gran cantidad de bases de datos con el mismo código ya sea MySQL, SQL Server o PostgreSQL entre otras.</p>
+<p>MAS ADELANTE SE INCLUIRÁN EJEMPLOS DE USO</p>
+</div>
+<div class="section" id="php-cli">
+<h2><a class="toc-backref" href="#id47">PHP CLI</a><a class="headerlink" href="#php-cli" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Comandos útiles de PHP:</p>
+<ul class="simple">
+<li><p>php -v: podemos ver la versión que usamos</p></li>
+<li><p>php -m: podemos ver los moudlos cargados</p></li>
+<li><p>php -i: podemos ver la configuración de php actual</p></li>
+<li><p>php -r: enviar código a ejecutar ej: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;hola</span> <span class="pre">mundo&quot;</span></code></p></li>
+<li><p>php archivo.php: podemos ejecutar un archivo php para ver en que ámbito se ha ejecutado.</p></li>
+<li><p>php -S: ejecutar servidor php <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">-S</span> <span class="pre">localhost:8000</span></code></p></li>
+<li><p>php -S -t: establecer un directorio inicial de arrance del server: <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">-S</span> <span class="pre">localhost:8000</span> <span class="pre">-t</span> <span class="pre">inicial/</span></code></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sql.html" class="btn btn-neutral float-right" title="SQL" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="javascript.html" class="btn btn-neutral" title="JavaScript" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
