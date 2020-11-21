@@ -1380,7 +1380,7 @@ Sobreescribir métodos
 *********************
 Para sobreescribir la funcionalidad de un método en dart utilizamos el decorador ``@override``
 
-.. code:: dart 
+.. code::  
 
     class Persona{
         String nombre;

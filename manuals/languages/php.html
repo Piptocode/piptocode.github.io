@@ -153,9 +153,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#variable-session">Variable SESSION</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#clases">Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clases">Clases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tipos-de-encapsulacion-en-php">Tipos de encapsulación en PHP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-y-set">Get y Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#herencia">Herencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#atributos-y-metodos-estaticos">Atributos y Métodos estáticos</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#manejor-de-archivos">Manejor de archivos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conectar-a-bases-de-datos-con-pdo">Conectar a bases de datos con PDO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conectar-a-bases-de-datos-con-pdo">Conectar a bases de datos con PDO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pdo-y-sqlite-3">PDO y SQLite 3</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#php-cli">PHP CLI</a></li>
 </ul>
 </li>
@@ -210,6 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../librerias/simplejson.html">Python - JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../librerias/speech_recognition.html">Python - Speech_recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../librerias/unittest.html">Python - Unittest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../librerias/tkinter.html">Python - Tkinter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../librerias/gtk.html">C - GTK</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Informática y Hardware:</span></p>
@@ -287,7 +297,7 @@
   <div class="section" id="php-7">
 <h1><a class="toc-backref" href="#id1">PHP 7</a><a class="headerlink" href="#php-7" title="Enlazar permanentemente con este título">¶</a></h1>
 <a class="reference internal image-reference" href="../../_images/logo-php.png"><img alt="Logo PHP" class="align-center" src="../../_images/logo-php.png" style="width: 360.0px; height: 188.54999999999998px;" /></a>
-<p>Última edición el día 2020-11-17 a las 01:13.</p>
+<p>Última edición el día 2020-11-21 a las 01:28.</p>
 <p>Esta es la documentación que he recopilado para trabajar con PHP 7, el lenguaje de la web y uno de los mas usados para desarrollo backend.</p>
 <div class="contents topic" id="indice">
 <p class="topic-title">Índice</p>
@@ -363,10 +373,21 @@
 <li><p><a class="reference internal" href="#variable-session" id="id43">Variable SESSION</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#clases" id="id44">Clases</a></p></li>
-<li><p><a class="reference internal" href="#manejor-de-archivos" id="id45">Manejor de archivos</a></p></li>
-<li><p><a class="reference internal" href="#conectar-a-bases-de-datos-con-pdo" id="id46">Conectar a bases de datos con PDO</a></p></li>
-<li><p><a class="reference internal" href="#php-cli" id="id47">PHP CLI</a></p></li>
+<li><p><a class="reference internal" href="#clases" id="id44">Clases</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tipos-de-encapsulacion-en-php" id="id45">Tipos de encapsulación en PHP</a></p></li>
+<li><p><a class="reference internal" href="#get-y-set" id="id46">Get y Set</a></p></li>
+<li><p><a class="reference internal" href="#herencia" id="id47">Herencia</a></p></li>
+<li><p><a class="reference internal" href="#atributos-y-metodos-estaticos" id="id48">Atributos y Métodos estáticos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#manejor-de-archivos" id="id49">Manejor de archivos</a></p></li>
+<li><p><a class="reference internal" href="#conectar-a-bases-de-datos-con-pdo" id="id50">Conectar a bases de datos con PDO</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pdo-y-sqlite-3" id="id51">PDO y SQLite 3</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#php-cli" id="id52">PHP CLI</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1592,10 +1613,203 @@ como usuarios, procesos de compras y otras cosas.</p>
 </div>
 <div class="section" id="clases">
 <h2><a class="toc-backref" href="#id44">Clases</a><a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>EN PROCESO…</p>
+<p>PHP se ha ido adaptando al paso del tiempo desde su propósito inicial como lenguaje de servidor hasta llegar a alcanzar una sintaxis muy parecida a otros lenguajes de alto nivel.
+Entre estas mejoras ya disponemos del paradigma orientado a objetos.</p>
+<ul class="simple">
+<li><p>Creación de clases con atributos, metodo y creación del objeto:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// creamos la clase:</span>
+    <span class="k">class</span> <span class="nc">Persona</span> <span class="p">{</span>
+        <span class="c1">// Definimos los atributos y el ámbito si son publicos o privados:</span>
+        <span class="k">public</span> <span class="nv">$nombre</span><span class="p">;</span>
+        <span class="k">public</span> <span class="nv">$edad</span><span class="p">;</span>
+
+        <span class="c1">// Definimos el constructor:</span>
+        <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$edad</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">=</span> <span class="nv">$edad</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Y definimos abajo los métodos:</span>
+        <span class="k">function</span> <span class="nf">saludar</span><span class="p">(){</span>
+            <span class="k">echo</span> <span class="s2">&quot;Te llamas &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">.</span> <span class="s2">&quot; y tienes &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">.</span> <span class="s2">&quot; años.&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// crear objeto:</span>
+    <span class="nv">$persona</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Persona</span><span class="p">(</span><span class="s2">&quot;Agustín&quot;</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
+    <span class="c1">// acceder a sus atributos:</span>
+    <span class="k">echo</span> <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="c1">// acceder a sus métodos</span>
+    <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">saludar</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Los atributos siempre tienen que llevar un modificador de acceso como public o private o protected pero los metodos si no
+lo definimos por defecto son public.</p>
+</div>
+<div class="section" id="tipos-de-encapsulacion-en-php">
+<h3><a class="toc-backref" href="#id45">Tipos de encapsulación en PHP</a><a class="headerlink" href="#tipos-de-encapsulacion-en-php" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Existen tres tipos de encapsulación en PHP:</p>
+<ul class="simple">
+<li><p>public: los atributos y métodos son publicos y por tanto se puede acceder a ellos una vez creado el objeto.</p></li>
+<li><p>private: los atributos y metodos no pueden ser llamados o modificados desde el objeto.</p></li>
+<li><p>protected: los atributos y metodos solo pueden ser llamados o modificados desde la clase.</p></li>
+</ul>
+</div>
+<div class="section" id="get-y-set">
+<h3><a class="toc-backref" href="#id46">Get y Set</a><a class="headerlink" href="#get-y-set" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Cuando manejamos atributos y métodos privados lo que utilizamos para ver o modificar estos es una convención
+llamada getter y setter la cual se basa en la creación de metodos públicos que sirven solo para esos fines.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// creamos la clase:</span>
+    <span class="k">class</span> <span class="nc">Persona</span> <span class="p">{</span>
+        <span class="c1">// Establecemos los métodos como privados:</span>
+        <span class="k">private</span> <span class="nv">$nombre</span><span class="p">;</span>
+        <span class="k">private</span> <span class="nv">$edad</span><span class="p">;</span>
+        <span class="k">private</span> <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;Fo372SA&quot;</span><span class="p">;</span>
+
+        <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$edad</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">=</span> <span class="nv">$edad</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">function</span> <span class="nf">saludar</span><span class="p">(){</span>
+            <span class="k">echo</span> <span class="s2">&quot;Te llamas &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">.</span> <span class="s2">&quot; y tienes &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">.</span> <span class="s2">&quot; años.&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// para acceder a los métodos ahora usamos get:</span>
+        <span class="k">function</span> <span class="nf">get_nombre</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">function</span> <span class="nf">get_edad</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// para modificar los atributos usamos set:</span>
+        <span class="k">function</span> <span class="nf">set_nombre</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="s2">&quot;Se ha cambiado el nombre por &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">function</span> <span class="nf">set_edad</span><span class="p">(</span><span class="nv">$edad</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">=</span> <span class="nv">$edad</span><span class="p">;</span>
+            <span class="k">echo</span> <span class="s2">&quot;Se ha cambiado la edad por &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// a este método no se puede acceder desde el objeto:</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">ver_clave</span><span class="p">(){</span>
+            <span class="k">echo</span> <span class="s2">&quot;La clave es: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">clave</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// para ello usaremos un get:</span>
+        <span class="k">function</span> <span class="nf">get_clave</span><span class="p">(){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ver_clave</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nv">$persona</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Persona</span><span class="p">(</span><span class="s2">&quot;Agustín&quot;</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
+    <span class="c1">// Ver los atributos:</span>
+    <span class="k">echo</span> <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">get_nombre</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">get_edad</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="c1">// modificar los atributos:</span>
+    <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">set_nombre</span><span class="p">(</span><span class="s2">&quot;Paquito&quot;</span><span class="p">);</span>
+    <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">set_edad</span><span class="p">(</span><span class="mi">47</span><span class="p">);</span>
+
+    <span class="c1">// para ejecutar un metodo privado usamos un get:</span>
+    <span class="nv">$persona</span><span class="o">-&gt;</span><span class="na">get_clave</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>tanto Get como Set son convenciones para definir estos métodos de acceso a atributos y metodos privados pero
+en realidad son metodos normales.</p>
+</div>
+</div>
+<div class="section" id="herencia">
+<h3><a class="toc-backref" href="#id47">Herencia</a><a class="headerlink" href="#herencia" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La herencia en PHP es similar a lenguajes como Java o C#:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// creamos una clase padre:</span>
+    <span class="k">class</span> <span class="nc">Animal</span><span class="p">{</span>
+        <span class="k">public</span> <span class="nv">$especie</span><span class="p">;</span>
+        <span class="k">public</span> <span class="nv">$edad</span><span class="p">;</span>
+
+        <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$especie</span><span class="p">,</span> <span class="nv">$edad</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">especie</span> <span class="o">=</span> <span class="nv">$especie</span><span class="p">;</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">=</span> <span class="nv">$edad</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">function</span> <span class="nf">info</span><span class="p">(){</span>
+            <span class="k">echo</span> <span class="s2">&quot;Nuestro animal es un &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">especie</span> <span class="o">.</span> <span class="s2">&quot; y tiene &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">.</span> <span class="s2">&quot; años </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// ahora creamos una clase hijo:</span>
+    <span class="k">class</span> <span class="nc">Humano</span> <span class="k">extends</span> <span class="nx">Animal</span><span class="p">{</span>
+        <span class="c1">// el hijo tiene sus atributos y metodos:</span>
+        <span class="k">public</span> <span class="nv">$nombre</span><span class="p">;</span>
+
+        <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$edad</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+            <span class="c1">// pero también tenemos los metodos y atributos del padre:</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">especie</span> <span class="o">=</span> <span class="s2">&quot;Humano&quot;</span><span class="p">;</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">=</span> <span class="nv">$edad</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">function</span> <span class="nf">saludo</span><span class="p">(){</span>
+            <span class="k">echo</span> <span class="s2">&quot;Me llamo &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">.</span> <span class="s2">&quot; y tengo &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">edad</span> <span class="o">.</span> <span class="s2">&quot; años.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+    <span class="c1">// con el padre tenemos una serie de atributos y métodos:</span>
+    <span class="nv">$animal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="s2">&quot;León&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="nv">$animal</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">();</span>
+    <span class="c1">// que con el hijo podemos utilizar:</span>
+    <span class="nv">$humano</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Humano</span><span class="p">(</span><span class="s2">&quot;Paco&quot;</span><span class="p">,</span> <span class="mi">27</span><span class="p">);</span>
+    <span class="c1">// podemos usar sus propios metodos:</span>
+    <span class="nv">$humano</span><span class="o">-&gt;</span><span class="na">saludo</span><span class="p">();</span>
+
+    <span class="c1">// y podemos llamar a metodos del padre en el hijo:</span>
+    <span class="nv">$humano</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">();</span>
+
+
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>En la herencia de clases existe otro concepto llamado polimorfismo y se basa en reutilizar los metodos de las clases padre para modificarlos en las clases hijo de forma que
+podemos reutilizarlos sin necesidad de crear unos nuevos.</p>
+</div>
+</div>
+<div class="section" id="atributos-y-metodos-estaticos">
+<h3><a class="toc-backref" href="#id48">Atributos y Métodos estáticos</a><a class="headerlink" href="#atributos-y-metodos-estaticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los atributos y métodos estáticos en PHP son aquellos que se pueden acceder sin crear un objeto fuera de la clase con el uso de <strong>::</strong>.
+Estos métodos llevan un segundo modificador llamado <code class="docutils literal notranslate"><span class="pre">static</span></code> justo después de <code class="docutils literal notranslate"><span class="pre">public</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?php
+
+    class Preguntas{
+        // atributo estatico disponible:
+        public static $nombre = &quot;Augusto&quot;;
+        // metodo estatico disponible:
+        public static function hacerPregunta(){
+            echo &quot;¿Cómo te llamas?&quot;;
+        }
+    }
+
+    // uso de metodo estático:
+    Preguntas::hacerPregunta();
+    echo &quot;\n&quot;;
+    // uso de atributo estatico:
+    echo &quot;Me llamo &quot; . Preguntas::$nombre;
+
+?&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="manejor-de-archivos">
-<h2><a class="toc-backref" href="#id45">Manejor de archivos</a><a class="headerlink" href="#manejor-de-archivos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id49">Manejor de archivos</a><a class="headerlink" href="#manejor-de-archivos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En php podemos crear y modificar archivos con la función <code class="docutils literal notranslate"><span class="pre">fopen()</span></code>:</p>
 <p>Cuando abrimos un archivo en php siempre asignamos un permiso:</p>
 <table class="docutils align-default">
@@ -1674,12 +1888,224 @@ como usuarios, procesos de compras y otras cosas.</p>
 </div>
 </div>
 <div class="section" id="conectar-a-bases-de-datos-con-pdo">
-<h2><a class="toc-backref" href="#id46">Conectar a bases de datos con PDO</a><a class="headerlink" href="#conectar-a-bases-de-datos-con-pdo" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>PDO sirve para conectarse a gran cantidad de bases de datos con el mismo código ya sea MySQL, SQL Server o PostgreSQL entre otras.</p>
-<p>MAS ADELANTE SE INCLUIRÁN EJEMPLOS DE USO</p>
+<h2><a class="toc-backref" href="#id50">Conectar a bases de datos con PDO</a><a class="headerlink" href="#conectar-a-bases-de-datos-con-pdo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>PDO (PHP Data Objects) sirve para conectarse a gran cantidad de bases de datos con el mismo código ya sea MySQL, SQL Server o PostgreSQL entre otras.</p>
+<ul class="simple">
+<li><p>Conexión a base de datos MySQL:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// preparamos los datos del servidor:</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="c1">// preparamos la conexión eligiendo el motor mysql:</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=prueba&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+    <span class="c1">// realizamos la conexión:</span>
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="s2">&quot;Conexión realizada con éxito&quot;</span><span class="p">;</span>
+
+    <span class="c1">// para cerrar la conexión:</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Crear una base de datos:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="c1">// ignoramos elegir la base de datos al preparar conexión::</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+    <span class="c1">// realizamos la conexión:</span>
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="c1">// preparamos la consulta:</span>
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;CREATE DATABASE pruebaSQL&quot;</span><span class="p">;</span>
+    <span class="c1">// realizamos la consulta:</span>
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Base de datos creada con éxito&quot;</span><span class="p">;</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Crear una tabla:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$base</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=</span><span class="si">$base</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;CREATE TABLE agenda(</span>
+<span class="s2">        id INT(10) AUTO_INCREMENT PRIMARY KEY,</span>
+<span class="s2">        nombre VARCHAR(30) NOT NULL,</span>
+<span class="s2">        edad INT(10) NOT NULL</span>
+<span class="s2">        )&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Tabla creada con éxito&quot;</span><span class="p">;</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Agregar registros a la tabla:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$base</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=</span><span class="si">$base</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO agenda (nombre, edad) values (&#39;Alfredo&#39;, 30)&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Inserción realizada con éxito&quot;</span><span class="p">;</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Hacer varias inserciones separando los parámetros:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$base</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=</span><span class="si">$base</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="c1">// Preparar consulta para separar parametros:</span>
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">&quot;INSERT INTO agenda (nombre, edad) VALUES (:nombre, :edad)&quot;</span><span class="p">);</span>
+    <span class="c1">// preparar parametros:</span>
+    <span class="nv">$sql</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">&#39;:nombre&#39;</span><span class="p">,</span> <span class="nv">$nombre</span><span class="p">);</span>
+    <span class="nv">$sql</span><span class="o">-&gt;</span><span class="na">bindParam</span><span class="p">(</span><span class="s1">&#39;:edad&#39;</span><span class="p">,</span> <span class="nv">$edad</span><span class="p">);</span>
+
+    <span class="c1">// insertar mas de un registro a la vez:</span>
+    <span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">&quot;Antonio&quot;</span><span class="p">;</span>
+    <span class="nv">$edad</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span>
+    <span class="nv">$sql</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nv">$nombre</span> <span class="o">=</span> <span class="s2">&quot;Eustaquia&quot;</span><span class="p">;</span>
+    <span class="nv">$edad</span> <span class="o">=</span> <span class="mi">73</span><span class="p">;</span>
+    <span class="nv">$sql</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Inserciones realizadas correctamente&quot;</span><span class="p">;</span>
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Leer registros de la tabla:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$base</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=</span><span class="si">$base</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="c1">// Preparar consulta y ejecutar directamente:</span>
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM agenda&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+    <span class="c1">// Recorrer todos los datos:</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$sql</span> <span class="k">as</span> <span class="nv">$data</span><span class="p">){</span>
+        <span class="k">echo</span> <span class="s2">&quot;- &quot;</span> <span class="o">.</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Borrar registros de la tabla:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$base</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=</span><span class="si">$base</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="c1">// Preparar consulta:</span>
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM agenda WHERE id=1&quot;</span><span class="p">;</span>
+    <span class="c1">// ejecutar consulta:</span>
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">exec</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Registro eliminado&quot;</span><span class="p">;</span>
+
+    <span class="nv">$con</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Actualizar registros de la tabla:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$servidor</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+    <span class="nv">$usuario</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$clave</span> <span class="o">=</span> <span class="s2">&quot;guillermo&quot;</span><span class="p">;</span>
+    <span class="nv">$base</span> <span class="o">=</span> <span class="s2">&quot;prueba&quot;</span><span class="p">;</span>
+
+    <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=</span><span class="si">$servidor</span><span class="s2">;dbname=</span><span class="si">$base</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$usuario</span><span class="p">,</span> <span class="nv">$clave</span><span class="p">);</span>
+
+    <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="c1">// Preparar consulta:</span>
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE agenda SET nombre=&#39;Elvira&#39;, edad=32 WHERE id=2&quot;</span><span class="p">;</span>
+    <span class="c1">// preparar estado:</span>
+    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+    <span class="c1">// ejecutar consulta:</span>
+    <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Registro actualizado&quot;</span><span class="p">;</span>
+
+    <span class="nv">$con</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="section" id="pdo-y-sqlite-3">
+<h3><a class="toc-backref" href="#id51">PDO y SQLite 3</a><a class="headerlink" href="#pdo-y-sqlite-3" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podríamos trabajar perfectamente SQLite 3 con PDO pero para ello antes tenemos que asegurarnos de dos cosas:</p>
+<ul class="simple">
+<li><p>Primero tenemos que instalar sqlite3 en nuestro sistema: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">php7.4-sqlite3</span></code></p></li>
+<li><p>Luego localizamos el archivo <strong>php.ini</strong> que suele estar en <strong>/etc/php/7.4/ y dentro de las carpetas **apache2</strong> y <strong>cli</strong> encontraremos estos archivos.</p></li>
+<li><p>Editamos y buscamos las líneas que ponen <code class="docutils literal notranslate"><span class="pre">;extension=pdo_sqlite</span></code> y <code class="docutils literal notranslate"><span class="pre">;extension=sqlite</span></code> si tienen un <strong>;</strong> lo quitamos para habilitarlas.</p></li>
+<li><p>Conectar a una base de datos SQLite 3:</p></li>
+</ul>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// realizamos la conexion con el motor sqlite y apuntamos directamente a la base de datos:</span>
+    <span class="nv">$db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">&#39;sqlite:datos.sqlite&#39;</span><span class="p">);</span>
+    <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+    <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_DEFAULT_FETCH_MODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_OBJ</span><span class="p">);</span>
+
+    <span class="k">echo</span> <span class="s2">&quot;Conexión realizada con éxito&quot;</span><span class="p">;</span>
+
+    <span class="nv">$con</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="php-cli">
-<h2><a class="toc-backref" href="#id47">PHP CLI</a><a class="headerlink" href="#php-cli" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id52">PHP CLI</a><a class="headerlink" href="#php-cli" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Comandos útiles de PHP:</p>
 <ul class="simple">
 <li><p>php -v: podemos ver la versión que usamos</p></li>
